@@ -1,0 +1,266 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Fluid Properties Tab </title></head>
+<body>
+
+<h1>Fluid Properties Tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+<MAP NAME="fluidprop">
+   <AREA COORDS="14,72,380,96" HREF="#bp">
+   <AREA COORDS="15,100,379,121" HREF="#p0">
+   <AREA COORDS="14,124,372,144" HREF="#t0">
+   <AREA COORDS="15,147,551,168" HREF="#w0">
+   <AREA COORDS="15,172,428,193" HREF="#denf0">
+   <AREA COORDS="15,196,393,217" HREF="#w1">
+   <AREA COORDS="14,220,493,241" HREF="#denf1">
+   <AREA COORDS="15,244,573,293" HREF="#visfac">
+   <AREA COORDS="51,41,103,64" HREF="project.htm">
+   <AREA COORDS="102,44,158,63" HREF="elements.htm">
+   <AREA COORDS="432,44,604,64" HREF="refcond.htm">
+   <AREA COORDS="346,43,433,64" HREF="fluidprop.htm">
+   <AREA COORDS="273,44,345,63" HREF="interpolationtab.htm">
+   <AREA COORDS="157,43,273,62" HREF="processes.htm">
+   <AREA COORDS="544,27,604,44" HREF="bcflow.htm">
+   <AREA COORDS="498,26,543,45" HREF="timetab.htm">
+   <AREA COORDS="450,25,499,46" HREF="outputtab.htm">
+   <AREA COORDS="381,24,448,45" HREF="solver.htm">
+   <AREA COORDS="287,25,381,45" HREF="initcond.htm">
+   <AREA COORDS="168,24,286,43" HREF="heatcondtab.htm">
+   <AREA COORDS="70,25,166,44" HREF="aquifinfltab.htm">
+   <AREA COORDS="6,24,71,45" HREF="wellriser.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA COORDS="524,411,599,435" HREF="project.htm#ok">
+   <AREA COORDS="8,45,52,65" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#fluidprop" SRC="graphics//flprop.gif"> 
+
+
+
+
+<table border>
+<tr>
+   <th>Equation </th>
+   <th>Equation number (<a href="references.htm#kipp87">Kipp, 1987</a>) </th>
+</tr>
+<tr>
+   <td><a name="eq2211b"><img src="graphics/eq2_2_1_1b.gif" width="398" height="25"></a> </td>
+   <td>2.2.1.1b </td>
+</tr>
+<tr>
+   <td><a name="eq2211c"><img src="graphics/eq2_2_1_1c.gif" width="209" height="50"></a>
+ </td>
+   <td>2.2.1.1c </td>
+</tr>
+<tr>
+   <td><a name="eq2212"><img src="graphics/eq2_2_1_2.gif" width="108" height="45"></a>
+ </td>
+   <td>2.2.1.2 </td>
+</tr>
+<tr>
+   <td><a name="eq2213b"><img src="graphics/eq2_2_1_3b.gif" width="168" height="24"></a>
+ </td>
+   <td>2.2.1.3b </td>
+</tr>
+</TABLE>
+<p>
+
+<table border>
+<tr>
+   <th>Variable </th>
+   <th>Definition </th>
+   <th>Program Variable </th>
+</tr>
+<tr>
+   <td><img src="graphics/rho.gif" width="15" height="17">
+ </td>
+   <td>Fluid density (kg/m<SUP>3</SUP>)</td>
+</tr>
+<tr>
+   <td>p </td>
+   <td>Fluid pressure (Pa)</td>
+</tr>
+<tr>
+   <td>T </td>
+   <td>Temperature <sup>o</sup>C</td>
+</tr>
+<tr>
+   <td>w </td>
+   <td>mass fraction of solute in the fluid phase (dimensionless)</td>
+</tr>
+<tr>
+   <td>w' </td>
+   <td>scaled solute-mass fraction (dimensionless)</td>
+</tr>
+<tr>
+   <td><img src="graphics/beta_w.gif" width="22" height="24">
+ </td>
+   <td>slope of the fluid density as a functon of mass fraction divided by the reference fluid density (dimensionless)<br>
+(Determined with equation <a href="#eq2211c">2.2.1.1c</a>) </td>
+</tr>
+<tr>
+   <td>p<sub>o</sub> </td>
+   <td>reference pressure (Pa)</td>
+   <td>P0 </td>
+</tr>
+<tr>
+   <td>T<sub>o</sub> </td>
+   <td>reference temperature <sup>o</sup>C</td>
+   <td>T0 </td>
+</tr>
+<tr>
+   <td><img src="graphics/beta_p.gif" width="21" height="25">
+ </td>
+   <td>Fluid compressibility (Pa<sup>-1</sup>) </td>
+   <td>BP </td>
+</tr>
+<tr>
+   <td><img src="graphics/beta_t.gif" width="22" height="22">
+ </td>
+   <td>Fluid coefficient of thermal expansion <sup>o</sup>C<sup>-1</sup></td>
+   <td>BT </td>
+</tr>
+<tr>
+   <td><img src="graphics/rho_o.gif" width="19" height="24">
+ </td>
+   <td>fluid density (kg/m<sup>3</sup>) at reference pressure, p<sub>o</sub>, temperature, T<sub>o</sub>, and mass fraction w<sub>o</sub> </td>
+   <td>DENFL0 </td>
+</tr>
+<tr>
+   <td>w<sub>min</sub> </td>
+   <td>the minimum solute-mass fraction (dimensionless)</td>
+   <td>W0 </td>
+</tr>
+<tr>
+   <td>w<sub>max</sub>  </td>
+   <td>the maximum solute-mass fraction (dimensionless)</td>
+   <td>W1  </td>
+</tr>
+<tr>
+   <td>w<sub>o</sub> </td>
+   <td>reference solute-mass fraction (dimensionless)</td>
+   <td>W0 </td>
+</tr>
+</TABLE>
+
+<h2><a name="bp">Compressibility</a> of the fluid (BP)</h2>
+<ul >
+   <LI>Default: 4.4e-10</LI>
+   <LI>HST3D Variable: BP</LI>
+   <LI>Data Set Record Number: 2.4.1</LI>
+</ul>
+Enter the compressibility of the fluid in this space. According to <a href="references.htm#smith">Smith and Wheatcraft</a> (1993), a typical compressibility of shallow groundwater is 4.4 x 10<sup>-10</sup> Pa<sup>-1</sup>
+<p>
+<h2><a name="p0">Reference</a> pressure for density (P0)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: P0</LI>
+   <LI>Data Set Record Number: 2.4.2</LI>
+</ul>
+Enter the reference pressure for density (relative to atmospheric pressure) for eq <a href="#eq2211b">2.2.1.1b</a>. This is the pressure at at which the reference density of the fluid occcurs
+<p>
+<h2><a name="t0">Reference</a> temperature for density (T0)</h2>
+<ul >
+   <LI>Default: 20</LI>
+   <LI>HST3D Variable: T0</LI>
+   <LI>Data Set Record Number: 2.4.2</LI>
+</ul>
+Enter the reference temperature for density for eq <a href="#eq2211b">2.2.1.1b</a>.  This is the temperature at at which the reference density of the fluid occcurs.
+<p>
+If you are using a heat-conduction boundary and you set T0 to a value different from the <a href="heatcondtab.htm#tvzhc">temperature of the first node in the initial conditions</a> of the boundary, you will be asked if you wish to change that value to match T0.
+
+<p>
+<h2><a name="w0">Reference</a> mass fraction for density (W0)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: W0</LI>
+   <LI>Data Set Record Number: 2.4.2</LI>
+</ul>
+Enter the reference mass fraction for density for eq <a href="#eq2211b">2.2.1.1b</a>.  This is the mass fraction at at which the reference density of the fluid occcurs.
+W0 must also be the minimum mass fraction for scaling for equation <a href="#eq2211c">2.2.1.1c</a>. If solute decay takes place W0 must be zero. The PIE will be automatically set W0 to 0 in the input to HST3D if solute transport is not simulated.
+<p>
+<b>IMPORTANT:</b> Even if you use <a href="project.htm#scalmf">scaled mass fractions</a>, W0 and <a href="#w1">W1</a> must still be unscaled mass fractions.
+<p>
+<h2><a name="denf0">Reference</a> fluid density (DENF0)</h2>
+<ul >
+   <LI>Default: 998.23</LI>
+   <LI>HST3D Variable: DENF0</LI>
+   <LI>Data Set Record Number: 2.4.2</LI>
+</ul>
+Enter the reference fluid density at P0, T0, and W0. (equations <a href="#eq2211b">2.2.1.1</a> or <a href="#eq2213b">2.2.1.3b</a>).
+<p>
+According to <a href="references.htm#McCutcheon">McCutcheon, Martin and Barnwell (1993)</a>, the density of pure water can be calculated as a function of temperature (in celsius) with the formula<p>
+<sub><img src="graphics/rho.gif" width="15" height="17"></sub>
+(T) = 1000[1 - {(T + 288.9414)/(508929.2(T + 68.12963)}*{T - 3.9863}<sup>2</sup>].
+<p>
+The also give the follow formula the density of salt water as a function of salinity(S) (in kg/m<sup>3</sup>) and Temperature (T) (in celsius)
+<p>
+<sub><img src="graphics/rho_s.gif" width="19" height="24"></sub>(S,T) = <img src="graphics/rho_o.gif" width="19" height="24"> + AS + BS<sup>3/2</sup> + CS<sup>2</sup>
+<p>
+where<br>
+<sub><img src="graphics/rho_s.gif" width="19" height="24"></sub> = density of salt water<br>
+<sub><img src="graphics/rho_o.gif" width="19" height="24"></sub> = density of pure water at T<br>
+A = 8.24493 x 10<sup>-1</sup> - 4.0899 x 10<sup>-3</sup> T + 7.6438 x 10<sup>-5</sup> T<sup>2</sup> - 8.2467 x 10<sup>-7</sup> T<sup>3</sup> + 5.3675 x 10<sup>-9</sup> T<sup>4</sup><br>
+B = -5.724 x 10<sup>-3</sup> + 1.0227 x 10<sup>-4</sup> T - 1.6546 x 10<sup>-6</sup> T<sup>2</sup><br>
+C = 4.8314 x 10<sup>-4</sup>
+<p>
+<h2><a name="w1">Maximum</a>-mass fraction for scaling (W1)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: W1</LI>
+   <LI>Data Set Record Number: 2.4.3</LI>
+</ul>
+Maximum-mass fraction for scaling (eq. <a href="#eq2212">2.2.1.2</a>) and <sub><img src="graphics/rho_o_beta_w.gif" width="39" height="24"></sub>
+
+ term (in eq. <a href="#eq2211c">2.2.1.1c</a>). W1 should be equal to or greater than the maximum mass-fraction specified in any boundary or initial condition. This must be in absolute mass-fraction units (not scaled).
+
+<p>
+<b>IMPORTANT:</b> Even if you use <a href="project.htm#scalmf">scaled mass fractions</a>, <a href="#w0">W0</a> and W1 must still be unscaled mass fractions.
+<p>
+<h2><a name="denf1">Fluid</a> density at the maximum solute mass fraction (DENF1)</h2>
+<ul >
+   <LI>Default: 998.24</LI>
+   <LI>HST3D Variable: DENF1</LI>
+   <LI>Data Set Record Number: 2.4.3</LI>
+</ul>
+Fluid density at the maximum solute mass fraction (eq <a href="#eq2211c">2.2.1.1c</a> or eq <a href="#eq2213b">2.2.1.3b</a>). 
+<br>
+If solute transport is being simulated W0 and W1 are used to calculate the coefficient of density dependence of solute mass fraction by equation 2.2.1.3b. If, in addition, a scaled-mass fraction has been selected for input and output (<a href="project.htm#scalmf">SCALMF</a>), <a href="#w0">W0</a> and <a href="#w1">W1</a> are used to perform the scaling according to equation 2.2.1.2.
+<p>
+<h2><a name="visfac">Viscosity</a> or Viscosity multiplication factor (VISFAC)</h2>
+<ul >
+   <LI>Defaults: </LI>
+<UL>
+   <LI>Viscosity Multiplication Factor: 1</LI>
+   <LI>Viscosity: 0.001002</LI>
+   <LI>Method of specifying Viscosity: Viscosity Multiplication Factor</LI>
+</UL>
+   <LI>HST3D Variable: VISFAC</LI>
+   <LI>Data Set Record Number: 2.4.3</LI>
+</ul>
+Dynamic viscosity (<sub><img src="graphics/mu.gif" width="15" height="17"></sub>
+) can be specified either as an constant viscosity value or a viscosity multiplication factor.
+You choose which you wish to use by selecting the appropriate radio button. on the bottom right corner of the fluid properties tab. Then enter the value you wish to use in one of the two edit boxes labeled &quot;Viscosity multiplication factor (VISFAC}&quot; and &quot;Viscosity (VISFAC)&quot; Only one of these two boxes will be enabled depending on which radio button you selected. Note: the HST3D documentation states that you use a negative value for VISFAC to make it a constant viscosity value rather than a viscosity multiplication factor. However, you don't enter a negative value for VISFAC in the PIE. The PIE takes care of converting constant viscosity values to a negative numbers when creating the input file for HST3D.
+<p>
+According to <a href="references.htm#McCutcheon">McCutcheon, Martin and Barnwell (1993)</a>, viscosity can be calculated with the following formula
+<p>
+log<sub>10</sub> (<img src="graphics/mu.gif" width="15" height="17">/100) = [1301/(998.333 + 8.1855(T-20) + 0.00585(T-20)<sup>2</sup>)] - 1.30233 <br>
+(for T = 0 to 20 <sup>o</sup>C).
+<p>
+log<sub>10</sub> (<img src="graphics/mu.gif" width="15" height="17">/<sub><img src="graphics/mu_20.gif" width="25" height="24"></sub>) = (1.3272(20-T) - 0.001053(T-20)<sup>2</sup>)/(T+105)<br>
+(for T = 20 to 100 <sup>o</sup>C).
+<p>
+<a href="references.htm#kipp97">Kipp (1997)</a> section 2.2, gives another set of formulas incorporating the effects of salinity and temperature. Kipp's formula is built into HST3D. If you use the viscosity multiplication factor, the viscosity used in the model is that calculated by the built-in function times the viscosity multiplication factor.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

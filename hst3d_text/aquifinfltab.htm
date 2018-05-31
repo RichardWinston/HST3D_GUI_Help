@@ -1,0 +1,168 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Aquifer Influence tab </title></head>
+<body>
+
+<h1>Aquifer Influence tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+This tab is visible only if the aquifer influence boundary conditions has been selected on the &quot;Processes/Boundary&quot; tab.
+<p>
+
+<MAP NAME="aquifinfl">
+   <AREA COORDS="18,78,577,131" HREF="#iaif">
+   <AREA COORDS="15,137,601,160" HREF="#aboar">
+   <AREA COORDS="16,164,447,186" HREF="#poroar">
+   <AREA COORDS="16,187,410,208" HREF="#voar">
+   <AREA COORDS="18,211,436,233" HREF="#koar">
+   <AREA COORDS="16,235,480,258" HREF="#visoar">
+   <AREA COORDS="15,262,450,281" HREF="#boar">
+   <AREA COORDS="15,285,561,306" HREF="#rioar">
+   <AREA COORDS="15,306,505,330" HREF="#angoar">
+   <AREA COORDS="15,330,389,353" HREF="#uvaifc">
+   <AREA COORDS="49,25,101,44" HREF="project.htm">
+   <AREA COORDS="101,26,157,45" HREF="elements.htm">
+   <AREA COORDS="433,24,605,44" HREF="refcond.htm">
+   <AREA COORDS="346,24,433,45" HREF="fluidprop.htm">
+   <AREA COORDS="273,25,345,44" HREF="interpolationtab.htm">
+   <AREA COORDS="158,25,274,44" HREF="processes.htm">
+   <AREA COORDS="7,43,71,60" HREF="wellriser.htm">
+   <AREA COORDS="70,44,169,62" HREF="aquifinfltab.htm">
+   <AREA coords="169,45,290,63" href="heatcondtab.htm">
+   <AREA COORDS="291,43,381,63" HREF="initcond.htm">
+   <AREA coords="380,44,450,63" href="solver.htm">
+   <AREA COORDS="454,45,497,64" HREF="outputtab.htm">
+   <AREA COORDS="496,45,543,64" HREF="timetab.htm">
+   <AREA COORDS="546,44,605,63" HREF="bcflow.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA coords="524,411,599,435" href="project.htm#ok">
+   <AREA COORDS="6,24,51,43" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#aquifinfl" SRC="graphics//aqinfltab.gif"> 
+
+
+<h2><a name="iaif">Choice</a> of aquifer-influence functions (IAIF)</h2>
+<ul >
+   <LI>Default: Pot aquifer for outer-aquifer region</LI>
+   <LI>HST3D Variable: IAIF</LI>
+   <LI>Data Set Record Number: 2.18.3</LI>
+</ul>
+There are two different aquifer influence functions that can be used with HST3D as explained by <a href="references.htm#kipp87">Kipp</a> (1987, p. 60-68, 134-139). You must select which function you wish to use.
+<p>
+The Carter-Tracy approximation is used to avoid successive recomputation of the convolution integral that gives the flow rate at the transient aquifer-influence-function boundary. The Carter-Tracy approximation is exact for constant-flow rates. Thus, slowly varying flow rates are handled more accurately by the Carter-Tracy approximation than rapidly varying ones. The major disadvantage of the Carter-Tracy approximation is the inaccuracy of the computation of the discrtized flow rate in the case where boundary flow rates vary with time. Effects on the computed-flow rate appear as a significant time lag and smoothing of transients. Errors can be serious for boundary-flow rates whose variations are large relative to the average value.
+
+<h2><a name="aboar">Porous-medium</a> bulk vertical compressibility (ABOAR)</h2>
+<ul >
+   <LI>Default: 1e-8</LI>
+   <LI>HST3D Variable: ABOAR</LI>
+   <LI>Data Set Record Number: 2.18.4A or 2.18.4B</LI>
+</ul>
+Porous-medium bulk vertical compressibility for the outer-aquifer region
+
+<h2><a name="poroar">Porosity</a> for the outer-aquifer region (POROAR)</h2>
+<ul >
+   <LI>Default: 0.2</LI>
+   <LI>HST3D Variable: POROAR</LI>
+   <LI>Data Set Record Number: 2.18.4A or 2.18.4B</LI>
+</ul>
+Porosity for the outer aquifer region (Volume of pores/aquifer volume)
+
+<h2><a name="voar">Volume</a> of the outer-aquifer region (VOAR)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: VOAR</LI>
+   <LI>Data Set Record Number: 2.18.4A</LI>
+</ul>
+Volume of the outer-aquifer region
+
+<h2><a name="koar">Permeability</a> for the outer-aquifer region (KOAR)</h2>
+<ul >
+   <LI>Default: 1e-10</LI>
+   <LI>HST3D Variable: KOAR</LI>
+   <LI>Data Set Record Number: 2.18.4B</LI>
+</ul>
+Permeability for the outer-aquifer region
+
+<h2><a name="visoar">Viscosity</a> of the fluid in the outer-aquifer region (VISOAR)</h2>
+<ul >
+   <LI>Default: 0.001002</LI>
+   <LI>HST3D Variable: VISOAR</LI>
+   <LI>Data Set Record Number: 2.18.4B</LI>
+</ul>
+Viscosity of the fluid in the outer-aquifer region
+
+<h2><a name="boar">Total</a> thickness of the outer-aquifer region (BOAR)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: BOAR</LI>
+   <LI>Data Set Record Number: 2.18.4B</LI>
+</ul>
+Total thickness of the outer-aquifer region
+
+<h2><a name="rioar">Radius</a> of the equivalent cylinder that contains the inner-aquifer region (RIOAR)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: RIOAR</LI>
+   <LI>Data Set Record Number: 2.18.4B</LI>
+</ul>
+Radius of the equivalent cylinder that contains the inner-aquifer region.
+The equivalent cylinder should have an area equal to the active area of the model. 
+Equation 3.4.4.2.1 can be used for models in which the active area is rectangular in shape.
+<p>
+<font face="Symbol">p</font>r<sub>I</sub><sup>2</sup>&#160;=&#160;(x<sub>Nx</sub>-x<sub>1</sub>)(y<sub>Nx</sub>-y<sub>1</sub>)
+<p>
+where<br>
+<table>
+<tr>
+   <td>r<sub>I</sub> </td>
+   <td>= radius of the equivalent cylinder </td>
+</tr>
+<tr>
+   <td>x<sub>Nx</sub> </td>
+   <td>= X coordinate of last node in the X direction </td>
+</tr>
+<tr>
+   <td>x<sub>1</sub> </td>
+   <td>= X coordinate of first node in the X direction </td>
+</tr>
+<tr>
+   <td>y<sub>Ny</sub> </td>
+   <td>= Y coordinate of last node in the Y direction </td>
+</tr>
+<tr>
+   <td>y<sub>1</sub> </td>
+   <td>= Y coordinate of first node in the Y direction </td>
+</tr>
+</TABLE>
+
+
+<h2>
+<a name="angoar">Angle</a> of influence of the outer aquifer region (ANGOAR)</h2>
+<ul >
+   <LI>Default: 360</LI>
+   <LI>HST3D Variable: ANGOAR</LI>
+   <LI>Data Set Record Number: 2.18.4B</LI>
+</ul>
+Angle of influence of the outer-aquifer region. This is the angle subtended by the part of the equivalent cylindrical boundary that is subject to flux determined by the aquifer-influence function.
+
+<h2><a name="uvaifc">Aquifer</a> influence zone weighting (UVAIFC)</h2>
+<ul >
+   <LI>Default: Default Weighting</LI>
+   <LI>HST3D Variable: UVAIFC</LI>
+   <LI>Data Set Record Number: 2.18.2</LI>
+</ul>
+The default weighting of the aquifer-influence functions is proportional to the product of the boundary-cell facial area and permeability. If you do 
+not wish to use the default weighting, select &quot;User Specified Weighting&quot; and you will be able to specify the weights of individual zones on the Aquifer Influence layers.
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

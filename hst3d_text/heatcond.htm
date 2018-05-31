@@ -1,0 +1,55 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Horizontal Heat Conduction Boundary NL[i] and Vertical Heat Conduction Boundary NL[i] </title></head>
+<body>
+
+<h1>Horizontal Heat Conduction Boundary NL[i] and Vertical Heat Conduction Boundary NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+The Horizontal Heat Conduction Boundary NL[i] represents a horizontal boundary so that heat conduction occurs in a vertical direction. 
+The Vertical Heat Conduction Boundary NL[i] represents a vertical boundary so that heat conduction occurs in a horizontal direction. 
+
+You can not set  heat conduction boundaries simply by setting the default value of the layer. You must use contours to
+define the heat conduction boundaries. 
+
+Any cells that are enclosed within closed contours on the Horizontal Heat Conduction Boundary NL[i] will be assigned heat conduction boundaries. 
+Any cells that are intersected by any contour on the Vertical Heat Conduction Boundary NL[i] will be assigned heat conduction boundaries. However, cells that are enclosed but not intersected by a contour on the Vertical Heat Conduction Boundary NL[i] will not be assigned heat conduction boundaries. 
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+
+<MAP NAME="heatcond">
+   <AREA COORDS="39,226,403,241" HREF="#diffusivity">
+   <AREA COORDS="38,242,401,258" HREF="#conductivity">
+</MAP>
+<IMG BORDER=0 USEMAP="#heatcond" SRC="graphics//heatcond.gif"> 
+
+
+<h2><a name="diffusivity">Thermal</a> Diffusivity </h2>
+<UL>
+   <LI>Default Expression: 2.e-6 m<sup>2</sup>/s or 1.8600036 ft<sup>2</sup>/d; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variables: IBC, DTHHC</LI>
+   <LI>HST3D Data Set Record Number: 2.19.2, 2.19.3</LI>
+</UL>
+<p>
+Thermal diffusivity of the heat-conducting medium outside the simulation region as a function of boundary-cell location. 
+
+
+<h2><a name="conductivity">Thermal</a> Conductivity</h2>
+<UL>
+   <LI>Default Expression: 3 W/m-<sup>o</sup>C or 41.60823 BTU/ft-h-<sup>o</sup>F; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variables:  KHCBC</LI>
+   <LI>HST3D Data Set Record Number: 2.19.4</LI>
+</UL>
+<p>
+Thermal conductivity of the heat-conducting medium outside the simulation region as a function of boundary-cell location.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Reference condition information / Fluid thermal properties / Solute information </title></head>
+<body>
+<h1>Reference condition information / Fluid thermal properties / Solute information</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+<MAP NAME="refcond">
+   <AREA COORDS="15,72,416,97" HREF="#paatm">
+   <AREA COORDS="14,98,444,120" HREF="#p0h">
+   <AREA COORDS="14,123,439,144" HREF="#t0h">
+   <AREA COORDS="16,147,434,169" HREF="#cpf">
+   <AREA COORDS="17,171,438,193" HREF="#kthf">
+   <AREA COORDS="13,196,413,220" HREF="#bt">
+   <AREA COORDS="14,220,529,240" HREF="#dm">
+   <AREA COORDS="17,244,392,266" HREF="#declam">
+   <AREA COORDS="51,41,103,64" HREF="project.htm">
+   <AREA COORDS="102,44,158,63" HREF="elements.htm">
+   <AREA COORDS="432,44,604,64" HREF="refcond.htm">
+   <AREA COORDS="346,43,433,64" HREF="fluidprop.htm">
+   <AREA COORDS="273,44,345,63" HREF="interpolationtab.htm">
+   <AREA COORDS="157,43,273,62" HREF="processes.htm">
+   <AREA COORDS="544,27,604,44" HREF="bcflow.htm">
+   <AREA COORDS="498,26,543,45" HREF="timetab.htm">
+   <AREA COORDS="450,25,499,46" HREF="outputtab.htm">
+   <AREA COORDS="381,24,448,45" HREF="solver.htm">
+   <AREA COORDS="287,25,381,45" HREF="initcond.htm">
+   <AREA COORDS="168,24,286,43" HREF="heatcondtab.htm">
+   <AREA COORDS="70,25,166,44" HREF="aquifinfltab.htm">
+   <AREA COORDS="6,24,71,45" HREF="wellriser.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA COORDS="524,411,599,435" HREF="project.htm#ok">
+   <AREA COORDS="8,45,52,65" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#refcond" SRC="graphics//refcond.gif"> 
+
+
+<h2><a name="paatm">Atmospheric</a> absolute-pressure (PAATM)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: PAATM</LI>
+   <LI>Data Set Record Number: 2.5.1</LI>
+</ul>
+Atomospheric absolute-pressure value used to relate gage pressure to absolute pressure. If zero is entered, standard atmospheric pressure of 1.01325&#160;x&#160;10<sup>5</sup> Pa is used.
+
+<h2><a name="p0h">Reference</a> pressure for enthalpy variations (P0H)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: P0H</LI>
+   <LI>Data Set Record Number: 2.5.2</LI>
+</ul>
+Reference pressure (relative to atmospheric) for enthalpy variations, P<sub>oH</sub>. Used in equation 2.2.3.1c.
+
+<h2><a name="t0h">Reference</a> temperature for enthalpy variations (T0H)</h2>
+<ul >
+   <LI>Default: 20</LI>
+   <LI>HST3D Variable: T0H</LI>
+   <LI>Data Set Record Number: 2.5.2</LI>
+</ul>
+Reference temperature for enthalpy variations or the constant temperature for isothermal simulations, T<sub>oH</sub>. This value should be within the range of temperatures to be simulated. Used in equation 2.2.3.1c.
+
+<h2><a name="cpf">Fluid</a> heat capacity at constant pressure (CPF)</h2>
+<ul >
+   <LI>Default: 4182</LI>
+   <LI>HST3D Variable: CPF</LI>
+   <LI>Data Set Record Number: 2.6</LI>
+</ul>
+Fluid heat capacity at constant pressure. An average value for the range of solute concentrations and temperature to be simulated should be used (eq. 2.2.3.1b and eq 2.2.3.1c).
+
+<h2><a name="kthf">Fluid</a> thermal conductivity (KTHF)</h2>
+<ul >
+   <LI>Default: 0.6</LI>
+   <LI>HST3D Variable: KTHF</LI>
+   <LI>Data Set Record Number: 2.6</LI>
+</ul>
+Fluid thermal conductivity. An average value for the range of solute concentration and temperature to be simulated should be used.
+
+<h2><a name="bt">Fluid</a> coefficient of thermal expansion (BT)</h2>
+<ul >
+   <LI>Default: 2.e-4</LI>
+   <LI>HST3D Variable: BT</LI>
+   <LI>Data Set Record Number: 2.6</LI>
+</ul>
+Fluid coefficient of thermal expansion. An average value for the range of solute concentration and temperature to be simulated should be used.
+
+<h2><a name="dm">Effective</a> molecular diffusivity for the solute in the porous media (DM)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: DM</LI>
+   <LI>Data Set Record Number: 2.7</LI>
+</ul>
+Effective molecular diffusivity for the solute in the porous media.
+
+<h2><a name="declam">Solute</a> decay constant (DECLAM)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: DECLAM</LI>
+   <LI>Data Set Record Number: 2.7</LI>
+</ul>
+Solute-decay-rate constant ( = ln 2/T<sub>1/2</sub>) where T<sub>1/2</sub> is the half-live of the solute species.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

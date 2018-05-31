@@ -1,0 +1,52 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Initial Pressure NL[i] </title></head>
+<body>
+<h1>Initial Pressure NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+The Initial Pressure NL[i] layers are present only if you have chosen to specify the initial pressure in the <a href="initcond.htm#ichydp">Edit Project Info</a> dialog box.
+
+<p>
+
+You can not set the initial pressure simply by setting the default value of the layer. You must use contours
+to set the initial pressure. Any HST3D Cell that is enclosed or intercepted by a closed contour will be
+assigned the value of that contour. Any HST3D Cell intercepted by a point or open contour will be assigned the
+value of that contour. If a cell is assigned a value through two or more contours, the value ultimately used by
+HST3D will depend on the order in which the contours were created. The value assigned with the most recently
+created contour will be the one used by HST3D. 
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+<MAP NAME="initialpressure">
+   <AREA COORDS="39,224,347,243" HREF="#init">
+   <AREA COORDS="39,243,347,260" HREF="#end">
+</MAP>
+<IMG BORDER=0 USEMAP="#initialpressure" SRC="graphics//initialpres.gif"> 
+
+
+<h2><a name="init">Initial</a> Pressure NL[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: P</LI>
+   <LI>HST3D Data Set Record Number: 2.21.3B</LI>
+</UL>
+Initial pressure at the location of the contour.
+
+<h2><a name="end">End</a> Initial Pressure NL[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: P</LI>
+   <LI>HST3D Data Set Record Number: 2.21.3B</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Initial Pressure[i] is not equal to $N/A, End Initial Pressure[i] designates the initial pressure at the end of the contour. 
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

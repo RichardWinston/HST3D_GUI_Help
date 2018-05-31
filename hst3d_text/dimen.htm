@@ -1,0 +1,29 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Recompiling HST3D </title></head>
+<body>
+<h1>Recompiling HST3D</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+If your problem requires larger dimensions than are available in the version of HST3D distributed with the HST3D PIE, you will need to recompile HST3D. To do this, you will need the source code for HST3D which is available from <a href="mailto:klkipp@usgs.gov">Ken Kipp</a> at the USGS. You will also need to provide your own include files that specify the dimensions needed for your project. Creating the include files is easy using the DIMEN program. To run it, first locate the input file for an HST3D model created by Argus ONE. This file will have the name you specified on the Output tab of the Edit Project Info dialog box. Copy or move the file into the same directory as the DIMEN program. Copy the following include files into the same directory: param1.inc, param2.inc, param3.inc, param4.inc, param5.inc, param6.inc. These files are included with the source code for HST3D. Double click on DIMEN.exe. The program will prompt you for the input file name, an output file name (whatever name you want) and will then ask you whether you want the minimum dimensions sufficient to run the input file you gave it or to just increase the dimensions of the arrays that are too small. It will then write new include files. Copy the new include files back to the directory with the HST3D source code and recompile following the instructions of your compiler.
+<p>
+If you use the <a href="http://www.lahey.com/">Lahey</a> Fortran 90 compiler, you can use the Automake.fig file provided with the HST3D PIE to compile a suitable version of HST3D by changing to the directory with the HST3D source code and clicking the Automake button. You should also be able to recompile HST3D with any other Fortran 90 compilers and most Fortran 77 compilers.
+<p>
+There are a couple things that can go wrong while running DIMEN. 
+<p>
+
+If the include files are in a Unix format rather than a DOS format, the line terminations may not be recognized by versions of DIMEN running on Windows 95 or Window NT. To correct this open the file with a text editor and save the files to disk. Some text editors can read Unix text files and will save them in the proper format for Windows 95 and Windows NT. You may have to make some minor change to the file in order to save it such as adding a blank space at the end of a line. I haven't tested this with all text editors but EditPad from <a href="http://www.ping.be/jg/">http://www.ping.be/jg/</a> works well for this purpose.
+<p>
+If DIMEN terminates adnormally for some reason a temporary file that it creates named input.strp will not be deleted. You will need to delete this file before running DIMEN again.
+<p>
+If you do not have a compiler and do not wish to purchase one, you can request a recompiled version of HST3D from <a href="mailto:hst3dgui@mindspring.com">hst3dgui@mindspring.com</a>. You will have to provide the include files created by DIMEN. You can have up to three free newly recompiled versions. Additional recompilations cost $20.00 each.
+
+<hr>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

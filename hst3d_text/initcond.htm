@@ -1,0 +1,92 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Initial Conditions tab </title></head>
+<body>
+
+<h1>Initial Conditions tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+<MAP NAME="initcond">
+   <AREA COORDS="21,80,319,101" HREF="#ichydp">
+   <AREA COORDS="21,104,228,125" HREF="#ichwt">
+   <AREA COORDS="22,130,443,154" HREF="#zpinit">
+   <AREA COORDS="23,157,498,180" HREF="#pinit">
+   <AREA COORDS="22,182,322,202" HREF="#interpinit">
+   <AREA COORDS="23,202,335,221" HREF="#interpinitwt">
+   <AREA COORDS="53,25,105,44" HREF="project.htm">
+   <AREA COORDS="106,28,162,47" HREF="elements.htm">
+   <AREA COORDS="441,24,613,44" HREF="refcond.htm">
+   <AREA COORDS="356,24,440,45" HREF="fluidprop.htm">
+   <AREA COORDS="282,27,357,46" HREF="interpolationtab.htm">
+   <AREA COORDS="156,28,280,47" HREF="processes.htm">
+   <AREA COORDS="7,43,71,60" HREF="wellriser.htm">
+   <AREA COORDS="75,44,174,62" HREF="aquifinfltab.htm">
+   <AREA COORDS="174,46,295,64" HREF="heatcondtab.htm">
+   <AREA COORDS="296,44,386,64" HREF="initcond.htm">
+   <AREA COORDS="387,44,457,63" HREF="solver.htm">
+   <AREA COORDS="456,44,503,63" HREF="outputtab.htm">
+   <AREA COORDS="506,44,553,63" HREF="timetab.htm">
+   <AREA COORDS="555,44,614,63" HREF="bcflow.htm">
+   <AREA COORDS="162,410,368,437" HREF="default.htm">
+   <AREA COORDS="369,410,446,435" HREF="project.htm#help">
+   <AREA COORDS="452,411,527,435" HREF="project.htm#cancel">
+   <AREA COORDS="530,411,605,435" HREF="project.htm#ok">
+   <AREA COORDS="6,24,51,43" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#initcond" SRC="graphics//initcond.gif"> 
+
+
+<h2><a name="ichydp">Specified</a> initial hydrostatic pressure distribution (ICHYDP)</h2>
+<ul >
+   <LI>Default: not checked</LI>
+   <LI>HST3D Variable: ICHYDP</LI>
+   <LI>Data Set Record Number: 2.21.1</LI>
+</ul>
+Check this box if you wish to specify a hydrostatic initial pressure distribution.
+
+<h2><a name="ichwt">Specified</a> initial water table (ICHWT)</h2>
+<ul >
+   <LI>Default: not checked</LI>
+   <LI>HST3D Variable: ICHWT</LI>
+   <LI>Data Set Record Number: 2.21.2</LI>
+</ul>
+Check this box if you wish to specify an initial water table.
+
+<h2><a name="zpinit">Elevation</a> of the initial-condition pressure (ZPINIT)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: ZPINIT</LI>
+   <LI>Data Set Record Number: 2.21.3A</LI>
+</ul>
+Elevation of the initial-condition pressure.
+
+<h2><a name="pinit">Pressure</a> for hydrostatic, initial-condition distribution (PINIT)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: PINIT</LI>
+   <LI>Data Set Record Number: 2.21.3A</LI>
+</ul>
+Pressure for hydrostatic, initial-condition distribution.
+
+<h2><a name="interpinit">Allow Interpolation Along Open Contours for Initial Pressure</a></h2>
+<ul >
+   <LI>Default: not checked</LI>
+</ul>
+If this check box is checked, an &quot;<a href="initpres.htm#end">End Initial Pressure</a>&quot; parameter will be created on all Initial Pressure layers. You can use such parameters to interpolate along the length of open contours.
+
+<h2><a name="interpinitwt">Allow Interpolation along open contours for initial water table</a></h2>
+<ul >
+   <LI>Default: not checked</LI>
+</ul>
+If this check box is checked, an &quot;<a href="initwattable.htm#endinitial">End Initial Water Table</a>&quot; parameter will be created on the Initial Water Table layer. You can use such parameters to interpolate along the length of open contours.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

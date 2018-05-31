@@ -1,0 +1,92 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Utilities </title></head>
+<body>
+<h1>Utilities</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+Two utility PIE's were developed in conjunction with the HST3D PIE. One of these, MoreConversions.dll, provides a convenient method of performing the conversions listed on p. vii of <a href="references.htm#kipp87">Kipp (1987)</a>. The conversions are available in the Expression editor. No attempt was made to check the accuracy of the conversions factors in <a href="references.htm#kipp87">Kipp (1987)</a> or to increase their precision. 
+<p>
+The other PIE, JoinContoursPie.dll, provides a method for combining multiple contours into a single contour and to reduce the number of vertices in contours. Both PIE's can be used with any Argus ONE project, not just HST3D projects.
+<p>
+You may sometimes wish to join contours together to make it easier to manipulate them. 
+To join contours together, select &quot;Join Contours&quot; from the &quot;File|Import&quot; menu on any information layer. A dialog box will appear listing the information layers. Select the layer in which you want to combine contours. The PIE will read the contours from the layer. If any two contours have exactly the same starting or ending point and all their parameter values are the same, those contours will be combined into a single contour. Here is an illustration of the effect of the Join Contours method. The first illustration shows the situation before joining contours. There are numerous short contours with parameter values of -70 and -80 . In the second illustration, those numerous contours have been combined into a much smaller number of contours.
+<p>
+<table border>
+<tr>
+   <td><img src="graphics/joincontoursbefore.gif" width="610" height="731"> </td>
+</tr>
+<tr>
+   <td><center><b>Before &quot;Join Contours&quot; applied</b></center> </td>
+</tr>
+</TABLE>
+<p>
+
+<table border>
+<tr>
+   <td><img src="graphics/joincontoursafter.gif" width="610" height="731"> </td>
+</tr>
+<tr>
+   <td><center><b>After &quot;Join Contours&quot; applied</b></center> </td>
+</tr>
+</TABLE>
+
+
+<p>
+If two contours have starting or ending points that are even slightly different, the contours will not be combined. To ensure that such contours are combined, make sure the &quot;Special|Allow Intersection&quot; is checked. Then move the end of one of the contours close to the end of the other. The cursor will change to a hollow cross to indicate that it has detected another vertex. When you release the mouse, the vertex will be placed exactly over the position of the other vertex.
+<p>
+Reducing the number of vertices in a layer can make the export process faster. If the vertices are much more closely spaced than the grid spacing, reducing the number of vertices may have little effect on the model inputs. 
+To reduce the number of vertices in the contours in a layer first turn &quot;Allow Intersection&quot; on for that layer. Then select &quot;Declutter Contours&quot; from the &quot;File|Import&quot; menu. A dialog box will appear with a list of information layers. Select the information layer in which you wish to reduce the number of vertices. Another dialog box will appear in which you should enter the desired vertex spacing and/or the minimum angle to prevent node removal
+<p>
+<img src="graphics/declutterdialog.gif" width="272" height="277">
+<p>
+When you click OK the contours on the layer will be processed so that vertices that are closer together than the desired spacing will be eliminated if the &quot;Delete nodes based on spacing&quot; check box is checked. However, if the &quot;Delete Node based on angle&quot; check box is checked, nodes will only be deleted if the angle at the node exceeds the limit you specify. The effects of &quot;Declutter Contours&quot; is illustrated below. The first diagram shows contours with very closely spaced vertices. In the second illustration, many of the vertices have been eliminated.
+<p>
+<table border>
+<tr>
+   <td><img src="graphics/declutterbefore.gif" width="707" height="489"> </td>
+</tr>
+<tr>
+   <td><center><b>Before &quot;Declutter Contours&quot; applied</b></center> </td>
+</tr>
+</TABLE>
+<p>
+
+<table border>
+<tr>
+   <td><img src="graphics/declutterafter.gif" width="707" height="489"> </td>
+</tr>
+<tr>
+   <td><center><b>After &quot;Declutter Contours&quot; applied</b></center> </td>
+</tr>
+</TABLE>
+<p>
+A word of warning about the &quot;Declutter Contours&quot; method. After removing vertices, some contours that previously did not overlap may overlap and the geometric relationships among contours may differ. For example, in the illustrations below, the -200 ft contour has been reduced to a single point that is no longer inside the -150 ft contour as it was before.
+<p>
+<table border>
+<tr>
+   <td><img src="graphics/declutterbefore2.gif" width="362" height="262">
+ </td>
+   <td><img src="graphics/declutterafter2.gif" width="361" height="260">
+ </td>
+</tr>
+<tr>
+   <td><center><b>Before &quot;Declutter Contours&quot; applied</b></center> </td>
+   <td><center><b>After &quot;Declutter Contours&quot; applied</b></center> </td>
+</tr>
+</TABLE>
+
+<p>
+Both the Join Contours and Declutter methods first clear the layer before writing to it. If there is an error when writing the data to the layer, this will result in loss of data. An error might occur in the Declutter PIE if &quot;Allow Intersection&quot; is turned off and some of the contours cross each other after some vertices are removed. Thus it is a good idea to save your file before running either of these PIEs.
+<p>
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

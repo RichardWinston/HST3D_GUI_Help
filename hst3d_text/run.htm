@@ -1,0 +1,49 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Running HST3D </title></head>
+<body>
+<h1>Running HST3D</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+To Run HST3D from Argus ONE, make the &quot;HST3D Grid&quot; layer the active layer. Then select &quot;Run HST3D&quot; from the PIEs menu. The &quot;Run HST3D&quot; dialog box will appear
+<p>
+<img src="graphics/run1.gif" width="385" height="281">
+<p>
+You have a choice of running HST3D, just creating the input file for HST3D, running <a href="bcflow.htm">BCFLOW</a> or just creating the input file for <a href="bcflow.htm">BCFLOW</a>. In either case, you should make sure that the path for the program you run is correct. You can type the correct path in the appropriate dialog box or click the &quot;Browse&quot; button to locate the HST3D executable. You can also choose an batch file of your own that will call HST3D or BCFLOW. As part of the export process a batch file named RunHST3D.BAT or RunBCFLOW.BAT will be created. If you choose to create the HST3D input file but do not choose to run HST3D immediately, you can double click on that file later in the Windows Explorer to start HST3D or BCFLOW with the current input file. The path you enter for HST3D or BCFLOW Path will be saved with the file when you save your project. If you wish to edit non-spatial parameters before starting to run HST3D, you can click on the Edit Parameters button to bring up the <a href="project.htm">Edit Project Info</a> dialog box. You start the export process by clicking the Export button. Click the Cancel button if you decide not to export the HST3D input file.
+<p>
+When you click the export button a progress bar will appear briefly as the PIE processes the export template prior to passing it to Argus ONE. Once that is done, an &quot;Save File&quot; dialog box will appear. 
+<p>
+<img src="graphics/run2.gif" width="426" height="264">
+<p>
+Use this to chose the directory in which to create the HST3D input file. This can be whatever directory you choose. However it is generally a good idea to put the HST3D input file in a special directory for the project so that it is easy to distinguish them from other files. It is generally a bad idea, for example, to put the input files in the ArgusPIE directory or a subdirectory of it because you might then accidentally erase one of the files that the PIE needs to run. The file name that appears in the &quot;Save File&quot; dialog box is not important. The name of the file that is created is determined by the &quot;<a href="outputtab.htm#input">Input File name</a>&quot; on the Edit Project dialog box not the name shown in the &quot;Save File&quot; dialog box.
+<p>
+Once you have selected the directory for the HST3D input file, the default Argus ONE &quot;barbershop pole&quot; progress bar will appear followed by another progress bar created by the PIE.
+<p>
+<img src="graphics/run3.gif" width="390" height="200">
+<p>
+The progress bar created by the PIE will the elapsed time and an estimate of the time left before beginning the next phase of the export process. There are three phases to the export process.
+<UL>
+   <LI>Phase 1, where the PIE prepares the export template for Argus ONE (This is typically fast).</LI>
+   <LI>Phase 2, where Argus ONE exports the problem specifications and dimensions and the static data (Data sets 1.1 through 2.23.5).</LI>
+   <LI>Phase 3, where Argus ONE exports the transient data (Data sets 3.1 through 3.99).</LI>
+</UL>
+If you chose to run HST3D, it will start running when the export process is complete if you specified the path correctly. If you did not specify the path correctly, you can edit RunHST3D.BAT with any text editor to specify the correct path and then double-click it to start HST3D. You do not need to type any responses to the questions that appear in the DOS box when HST3D begins to run. The RunHST3D.BAT batch file automatically passes the correct responses.
+<p>
+<img src="graphics/run4.gif" width="654" height="333">
+<p>
+You can cancel the export of the HST3D input files in several ways.
+<UL>
+   <LI>On the Run HST3D dialog box click the Cancel button</LI>
+   <LI>On the Save File dialog box click the Cancel button</LI>
+   <LI>Make the default Argus ONE barbershop progress bar the active window and click Ctrl-C</LI>
+</UL>
+<p>
+If you choose to write your own batch file that the HST3D PIE can call to start HST3D you may wish to clear the &quot;Pause when done&quot; checkbox. If this check box is checked, the DOS window in which HST3D runs will pause when HST3D finishes so that you can read any messages from HST3D. However, this will also prevent the remainder of your batch file from executing until you press a key on the keyboard. One reason you might write your own batch file to start HST3D is so that the batch file could start a program that would sound an alarm when HST3D was done so that you would know it was finished.
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

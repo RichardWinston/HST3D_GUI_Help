@@ -1,0 +1,177 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> HST3D Grid Layer</title></head>
+<body>
+
+<h1>HST3D Grid Layer</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+You may wish to read about the <a href="grid.htm">HST3D Grid</a> before dealing with the HST3D Grid layer.
+<p>
+You should not normally override values of individual blocks or the default values in the HST3D Grid layer. The expressions for the default value on the HST3D grid layer are set by the HST3D PIE. They link the default values for the grid cells to information layers. Use the information layers rather than the HST3D_Grid layer to set the values in the grid.
+<p>
+The HST3D Grid layer represents the elements comprising the HST3D model. The grid type on the HST3D Grid layer must be &quot;Block Centered&quot;. (To make a Block-Centered grid, select Edit|Grid Type|Block Centered. You can only do this when the model does not have a grid on the HST3D Grid layer and you are on a HST3D Grid layer layer.) Each cell in the grid represents a vertical column of HST3D elements. The HST3D nodes are at the corners of the elements. 
+<p>
+
+The HST3D Grid is normally created by outlining the area to be modeled on the &quot;Domain Outline&quot; layer and then clicking the &quot;Magic Wand&quot; tool on the HST3D Grid layer anywhere inside the domain outline. You can draw contours on the &quot;Grid Density&quot; layer to set a grid size smaller than that specified on the &quot;Domain Outline&quot; layer.
+<p>
+
+Note that in the HST3D PIE, model layers are numbered from the top down whereas in HST3D, layers are numbered from the bottom up. 
+<p>
+
+<MAP NAME="hst3dgrid">
+   <AREA COORDS="46,224,535,240" HREF="#active">
+   <AREA COORDS="51,238,533,254" HREF="#kx">
+   <AREA COORDS="49,255,534,273" HREF="#ky">
+   <AREA COORDS="50,273,534,291" HREF="#kz">
+   <AREA COORDS="50,290,536,304" HREF="#porosity">
+   <AREA COORDS="50,305,534,321" HREF="#vertical">
+   <AREA COORDS="51,320,533,338" HREF="#heat">
+   <AREA COORDS="48,336,537,353" HREF="#xcond">
+   <AREA COORDS="51,353,535,368" HREF="#ycond">
+   <AREA COORDS="50,368,536,384" HREF="#zcond">
+   <AREA COORDS="48,384,534,402" HREF="#longitudinal">
+   <AREA COORDS="50,401,535,415" HREF="#transverse">
+   <AREA COORDS="49,417,534,433" HREF="#distribution">
+   <AREA COORDS="50,191,534,208" HREF="#t0">
+   <AREA COORDS="52,207,535,225" HREF="#w0">
+   <AREA COORDS="51,434,536,466" HREF="#elevation">
+</MAP>
+<IMG BORDER=0 USEMAP="#hst3dgrid" SRC="graphics//hst3dgrid.gif"> 
+
+<h2><a name="t0">T0</a></h2>
+<ul >
+   <LI>Default: (Automatically defined based on the value of T0 entered in the <a href="fluidprop.htm#t0">Project Info</a> Dialog box.</LI>
+   <LI>HST3D Variable: T0</LI>
+   <LI>Data Set Record Number: 2.4.2</LI>
+</ul>
+T0 is used to set the default value of a parameters on other layers. Do not set T0 directly. Instead change the value of T0 in the <a href="fluidprop.htm#t0">Project Info</a> Dialog box.
+
+<h2><a name="w0">W0</a></h2>
+<ul >
+   <LI>Default: (Automatically defined based on the value of W0 entered in the <a href="fluidprop.htm#w0">Project Info</a> Dialog box.</LI>
+   <LI>HST3D Variable: W0</LI>
+   <LI>Data Set Record Number: 2.4.2</LI>
+</ul>
+W0 is used to set the default value of a parameters on other layers. Do not set W0 directly. Instead change the value of W0 in the <a href="fluidprop.htm#w0">Project Info</a> Dialog box.
+
+<h2><a name="active">Active</a> Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: If(IsNA(DefaultValue(<a href="active.htm">Active Area Element Layer[i]</a>)), (BlockIsActive()&(<a href="active.htm">Active Area Element Layer[i]</a>!=0)&(IsNA(<a href="active.htm">Active Area Element Layer[i]</a>))), (BlockIsActive()&(<a href="active.htm">Active Area Element Layer[i]</a>)))</LI>
+   <LI>Related HST3D Variable: IPMZ</LI>
+   <LI>HST3D Data Set Record Number: 2.8.1</LI>
+</UL>
+Elements for which Active Element Layer[i] is true will be included in the HST3D model. Normally Active Element Layer[i] is set through the Active Area Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it.
+
+<h2><a name="kx">Kx</a> Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="permeability.htm#kx">Permeability Element Layer[i].Kx</a></LI>
+   <LI>Related HST3D Variable: KXX</LI>
+   <LI>HST3D Data Set Record Number: 2.9.1</LI>
+</UL>
+Kx Element Layer[i] is the permeability in the x direction of the element. Normally Kx Element Layer[i] is set through the Permeability Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it.
+
+<h2><a name="ky">Ky</a> Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="permeability.htm#ky">Permeability Element Layer[i].Ky</a></LI>
+   <LI>Related HST3D Variable: KYY</LI>
+   <LI>HST3D Data Set Record Number: 2.9.1</LI>
+</UL>
+Ky Element Layer[i] is the permeability in the y direction of the element. Normally Ky Element Layer[i] is set through the Permeability Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it.
+
+<h2><a name="kz">Kz</a> Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="permeability.htm#kz">Permeability Element Layer[i].Kz</a></LI>
+   <LI>Related HST3D Variable: KZZ</LI>
+   <LI>HST3D Data Set Record Number: 2.9.1</LI>
+</UL>
+Kz Element Layer[i] is the permeability in the z direction of the element. Normally Kz Element Layer[i] is set through the Permeability Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it.
+
+<h2><a name="porosity">Porosity</a> Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="porosity.htm">Porosity Element Layer[i]</a></LI>
+   <LI>Related HST3D Variable: POROS</LI>
+   <LI>HST3D Data Set Record Number: 2.9.2</LI>
+</UL>
+Porosity Element Layer[i] is the porosity of the element. Normally Porosity Element Layer[i] is set through the Porosity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. The effective porosity for unconfined flow systems is often taken to be the specific yield.
+
+<h2><a name="vertical">Vertical</a> Compr Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="verticalcomp.htm">Vertical Compressibility Element Layer[i]</a></LI>
+   <LI>Related HST3D Variable: ABPM</LI>
+   <LI>HST3D Data Set Record Number: 2.9.3</LI>
+</UL>
+Vertical Compr Element Layer[i] is the vertical compressibility of the element. Normally Vertical Compr Element Layer[i] is set through the Vertical Compressibility Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. This compressibility is determined on a fixed mass of porous medium undergoing vertical compression.
+
+<h2><a name="heat">Heat</a> Capacity Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="heatcapacity.htm">Heat Capacity Element Layer[i]</a></LI>
+   <LI>Related HST3D Variable: RCPPM</LI>
+   <LI>HST3D Data Set Record Number: 2.10.1</LI>
+</UL>
+Heat Capacity Element Layer[i] is the heat capacity of the porous medium solid phase per unit volume of the element. Normally Heat Capacity Element Layer[i] is set through the Heat Capacity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="xcond">X</a> Conductivity Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="thermalcond.htm#x">Thermal Conductivity Element Layer[i].X Conductivity</a></LI>
+   <LI>Related HST3D Variable: KTHXPM</LI>
+   <LI>HST3D Data Set Record Number: 2.10.2</LI>
+</UL>
+X Conductivity Element Layer[i] is the thermal conductivity of the porous medium in the x direction of the element. Normally X Conductivity Element Layer[i] is set through the Thermal Conductivity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="ycond">Y</a> Conductivity Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="thermalcond.htm#y">Thermal Conductivity Element Layer[i].Y Conductivity</a></LI>
+   <LI>Related HST3D Variable: KTHYPM</LI>
+   <LI>HST3D Data Set Record Number: 2.10.2</LI>
+</UL>
+Y Conductivity Element Layer[i] is the thermal conductivity of the porous medium in the y direction of the element. Normally Y Conductivity Element Layer[i] is set through the Thermal Conductivity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="zcond">Z</a> Conductivity Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="thermalcond.htm#z">Thermal Conductivity Element Layer[i].Z Conductivity</a></LI>
+   <LI>Related HST3D Variable: KTHZPM</LI>
+   <LI>HST3D Data Set Record Number: 2.10.2</LI>
+</UL>
+Z Conductivity Element Layer[i] is the thermal conductivity of the porous medium in the z direction of the element. Normally Z Conductivity Element Layer[i] is set through the Thermal Conductivity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="longitudinal">Longitudinal</a> Dispersivity Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="dispersivity.htm#longitudinal">Dispersivity Element Layer[i].Longitudinal</a></LI>
+   <LI>Related HST3D Variable: ALPHL</LI>
+   <LI>HST3D Data Set Record Number: 2.11</LI>
+</UL>
+Longitudinal Dispersivity Element Layer[i] is the longitudinal dispersivity of the element. Normally Longitudinal Dispersivity Element Layer[i] is set through the Dispersivity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="transverse">Transverse</a> Dispersivity Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="dispersivity.htm#transverse">Dispersivity Element Layer[i].Transverse</a></LI>
+   <LI>Related HST3D Variable: ALPHT</LI>
+   <LI>HST3D Data Set Record Number: 2.11</LI>
+</UL>
+Transverse Dispersivity Element Layer[i] is the transverse dispersivity of the element. Normally Transverse Dispersivity Element Layer[i] is set through the Dispersivity Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="distribution">Distribution</a> Coefficient Element Layer[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="distribution.htm">Distribution Coefficient Element Layer[i]</a></LI>
+   <LI>Related HST3D Variable: DBKD</LI>
+   <LI>HST3D Data Set Record Number: 2.12</LI>
+</UL>
+Distribution Coefficient Element Layer[i] is the dimensionless linear-equilibrium-distribution coefficient of the element (porous medium bulk density times the distribution coefficient). Normally Distribution Coefficient Element Layer[i] is set through the Distribution Coefficient Element Layer[i] layer. However, you can override the value of an individual cell by double clicking on it. 
+
+<h2><a name="elevation">Elevation NL[i]</a></h2>
+<ul >
+   <LI>Default: (Automatically defined based on the Top and Bottom Elevations <a href="elements.htm#topelev">Project Info</a> Dialog box.</LI>
+   <LI>HST3D Variable: Z(K)</LI>
+   <LI>Data Set Record Number: 2.2B.3B</LI>
+</ul>
+Elevation NL[i] may be used to set the default value of a parameters on other layers. Do not set Elevation NL[i] directly. Instead change the value of the Top and Bottom Elevations <a href="elements.htm#topelev">Project Info</a> Dialog box. See &quot;<a href="irreg.htm">Dealing with Irregular Aquifer Geometry</a>&quot; and &quot;<a href="calculate.htm">Calculating Pressure from Freshwater Head, Node Layer Elevations and Fluid Density</a>&quot; for examples of how to use Elevation NL[i].
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

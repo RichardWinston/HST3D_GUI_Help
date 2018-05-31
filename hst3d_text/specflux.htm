@@ -1,0 +1,237 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Vertical Specified Flux Boundary NL[i] and Horizontal Specified Flux Boundary NL[i] </title></head>
+<body>
+
+<h1>Vertical Specified Flux Boundary NL[i] and Horizontal Specified Flux Boundary NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+The Horizontal Specified Flux Boundary NL[i] represents a horizontal boundary so that the flux occurs in a vertical direction. 
+The Vertical Specified Flux Boundary NL[i] represents a vertical boundary so that the flux occurs in a horizontal direction. 
+
+You can not set any of the specified flux parameters simply by setting the default value of the layer. You must use contours to
+set the specified flux parameters. 
+
+Any cells that are enclosed within closed contours or intersected by any type of contour on the Horizontal Specified Flux Boundary NL[i] will be assigned specified flux boundaries. 
+Any cells that are intersected by open or closed contours on the Vertical Specified Flux Boundary NL[i] will be assigned specified flux boundaries. You should not use point contours on Vertical Specified Flux Boundary NL[i] layers.
+<p>
+Because HST3D does not allow a specified flux boundary in any cell with a specified pressure boundary, the HST3D PIE will ignore any specified flux boundary cells that are also specified state boundary cells.
+
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+
+<MAP NAME="horflux">
+   <AREA COORDS="39,226,380,242" HREF="#time">
+   <AREA COORDS="38,241,417,258" HREF="#upfluid">
+   <AREA COORDS="36,274,421,290" HREF="#density">
+   <AREA COORDS="36,305,416,323" HREF="#temperature">
+   <AREA COORDS="36,338,416,354" HREF="#mass">
+   <AREA COORDS="36,370,417,388" HREF="#scaled">
+   <AREA COORDS="37,403,417,418" HREF="#upheat">
+   <AREA COORDS="38,418,419,434" HREF="#upsolute">
+   <AREA COORDS="39,388,417,404" HREF="#endscaled">
+   <AREA COORDS="39,354,418,372" HREF="#endmass">
+   <AREA COORDS="39,322,416,339" HREF="#endtemperature">
+   <AREA COORDS="37,289,416,306" HREF="#enddensity">
+   <AREA COORDS="40,257,417,274" HREF="#endupfluid">
+</MAP>
+<IMG BORDER=0 USEMAP="#horflux" SRC="graphics//horspecflux.gif"> 
+<MAP NAME="verspecflux">
+   <AREA COORDS="37,224,418,242" HREF="#time">
+   <AREA COORDS="37,241,419,259" HREF="#xflux">
+   <AREA COORDS="39,258,419,274" HREF="#yflux">
+   <AREA COORDS="38,273,420,290" HREF="#fluid">
+   <AREA COORDS="37,307,422,324" HREF="#density">
+   <AREA COORDS="36,339,419,356" HREF="#temperature">
+   <AREA COORDS="36,371,419,388" HREF="#mass">
+   <AREA COORDS="39,401,419,420" HREF="#scaled">
+   <AREA COORDS="40,436,421,450" HREF="#heat">
+   <AREA COORDS="40,452,419,468" HREF="#solute">
+   <AREA COORDS="40,420,421,436" HREF="#endscaled">
+   <AREA COORDS="38,388,420,403" HREF="#endmass">
+   <AREA COORDS="39,355,419,372" HREF="#endtemperature">
+   <AREA COORDS="38,322,421,339" HREF="#enddensity">
+   <AREA COORDS="38,290,422,307" HREF="#endfluid">
+</MAP>
+<IMG BORDER=0 USEMAP="#verspecflux" SRC="graphics//verspecflux.gif"> 
+
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current object. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+
+<h2><a name="xflux">XFlux</a> Positive[i]</h2>
+<UL>
+   <LI>Default Expression: 1 (True)</LI>
+   <LI>Related HST3D Variables:  QFFX, QHFX, QSFX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.2, 3.4.6, 3.4.7</LI>
+</UL>
+XFlux Positive[i] determines the direction of the x-component of fluid, heat, or solute flux in the Vertical Specified Flux Boundary NL[i] for Time[i]. If XFlux Positive[i] is true, the flux in the x direction will be positive. Otherwise, the flux will be negative. This parameter only sets the direction of the flux, not the magnitude. You must set Fluid Flux, Heat Flux, or Solute Flux to set the magnitude of the flux.
+
+<h2><a name="yflux">YFlux</a> Positive[i]</h2>
+<UL>
+   <LI>Default Expression: 1 (True)</LI>
+   <LI>Related HST3D Variables:  QFFY, QHFY, QSFY</LI>
+   <LI>HST3D Data Set Record Number: 3.4.2, 3.4.6, 3.4.7</LI>
+</UL>
+YFlux Positive[i] determines the direction of the y-component of fluid, heat, or solute flux in the Vertical Specified Flux Boundary NL[i] for Time[i]. If YFlux Positive[i] is true, the flux in the y direction will be positive. Otherwise, the flux will be negative.  This parameter only sets the direction of the flux, not the magnitude. You must set Fluid Flux, Heat Flux, or Solute Flux to set the magnitude of the flux.
+
+<h2><a name="fluid">Fluid</a> Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A </LI>
+   <LI>Related HST3D Variables:  QFFX, QFFY</LI>
+   <LI>HST3D Data Set Record Numbers: 3.4.2</LI>
+</UL>
+Fluid Flux[i] represents the magnitude of the horizontal fluid flux across the vertical flux boundary. Fluid Flux[i] should always be positive. The direction of flux is set with XFlux Positive[i] and YFlux Positive[i]. The magnitude of the flux across any particular cell face will be determined by the size of the cell face and the angle between the cell face and the contour. Fluxes will be distributed among the cell faces such that the net flux across the boundary is equal to Fluid Flux[i].  If Fluid Flux[i] is $N/A, the fluid flux boundary is inactive for Time[i]. If all Fluid Flux[i]'s for a contour are $N/A, there will not be a fluid flux boundary associated with the contour.
+<p>
+<img src="graphics/specifiedflux.gif" width="271" height="363">
+<p>
+
+<h2><a name="endfluid">End</a> Fluid Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variables:  QFFX, QFFY</LI>
+   <LI>HST3D Data Set Record Numbers: 3.4.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Fluid Flux[i]] is not equal to $N/A, End Fluid Flux[i] designates the specified fluid flux at the end of the contour. 
+
+<h2><a name="upfluid">Upward</a> Fluid Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A </LI>
+   <LI>Related HST3D Variable:  QFFZ</LI>
+   <LI>HST3D Data Set Record Number: 3.4.2</LI>
+</UL>
+Upward Fluid Flux[i] represents the magnitude of the vertical fluid flux across the horizontal flux boundary. If Upward Fluid Flux[i] is positive, the flux is upward and if it is negative the flux is downward. If Upward Fluid Flux[i] is $N/A, the fluid flux boundary is inactive for Time[i]. If all Upward Fluid Flux[i]'s for a contour are $N/A, there will not be a fluid flux boundary associated with the contour.
+
+
+<h2><a name="endupfluid">End</a> Upward Fluid Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable:  QFFZ</LI>
+   <LI>HST3D Data Set Record Numbers: 3.4.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Upward Fluid Flux[i] is not equal to $N/A, End Upward Fluid Flux[i] designates the specified fluid flux at the end of the contour. 
+
+<h2><a name="density">Density[i]</a></h2>
+<UL>
+   <LI>Default Expression: 998.23 kg/m<sup>3</sup> or 62.317 lb/ft<sup>3</sup>; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable:  UDENBC</LI>
+   <LI>HST3D Data Set Record Number: 3.4.3</LI>
+</UL>
+Density associated with specified-fluid flux for Time[i]. If inflow, this density determines the mass flux.
+<p>
+The density must be in the range <a href="fluidprop.htm#denf0">DENF0</a> to <a href="fluidprop.htm#denf1">DENF1</a>.
+
+<h2><a name="enddensity">End</a> Density[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable:  UDENBC</LI>
+   <LI>HST3D Data Set Record Numbers: 3.4.3</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Density[i] is not equal to $N/A, End Density[i] designates the density at the end of the contour. 
+
+<h2><a name="temperature">Temperature[i]</a></h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable:  TFLX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.4</LI>
+</UL>
+Temperature associated with specified-fluid flux for Time[i]. If inflow, this density determines the heat flux.
+
+<h2><a name="endtemperature">End</a> Temperature[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable:  TFLX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.4</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Temperature[i] is not equal to $N/A, End Temperature[i] designates the temperature at the end of the contour. 
+
+<h2><a name="mass">Mass</a> Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#w0">HST3D Grid.W0</a> </LI>
+   <LI>Related HST3D Variable:  CFLX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.4</LI>
+</UL>
+Mass fraction associated with specified-fluid flux for Time[i]. If inflow, this density determines the solute flux. Normally, &quot;Mass Fraction[i&quot;] and &quot;Scaled Mass Fraction[i]&quot; would not both be present.
+<p>
+The mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="endmass">End</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable:  CFLX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.4</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Mass Fraction[i] is not equal to $N/A, End Mass Fraction[i] designates the mass fraction at the end of the contour. Normally, &quot;End Mass Fraction[i&quot;] and &quot;End Scaled Mass Fraction[i]&quot; would not both be present.
+
+<h2><a name="scaled">Scaled</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: 0 </LI>
+   <LI>Related HST3D Variable:  CFLX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.4</LI>
+</UL>
+Scaled mass fraction associated with specified-fluid flux for Time[i]. If inflow, this density determines the solute flux. Normally, &quot;Mass Fraction[i&quot;] and &quot;Scaled Mass Fraction[i]&quot; would not both be present.
+<p>
+The scaled mass fraction must be in the range 0 to 1.
+
+<h2><a name="endscaled">End</a> Scaled Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable:  CFLX</LI>
+   <LI>HST3D Data Set Record Number: 3.4.4</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Scaled Mass Fraction[i] is not equal to $N/A, End Scaled Mass Fraction[i] designates the scaled mass fraction at the end of the contour. Normally, &quot;End Mass Fraction[i&quot;] and &quot;End Scaled Mass Fraction[i]&quot; would not both be present.
+<p>
+The scaled mass fraction must be in the range 0 to 1.
+
+
+<h2><a name="heat">Heat</a> Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A </LI>
+   <LI>Related HST3D Variables:  QHFX, QHFY</LI>
+   <LI>HST3D Data Set Record Number: 3.4.6</LI>
+</UL>
+Heat Flux[i] represents the magnitude of the horizontal heat flux across the vertical flux boundary. Heat Flux[i] should always be positive. The direction of flux is set with XFlux Positive[i] and YFlux Positive[i]. The magnitude of the flux across any particular cell face will be determined by the size of the cell face and the angle between the cell face and the contour. Fluxes will be distributed among the cell faces such that the net flux across the boundary is equal to Heat Flux[i]. See <a href="#fluid">Fluid Flux[i]</a> for details. If Heat Flux[i] is $N/A, the heat flux boundary is inactive for Time[i]. If all Heat Flux[i]'s for a contour are $N/A, there will not be a heat flux boundary associated with the contour. Heat flux should be specified only through faces where there is no fluid flux.
+
+
+<h2><a name="upheat">Upward</a> Heat Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A </LI>
+   <LI>Related HST3D Variable:  QHFZ</LI>
+   <LI>HST3D Data Set Record Number: 3.4.6</LI>
+</UL>
+Upward Heat Flux[i] represents the magnitude of the vertical heat flux across the horizontal flux boundary. If Upward Heat Flux[i] is positive, the flux is upward and if it is negative the flux is downward. If Upward Heat Flux[i] is $N/A, the heat flux boundary is inactive for Time[i]. If all Upward Heat Flux[i]'s for a contour are $N/A, there will not be a heat flux boundary associated with the contour. Heat flux should be specified only through faces where there is no fluid flux.
+
+<h2><a name="solute">Solute</a> Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A </LI>
+   <LI>Related HST3D Variables:  QSFX, QSFY</LI>
+   <LI>HST3D Data Set Record Number: 3.4.7</LI>
+</UL>
+Solute Flux[i] represents the magnitude of the horizontal heat flux across the vertical flux boundary. Solute Flux[i] should always be positive. The direction of flux is set with XFlux Positive[i] and YFlux Positive[i]. The magnitude of the flux across any particular cell face will be determined by the size of the cell face and the angle between the cell face and the contour. Fluxes will be distributed among the cell faces such that the net flux across the boundary is equal to Solute Flux[i]. See <a href="#fluid">Fluid Flux[i]</a> for details. If Solute Flux[i] is $N/A, the solute flux boundary is inactive for Time[i]. If all Solute Flux[i]'s for a contour are $N/A, there will not be a solute flux boundary associated with the contour. Solute flux should be specified only through faces where there is no fluid flux.
+
+<h2><a name="upsolute">Upward</a> Solute Flux[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A </LI>
+   <LI>Related HST3D Variables:  QSFX, QSFY</LI>
+   <LI>HST3D Data Set Record Number: 3.4.7</LI>
+</UL>
+Upward Solute Flux[i] represents the magnitude of the vertical heat flux across the horizontal flux boundary. If Upward Solute Flux[i] is positive, the flux is upward and if it is negative the flux is downward. If Upward Solute Flux[i] is $N/A, the solute flux boundary is inactive for Time[i]. If all Upward Solute Flux[i]'s for a contour are $N/A, there will not be a solute flux boundary associated with the contour. Solute flux should be specified only through faces where there is no fluid flux.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

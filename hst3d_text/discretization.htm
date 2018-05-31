@@ -1,0 +1,30 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Discretization Guidelines </title></head>
+<body>
+<h1>Discretization Guidelines</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+<a href="references.htm#kipp87">Kipp (1987, p 112-116)</a> presents the following empirical guidelines for discretization. 
+
+<UL>
+   <LI>If using <a href="solver.htm#fdsmth">backward-in-space</a> or <a href="solver.htm#fdtmth">backward-in-time</a> differencing, make some estimates of the truncation error using parameter values at the limits expected for the simulation. Thus, verify that the grid-spacing and time-step selection do not introduce excessive numerical dispersion. See Kipp, 1987, table 3.1, p. 114.</LI>
+   <LI>If using <a href="solver.htm#fdsmth">centered-in-space</a> and <a href="solver.htm#fdtmth">centered-in-time</a> differencing, <a href="timetab.htm#priptc">print results every time step</a> for a short simulation period, 5-10 time steps. Examine the results for spatial and temporal oscillations that are caused by the time or space discretization being too coarse.</LI>
+   <LI>Check on spatial-discretiztion error by refining the mesh. However, this often is impractical for large regions. A check on temporal-discretization error is relatively easy to make by refining the time-step length for a short simulation.</LI>
+   <LI>At each change of boundary condition or source flow rates, reduce the time step until the abrupt changes have had time to propagate into the region. The <a href="timetab.htm#autots">automatic time step</a> alogorith does this.</LI>
+   <LI>To adequately represent a sharp solute-concentration or temperature front, span it with at least 4-5 nodes. A large number of nodes may be required if a sharp front moves through much of the region over the simulation time. Compromises often will have to be made. An advantage of the centered-in-space differencing is that oscillations will reveal when the grid is too coarse relative to the gradients of solute concentration or temperature.</LI>
+   <LI>Well flows that highly stress the aquifer require a small time step after a change in flow rate to control errors from explicit flow-rate allocation or explicit well-dataum pressure calculation.</LI>
+   <LI>Sometimes the global-balance summary table will indicate that the time step is too large by exhibiitng large residuals, particularly if the density and viscosity variations are large.</LI>
+   <LI>To check for unusual results that could indicate discretization error, print out all of the results some of the time and some of the results all of the time.</LI>
+</UL>
+
+See also <a href="solver.htm#fdsmth">FDSMTH</a>
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

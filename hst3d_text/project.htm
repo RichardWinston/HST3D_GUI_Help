@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//ietf//dtd html//en//3.0">
+<html>
+<head>
+  <title>Project Tab</title>
+</head>
+<body>
+<h1>Project Tab</h1>
+You may notice that there are pop-up hints for most items in the Edit
+Project Info dialog box. If you hold your cursor over an item, a hint
+will appear giving the item number and variable name of the related
+item in the HST3D input file.
+<p><b>Back to <a href="contents.htm">Contents</a></b>
+</p>
+<p><map name="progress">
+<area coords="16,89,517,138" href="#title">
+<area coords="18,151,194,201" href="#eeunit">
+<area coords="202,152,354,202" href="#cylind">
+<area coords="360,149,534,167" href="#tilt">
+<area coords="18,221,193,291" href="#tmunit">
+<area coords="202,223,353,290" href="#scalmf">
+<area coords="15,331,218,347" href="#restrt">
+<area coords="16,352,220,378" href="#timrst">
+<area coords="367,171,541,226" href="#thetxz">
+<area coords="369,234,541,287" href="#thetyz">
+<area coords="370,307,542,359" href="#thetzz">
+<area coords="51,41,103,64" href="project.htm">
+<area coords="105,45,161,64" href="elements.htm">
+<area coords="444,44,616,64" href="refcond.htm">
+<area coords="354,42,441,63" href="fluidprop.htm">
+<area coords="280,45,352,64" href="interpolationtab.htm">
+<area coords="163,43,279,62" href="processes.htm">
+<area coords="551,27,611,44" href="bcflow.htm">
+<area coords="505,26,550,45" href="timetab.htm">
+<area coords="456,26,505,47" href="outputtab.htm">
+<area coords="385,25,452,46" href="solver.htm">
+<area coords="290,25,384,45" href="initcond.htm">
+<area coords="174,24,292,43" href="heatcondtab.htm">
+<area coords="70,25,173,44" href="aquifinfltab.htm">
+<area coords="6,24,71,45" href="wellriser.htm">
+<area coords="163,410,369,437" href="default.htm">
+<area coords="370,410,447,435" href="project.htm#help">
+<area coords="452,411,527,435" href="project.htm#cancel">
+<area coords="528,411,603,435" href="project.htm#ok">
+<area coords="234,319,354,386" href="#dependent">
+<area coords="8,45,52,65" href="about.htm">
+<area coords="16,308,174,326" href="#observ">
+</map>
+<img usemap="#progress" src="graphics//project.gif" border="0"> </p>
+<h2><a name="title">Title</a> Line 1 and Title Line 2</h2>
+<ul>
+  <li>Default: "Title Line 1" and "Title Line 2"</li>
+  <li>HST3D Variables: "Title Line 1" and "Title Line 2"</li>
+  <li>Data Set Record Number: 1.1</li>
+</ul>
+The title lines are printed at the beginning of output files. HST3D
+allows the title lines to be up to 80 characters long. However, if the
+first character of the line is a "C", the line will be treated as a
+comment.
+To avoid this, the HST3D PIE automatically inserts a blank character
+before the begining of each line entered in the Title Line boxes. This
+limits the number of characters that can be exported to HST3D for
+either title line to 79. If more than 79 characters
+are in either title line edit box, only the first 79 characters will be
+accepted.
+<p></p>
+<h2><a name="eeunit">Units (EEUNIT)</a></h2>
+<ul>
+  <li>Default: metric units</li>
+  <li>HST3D Variable: EEUNIT</li>
+  <li>Data Set Record Number: 1.4</li>
+</ul>
+Internally, HST3D uses metric (SI) units. However, it can convert US
+customary units to metric units. You must use one of the sets of units
+given on the <a href="units.htm">Units page</a> throughout the model
+unless you change the conversion factors internal to the simulator.
+Conversion factors are given on p. vii of <a
+ href="references.htm#kipp87">Kipp, 1987</a>. If some of your data are
+in US customary units and some are in SI units, you can use the <a
+ href="http://www.argusint.com/PIEs.html">Conversion PIE</a> from Argus
+Interware or the <a href="utilities.htm">MoreConversions</a> PIE that
+comes with the HST3D PIE to convert the data to the proper units.
+<p>If you change your choice of units, all values in the Edit project
+dialog box will be converted to the current units and any new
+parameters on Argus ONE information layers will have default values
+appropriate for your choice of units. However, the default values and
+data on existing information layers will not be changed.
+</p>
+<h2><a name="tmunit">Time Units (TMUNIT)</a></h2>
+<ul>
+  <li>Default: seconds</li>
+  <li>HST3D Variable: TMUNIT</li>
+  <li>Data Set Record Number: 1.5</li>
+</ul>
+TMUNIT selects the time unit of the simulation. All of the temporal
+data must use the time unit indicated by TMUNIT.
+<h2><a name="observ">Use Observation Elevations</a></h2>
+<ul>
+  <li>Default: not checked</li>
+  <li>HST3D Variable: none</li>
+</ul>
+If you check this box, three new layers will be created "<a
+ href="hst3dobservgrid.htm">Observation Elevation Nodes</a>", "<a
+ href="observsurf.htm">Observation Surface</a>", and "<a
+ href="observpoints.htm">Observation Points</a>". These are used in
+postprocessing. If you set elevations on "<a href="observsurf.htm">Observation
+Surface</a>" and have a grid-centered grid on "<a
+ href="hst3dobservgrid.htm">Observation Elevation Nodes</a>" that
+corresponds to the block-centered grid on the "<a href="hst3dgrid.htm">HST3D
+Grid</a>" layer, the post-processing PIE can create a map of the data
+following the defined surface on "<a href="observsurf.htm">Observation
+Surface</a>". This surface can be irregular and need not follow the
+grid boundaries. The PIE will take care of determining which cells it
+needs to extract data from. If you manually created the grid on the "<a
+ href="hst3dgrid.htm">HST3D Grid</a>" layer, you can use the
+"PIEs|Create Observation Grid" to create a grid-centered grid that
+corresponds to the block-centered grid on the "<a href="hst3dgrid.htm">HST3D
+Grid</a>" layer. Otherwise, you can just use the "magic wand" tool as
+usual.
+<p>The "<a href="observpoints.htm">Observation Points</a>" layer is
+used to define observation locations for <a href="timeseries.htm">time
+series plots</a>.
+</p>
+<h2><a name="restrt">Restart previous simulation (RESTRT)</a></h2>
+<ul>
+  <li>Default: not checked</li>
+  <li>HST3D Variable: RESTRT</li>
+  <li>Data Set Record Number: 1.3</li>
+</ul>
+HST3D gives you the capability of restarting a simulation from the
+restart-record file. This can be useful if the initial stages of
+a model give valid results but later stages do not. You can change the
+input for the latter stages without rerunning the earlier
+stages of the simulation. See <a href="#timrst">TIMRST</a>, <a
+ href="timetab.htm#chkptd">CHKPTD</a>, and <a href="timetab.htm#pricpd">PRICPD</a>.
+<h2><a name="timrst">Restart Time (TIMRST)</a></h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: TIMRST</li>
+  <li>Data Set Record Number: 1.3</li>
+</ul>
+TIMRST is the time at which the simulation is to be restarted. The time
+specified in TIMRST must be within 0.1%
+of a time in the restart record. See <a href="#restrt">RESTRT</a>, <a
+ href="timetab.htm#chkptd">CHKPTD</a>, and <a href="timetab.htm#pricpd">PRICPD</a>.
+<h2><a name="cylind">Coordinate System (CYLIND)</a></h2>
+<ul>
+  <li>Default: Cartesian</li>
+  <li>HST3D Variable: CYLIND</li>
+  <li>Data Set Record Number: 1.4</li>
+</ul>
+CYLIND indicates whether a cartesian or cylindrical coordinate system
+is used. At present only cartesian coordinates are
+supported in the HST3D Graphic User Interface (GUI).
+<h2><a name="scalmf">Mass Fraction (SCALMF)</a></h2>
+<ul>
+  <li>Default: scaled mass fraction</li>
+  <li>HST3D Variable: SCALMF</li>
+  <li>Data Set Record Number: 1.4</li>
+</ul>
+HST3D can use either unscaled or scaled mass fractions. If the unscaled
+mass fraction is w, the scaled mass fraction (w') is
+<br>
+w' = (w - w<sub>min</sub>)/(w<sub>max</sub> - w<sub>min</sub>)
+<p>The scaled mass fraction, ranging from 0 to 1, is often more
+convenient for presentation of results.
+(See section 2.2, equation 2.2.1.2, <a href="references.htm#kipp87">Kipp
+(1987)</a> for more information.)
+</p>
+<p><b>IMPORTANT:</b> Even if you use scaled mass fractions, <a
+ href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>
+must still be unscaled mass fractions.
+</p>
+<p></p>
+<h2><a name="tilt">Tilted Coordinate System (TILT)</a></h2>
+<ul>
+  <li>Default: not checked</li>
+  <li>HST3D Variable: TILT</li>
+  <li>Data Set Record Number: 2.3.1</li>
+</ul>
+Unless the model has a free surface (a water table), HST3D allows the
+cooridinate system to be tilted. If you wish to use a tilted coordinate
+system, click the TILT check box. You will then be able to enter values
+for <a href="#thetxz">THETXZ</a>, <a href="#thetyz">THETYZ</a>, and <a
+ href="#thetzz">THETZZ</a>.
+The axes of the model coordinate system must be orthogonal to one
+another. At present, the user is responsible for ensuring that the
+values entered for <a href="#thetxz">THETXZ</a>, <a href="#thetyz">THETYZ</a>,
+and <a href="#thetzz">THETZZ</a> define an orthogonal coordinate
+system.
+<h2><a name="thetxz">Angle of X-axis (THETXZ)</a></h2>
+<ul>
+  <li>Default: 90</li>
+  <li>HST3D Variable: THETXZ</li>
+  <li>Data Set Record Number: 2.3.2</li>
+</ul>
+THETXZ is the angle between the X axis of the model and the true
+vertical.
+The axes of the model coordinate system must be orthogonal to one
+another. Only two of the three angle <a href="#thetxz">THETXZ</a>, <a
+ href="#thetyz">THETYZ</a>, and <a href="#thetzz">THETZZ</a> can be
+entered. The other angle is calculated automatically. The choice of
+angle that is calculated is determined by <a href="#dependent">Dependent
+Angle</a>.
+See also <a href="#tilt">TILT</a>.
+<h2><a name="thetyz">Angle of Y-axis (THETYZ)</a></h2>
+<ul>
+  <li>Default: 90</li>
+  <li>HST3D Variable: THETYZ </li>
+  <li>Data Set Record Number: 2.3.2</li>
+</ul>
+THETYZ is the angle between the Y axis of the model and the true
+vertical.
+The axes of the model coordinate system must be orthogonal to one
+another. Only two of the three angle <a href="#thetxz">THETXZ</a>, <a
+ href="#thetyz">THETYZ</a>, and <a href="#thetzz">THETZZ</a> can be
+entered. The other angle is calculated automatically. The choice of
+angle that is calculated is determined by <a href="#dependent">Dependent
+Angle</a>.
+See also <a href="#tilt">TILT</a>.
+<h2><a name="thetzz">Angle of Z-axis (THETZZ)</a></h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: THETZZ</li>
+  <li>Data Set Record Number: 2.3.2</li>
+</ul>
+THETZZ is the angle between the Z axis of the model and the true
+vertical.
+The axes of the model coordinate system must be orthogonal to one
+another. Only two of the three angle <a href="#thetxz">THETXZ</a>, <a
+ href="#thetyz">THETYZ</a>, and <a href="#thetzz">THETZZ</a> can be
+entered. The other angle is calculated automatically. The choice of
+angle that is calculated is determined by <a href="#dependent">Dependent
+Angle</a>.
+See also <a href="#tilt">TILT</a>.
+<h2><a name="dependent">Dependent Angle</a></h2>
+<ul>
+  <li>Default: THETZZ</li>
+  <li>HST3D Variable: none</li>
+</ul>
+Only two of the three angle <a href="#thetxz">THETXZ</a>, <a
+ href="#thetyz">THETYZ</a>, and <a href="#thetzz">THETZZ</a> can be
+entered. The other angle is calculated automatically. The choice of
+angle that is calculated is determined by <a href="#dependent">Dependent
+Angle</a>.
+See also <a href="#tilt">TILT</a>.
+<h2><a name="ok">OK</a></h2>
+Click the OK button to accept all changes you have made in the Edit
+Project Info dialog box.
+<h2><a name="cancel">Cancel</a></h2>
+Click the Cancel button to discard all changes you have made in the
+Edit Project Info dialog box.
+<h2><a name="help">Help</a></h2>
+Click the Help button to start the online help.
+<p></p>
+<hr><b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<address>
+copyright, 1998
+</address>
+</body>
+</html>

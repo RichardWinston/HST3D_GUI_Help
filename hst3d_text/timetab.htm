@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//ietf//dtd html//en//3.0">
+<html>
+<head>
+  <title>Time tab</title>
+</head>
+<body>
+<h1>Time tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>Please note:
+</p>
+<ul>
+  <li>Only those periods for which the <a href="#duration">Duration</a>
+is positive are active in the model. </li>
+  <li>Changes to "<a href="#maximum">Maximum</a> number of time periods
+to be used for any object" take place only after you click outside the
+edit box.</li>
+  <li>Hints for individual items in the grid appear on the status bar
+below the grid.</li>
+</ul>
+<map name="time">
+<area coords="12,66,493,94" href="#timchg1">
+<area coords="10,92,491,117" href="#duration">
+<area coords="10,117,493,142" href="#timchg2">
+<area coords="13,143,491,168" href="#autots">
+<area coords="14,167,492,191" href="#deltim">
+<area coords="13,192,492,218" href="#dptas">
+<area coords="9,217,492,243" href="#dttas">
+<area coords="11,243,492,267" href="#dctas">
+<area coords="12,267,492,292" href="#dtimmn">
+<area coords="12,292,492,318" href="#dtimmx">
+<area coords="12,318,493,342" href="#prislm">
+<area coords="9,341,492,368" href="#prikd">
+<area coords="7,367,492,391" href="#priptc">
+<area coords="10,392,493,419" href="#pridv">
+<area coords="12,418,491,444" href="#privel">
+<area coords="12,442,493,467" href="#prigfb">
+<area coords="11,467,492,492" href="#pribcf">
+<area coords="11,493,493,518" href="#priwel">
+<area coords="12,517,493,543" href="#iprptc1">
+<area coords="12,542,492,567" href="#iprptc2">
+<area coords="12,567,491,593" href="#iprptc3">
+<area coords="13,593,493,617" href="#chkptd">
+<area coords="12,618,494,644" href="#pricpd">
+<area coords="12,643,492,667" href="#savldo">
+<area coords="13,666,491,692" href="#cntmap">
+<area coords="11,692,494,717" href="#vecmap">
+<area coords="7,716,493,742" href="#primap">
+<area coords="16,758,255,783" href="#maximum">
+<area coords="342,754,422,782" href="#add">
+<area coords="425,755,500,781" href="#delete">
+<area coords="504,756,579,780" href="#insert">
+<area coords="49,25,101,44" href="project.htm">
+<area coords="101,26,157,45" href="elements.htm">
+<area coords="433,24,605,44" href="refcond.htm">
+<area coords="346,24,433,45" href="fluidprop.htm">
+<area coords="273,25,345,44" href="interpolationtab.htm">
+<area coords="158,25,274,44" href="processes.htm">
+<area coords="7,43,71,60" href="wellriser.htm">
+<area coords="70,44,169,62" href="aquifinfltab.htm">
+<area coords="169,45,290,63" href="heatcondtab.htm">
+<area coords="291,43,381,63" href="initcond.htm">
+<area coords="380,44,450,63" href="solver.htm">
+<area coords="454,45,497,64" href="outputtab.htm">
+<area coords="496,45,543,64" href="timetab.htm">
+<area coords="546,44,605,63" href="bcflowtab.htm">
+<area coords="164,814,370,841" href="default.htm">
+<area coords="374,816,451,841" href="project.htm#help">
+<area coords="456,817,531,841" href="project.htm#cancel">
+<area coords="534,816,609,840" href="project.htm#cancel">
+<area coords="6,24,51,43" href="about.htm">
+</map>
+<img usemap="#time" src="graphics//time.gif" border="0">
+<h2><a name="timchg1">Start</a> Time (TIMCHG)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: TIMCHG</li>
+  <li>Data Set Record Number: 3.8.4</li>
+</ul>
+The start time can not be editted directly. Instead, edit <a
+ href="#duration">Duration</a> to change the end time of the current
+period and the start and end times of succeeding periods.
+<h2><a name="duration">Duration</a></h2>
+<ul>
+  <li>Default: 0</li>
+</ul>
+Edit Duration to change the end time of the current period and the
+start and end times of succeeding periods.
+A duration of 0 indicates the end of the non-spatial, temporal
+information. If there is no 0 duration, the largest time in the "End of
+Period" row will indicate the end of the non-spatial, temporal
+information.
+<h2><a name="timchg2">End</a> of Period (TIMCHG)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: TIMCHG</li>
+  <li>Data Set Record Number: 3.8.4</li>
+</ul>
+The end time can not be editted directly. Instead, edit <a
+ href="#duration">Duration</a> to change the end time of the current
+period and the start and end times of succeeding periods.
+<h2><a name="autots">Automatic</a> time step (AUTOTS)</h2>
+<ul>
+  <li>Default: Yes</li>
+  <li>HST3D Variable: AUTOTS</li>
+  <li>Data Set Record Number: 3.8.2</li>
+</ul>
+Set to "Yes" for automatic time step adjustment for the current time
+period or to "No" to set a specific time step length.
+Click on this space to toggle between Yes and No.
+<h2><a name="deltim">Time</a> step length (DELTIM)</h2>
+<ul>
+  <li>Default: 1</li>
+  <li>HST3D Variable: DELTIM</li>
+  <li>Data Set Record Number: 3.8.3A</li>
+</ul>
+Set DELTIM to the desired time step length for the current time period.
+AUTOTS must be No to activate this choice.
+<h2><a name="dptas">Max</a> change in pres. (DPTAS)</h2>
+<ul>
+  <li>Default: 5000</li>
+  <li>HST3D Variable: DPTAS</li>
+  <li>Data Set Record Number: 3.8.3B</li>
+</ul>
+DPTAS is the maximum change in pressure allowed for setting the time
+step automatically. Default = 5&nbsp;x&nbsp;10<sup>4</sup> Pa.
+AUTOTS must be Yes to activate this choice.
+<h2><a name="dttas">Max</a> change in temp. (DTTAS)</h2>
+<ul>
+  <li>Default: 5</li>
+  <li>HST3D Variable: DTTAS</li>
+  <li>Data Set Record Number: 3.8.3B</li>
+</ul>
+DTTAS is the maximum change in temperature allowed for setting the time
+step automatically. Default = 5 <sup>o</sup>C.
+AUTOTS must be Yes to activate this choice.
+<h2><a name="dctas">Max</a> change in mass frac. (DCTAS)</h2>
+<ul>
+  <li>Default: 0.25</li>
+  <li>HST3D Variable: DCTAS</li>
+  <li>Data Set Record Number: 3.8.3B</li>
+</ul>
+DTTAS is the maximum change in mass fraction (or scaled mass fraction)
+allowed for setting the time step automatically. Default = 0.25
+(scaled).
+AUTOTS must be Yes to activate this choice.
+<h2><a name="dtimmn">Min</a> time step (DTIMMN)</h2>
+<ul>
+  <li>Default: 10000</li>
+  <li>HST3D Variable: DTIMMN</li>
+  <li>Data Set Record Number: 3.8.3B</li>
+</ul>
+DTIMMN is the minimum time step required. This time step will be used
+for the first two steps at the start of the simulation and after a
+change in boundary conditions, that is at TIMCHG. Default set at 10<sup>4</sup>
+s.
+AUTOTS must be Yes to activate this choice.
+<h2><a name="dtimmx">Max</a> time step (DTIMMX)</h2>
+<ul>
+  <li>Default: 10000000</li>
+  <li>HST3D Variable: DTIMMX</li>
+  <li>Data Set Record Number: 3.8.3B</li>
+</ul>
+Maximum time step allowed. Default set at 10<sup>7</sup> s.
+AUTOTS must be Yes to activate this choice.
+<h2><a name="prislm">Solution</a> Method Printout Interval (PRISLM)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRISLM</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for solution-method information, number of
+iterations, maximum changes in dependent variables, and so forth.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRISLM controls the frequency with which data are printed to the
+Clog.xxx file.
+<h2><a name="prikd">Conductance/Dispersion</a> Printout Interval (PRIKD)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIKD</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for the conductance and dispersion-coefficient
+arrays.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIKD controls the frequency with which data are printed to the
+O.kd.xxx file.
+<h2><a name="priptc">Pres/Temp/Mass</a> Frac Printout Interval (PRIPTC)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIPTC</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for the pressure, temperature, and mass-fraction
+arrays.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIPTC controls the frequency with which data are printed to the
+O.p.xxx, O.t.xxx, and O.c.xxx files.
+<h2><a name="pridv">Density</a> Viscosity Printout Interval (PRIDV)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIDV</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for the fluid-density and fluid-viscosity arrays.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIDV controls the frequency with which data are printed to the
+O.vs.xxx file.
+<h2><a name="privel">Velocity</a> Printout Interval (PRIVEL)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIVEL</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for the velocity arrays.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIVEL controls the frequency with which data are printed to the
+O.vel.xxx file.
+<h2><a name="prigfb">Flow-Balance</a> Printout Interval (PRIGFB)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIGFB</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for flow-balance information for the region.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIGFB controls the frequency with which data are printed to the
+O.bal.xxx file.
+<h2><a name="pribcf">Specified-Value</a> Flow Printout Interval (PRIBCF)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIBCF</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for specified-value boundary-condition flow rates.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIBCF controls the frequency with which data are printed to the
+O.bcf.xxx file.
+<h2><a name="priwel">Well</a> Printout Interval (PRIWEL)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIWEL</li>
+  <li>Data Set Record Number: 3.9.1</li>
+</ul>
+Printout interval for well information.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIBCF controls the frequency with which data are printed to the
+O.wel.xxx file.
+<h2><a name="iprptc1">Print</a> Pressure (IPRPTC; first digit)</h2>
+<ul>
+  <li>Default: No</li>
+  <li>HST3D Variable: IPRPTC; first digit</li>
+  <li>Data Set Record Number: 3.9.2</li>
+</ul>
+Choose to print pressure, pressure and head, or neither. PRIPTC must be
+not equal to 0 to activate this choice.
+Click on this space to toggle between the three choices.
+<h2><a name="iprptc2">Print</a> Temperature (IPRPTC; second digit)</h2>
+<ul>
+  <li>Default: No</li>
+  <li>HST3D Variable: IPRPTC; second digit</li>
+  <li>Data Set Record Number: 3.9.2</li>
+</ul>
+Choose to print temperature temperature and enthalpy or neither. PRIPTC
+must be not equal to 0 to activate this choice.
+Click on this space to toggle between the three choices.
+<h2><a name="iprptc3">Print</a> Mass Fraction (IPRPTC; third digit)</h2>
+<ul>
+  <li>Default: No</li>
+  <li>HST3D Variable: IPRPTC; third digit</li>
+  <li>Data Set Record Number: 3.9.2</li>
+</ul>
+Choose to whether to print mass fraction.
+PRIPTC must be not equal to 0 to activate this choice.
+Click on this space to toggle between Yes and No.
+<h2><a name="chkptd">Print</a> Checkpoint Dumps (CHKPTD)</h2>
+<ul>
+  <li>Default: No</li>
+  <li>HST3D Variable: CHKPTD</li>
+  <li>Data Set Record Number: 3.9.3</li>
+</ul>
+Choose whether to print Checkpoint Dumps. Checkpoint dumps can be used
+for possible restarts of the simulation.
+Click on this space to toggle between Yes and No.&nbsp; See also <a
+ href="#pricpd">PRICPD</a>, <a href="project.htm#restrt">RESTRT</a>,
+and <a href="project.htm#timrst">TIMRST</a>.
+<h2><a name="pricpd">Checkpoint</a> Dump Printout Interval (PRICPD)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRICPD</li>
+  <li>Data Set Record Number: 3.9.3</li>
+</ul>
+Choose the frequency of checkpoint dumps. Checkpoint dumps can be used
+for possible restarts of the simulation.
+<a href="#chkptd">CHKPTD</a> must be Yes to print any checkpoint dumps
+regardless of the value of PRICPD.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRICPD controls the frequency with which data are printed to the
+O.rst.xxx file.<br>
+<p>See also <a href="#chkptd">CHKPTD</a>, <a href="project.htm#restrt">RESTRT</a>,
+and <a href="project.htm#timrst">TIMRST</a>.</p>
+<h2><a name="savldo">Save</a> Only Last Checkpoint Dump (SAVLDO)</h2>
+<ul>
+  <li>Default: No</li>
+  <li>HST3D Variable: SAVLDO</li>
+  <li>Data Set Record Number: 3.9.3</li>
+</ul>
+Choose whether to save only the last checkpoint dump. Click on this
+space to toggle between Yes and No.
+<h2><a name="cntmap">Print</a> Contour Map Data (CNTMAP)</h2>
+<ul>
+  <li>Default: Yes</li>
+  <li>HST3D Variable: CNTMAP</li>
+  <li>Data Set Record Number: 3.10.1</li>
+</ul>
+Choose whether to print contour map data. This data can be used by the
+HST3D PIE post-processor or by other post processing programs.
+Click on this space to toggle between Yes and No.
+<h2><a name="vecmap">Print</a> Velocity Vector Map Data (VECMAP)</h2>
+<ul>
+  <li>Default: Yes</li>
+  <li>HST3D Variable: VECMAP</li>
+  <li>Data Set Record Number: 3.10.1</li>
+</ul>
+Choose whether to print velocity vector map data. This data can be used
+by the HST3D PIE post-processor or by other post processing programs.
+Click on this space to toggle between Yes and No.
+<h2><a name="primap">Map</a> Printout Interval (PRIMAP)</h2>
+<ul>
+  <li>Default: 0</li>
+  <li>HST3D Variable: PRIMAP</li>
+  <li>Data Set Record Number: 3.10.1</li>
+</ul>
+PRIMAP is the printout interval for contour and or vector map data.
+This must be an integer.
+<ul>
+  <li>If it is 0, this information will not be printed.</li>
+  <li>If it is &gt; 0, the printout will occur every n'th time step and
+at the end of the stress period.</li>
+  <li>if it is &lt; 0, the printout will occur at every n simulation
+time units and at the end of the stress period.</li>
+</ul>
+PRIMAP controls the frequency with which data is printed to the PMAP,
+PMAP2, and VMAP files that are read by the HST3D Postprocessor.
+<h2><a name="maximum">Maximum</a> number of time periods to be used for
+any object.</h2>
+<ul>
+  <li>Default: 1</li>
+</ul>
+Every object (points, open contours and closed contours) in the model
+that can have temporal information will have a Time[i] parameter with a
+default value of $N/A (not available). The value of Time1 should be set
+to 0. Succeeding Time[i] parameters can be set to the times at which
+one or more temporal parameters for that contour changes value. If a
+time parameter remains set to $N/A, the temporal parameters associated
+with that time parameter will be ignored. During the export process,
+all the time parameters for the objects plus the times for the
+non-spatial data will be gathered into a single list and used to set up
+the model time periods. This allows you to specify different time
+periods for each object. The number of time parameters available in
+each objects is controlled by the number specified in this edit box.
+<h2><a name="add">Add</a> Time</h2>
+Click this button to add a time period to the end of the existing time
+periods for non-spatial data. This increases the "Maximum number of
+time periods to be used for any object" by one if the number of time
+periods for non-spatial data is already at the maximum.
+<h2><a name="delete">Delete</a> Time</h2>
+Click this button to delete the selected time period. This has no
+effect the "Maximum number of time periods to be used for any object".
+<h2><a name="insert">Insert</a> Time</h2>
+Click this button to insert a time period before the selected time
+period for non-spatial data. This increases the "Maximum number of time
+periods to be used for any object" by one if the number of time periods
+for non-spatial data is already at the maximum.
+<hr><b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<address>
+copyright, 1998
+</address>
+</body>
+</html>

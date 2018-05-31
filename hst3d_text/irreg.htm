@@ -1,0 +1,39 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Dealing with Irregular Aquifer Geometry </title></head>
+<body>
+<h1>Dealing with Irregular Aquifer Geometry</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+Dealing aquifers that are horizontal and uniform in thickness is easy in Argus ONE but what about when the aquifers have an irregular topography? Is there a good way of dealing with them too?
+<p>
+The answer is yes although it requires a little work. First you need to create layers that define the aquifer geometry. For example, this layer shows contours for the bottom of one aquifer. Similar layers could be created to define the surfaces of the other aquifers.
+<p>
+<img src="graphics/irreg1.gif" width="610" height="480">
+<img src="graphics/irreg2.gif" width="251" height="468">
+
+<p>
+Next we need to create layers that define the properties of the aquifer or aquifers. Here we have layers for porosity, permeability, and vertical compressibility. We assign the aquifer properties to these layers.
+<p>
+Finally we create expressions that link the unit layers to the aquifer layers. This, for example, is an expression for Permeability Unit1.kx 
+<p>
+If((Elev Bot Aquifer1&lt;HST3D Grid.Elevation NL1 + HST3D Grid.Elevation NL2 / 2), Permeability Aquifer1, 
+<br>
+If((Elev Bot Aquifer2&lt;Grid.Elevation + HST3D Grid.Elevation NL2 / 2), Permeability Aquifer2, 0))
+<p>
+This expression makes use of two parameters on the HST3D Grid Layer: PIE: HST3D Grid.Elevation NL1 and HST3D Grid.Elevation NL2. In words, the expression says that if the middle of the element is above the bottom of the Aquifer1 use the permeability  in the &quot;Permeability Aquifer1&quot; layer. Otherwise, check if the middle of the element is above the bottom of Aquifer2 use the permeability  in the &quot;Permeability Aquifer2&quot; layer. If it isn't above the bottom of Aquifer2, set the permeability to 0. You can easily develop similar expressions for other units and parameters.
+<p>
+Here is an example of one parameter value assigned using this method. The blue cells are in the upper aquifer; the red ones are in the lower aquifer. The contours represent the elevation of the surface between the upper and lower aquifers.
+<p>
+<img src="graphics/irreg3.gif" width="610" height="480">
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>
+

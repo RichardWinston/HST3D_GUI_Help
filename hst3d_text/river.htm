@@ -1,0 +1,155 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> River Leakage Layer </title></head>
+<body>
+
+<h1>River Leakage Layer</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+There are two types of leakage boundaries: <a href="aquifleak.htm">Aquifer-Leakage</a> boundaries and River-Leakage boundaries.
+<p>
+Use Open contours to set the position of rivers.
+<p>
+HST3D requires that diagonal river segments must be oriented in NW, NE, SW or
+SE direction such that the increment in node number is equal in x and y directions.
+This will be 45 degrees for a regular mesh. (Kipp, personal communication, 1998.)
+ However, there is no such restriction when using
+the PIE because the PIE cuts each contour into segments that are acceptable to HST3D.
+<br>
+
+If you define a river in a layer below the top, the simulator will
+define the river to be in the top layer of nodes but connect it  to the cells
+containing the water table even if they change as time progresses. (Kipp, personal communication, 1998.)
+
+<br>
+
+You can not define a river that cuts a canyon through several layers of cells. (Kipp, personal communication, 1998.)
+
+<p>
+A river leakage boundary is not allowed in any cell with a specified pressure boundary.
+<p>
+Up to eight rivers can occur in a single cell.
+<p>
+
+<MAP NAME="river">
+   <AREA COORDS="37,226,477,242" HREF="#permeability">
+   <AREA COORDS="39,243,479,259" HREF="#width">
+   <AREA COORDS="40,259,478,274" HREF="#thickness">
+   <AREA COORDS="38,274,478,290" HREF="#elevation">
+   <AREA COORDS="40,290,477,308" HREF="#time">
+   <AREA COORDS="37,307,478,323" HREF="#head">
+   <AREA COORDS="40,323,479,339" HREF="#density">
+   <AREA COORDS="40,338,479,356" HREF="#viscosity">
+   <AREA COORDS="38,356,479,371" HREF="#temperature">
+   <AREA COORDS="37,372,478,386" HREF="#mass">
+   <AREA COORDS="39,386,479,403" HREF="#scaled">
+</MAP>
+<IMG BORDER=0 USEMAP="#river" SRC="graphics//river.gif"> 
+
+
+<h2><a name="permeability">River</a> Bed Permeability</h2>
+<UL>
+   <LI>Default Expression: 1e-10 m<sup>2</sup> or 1.076391041671e-9 ft<sup>2</sup>; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: KRBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+River Bed Permeability is the permeability (L<sup>2</sup>) of the material making up the bed of the river. 
+KRBC is calculated from &quot;River Bed Permeability&quot;, &quot;River Bed Width&quot; the length of the contour in a cell and the area of the cell. KRBC = (River Bed Permeability)*(River Bed Width)*(Length of Contour)/(Cell Area)
+
+<h2><a name="width">River</a> Bed Width</h2>
+<UL>
+   <LI>Default Expression: 10 m or 32.80839895013 ft.; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: KRBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+River Bed Width is the width (L) of the material making up the bed of the river. 
+KRBC is calculated from &quot;River Bed Permeability&quot;, &quot;River Bed Width&quot; the length of the contour in a cell and the area of the cell. KRBC = (River Bed Permeability)*(River Bed Width)*(Length of Contour)/(Cell Area)
+
+
+<h2><a name="thickness">River</a> Bed Thickness</h2>
+<UL>
+   <LI>Default Expression: 1 m or 3.280839895013 ft.; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: BBRBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Thickness of the confining layer that forms the riverbed.
+
+<h2><a name="elevation">River</a> Bed Top Elevation</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#elevation">HST3D Grid.Elevation NL1</a></LI>
+   <LI>Related HST3D Variable: ZERBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Elevation of the top of the confining layer that forms the riverbed. The river will be assigned to the node layer that is closest to the bottom of the river bed (River Bed Top Elevation - River Bed Thickness).
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current contour used to define a river. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+<h2><a name="head">Head[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: HRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.5</LI>
+</UL>
+Potentiometric head in the river for the period beginning at Time[i].
+
+<h2><a name="density">Density[i]</a></h2>
+<UL>
+   <LI>Default Expression: 998.23 kg/m<sup>3</sup> or 62.317 lb/ft<sup>3</sup>; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: DENRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.5</LI>
+</UL>
+Density of the river fluid for the period beginning at Time[i].
+<p>
+The density must be in the range <a href="fluidprop.htm#denf0">DENF0</a> to <a href="fluidprop.htm#denf1">DENF1</a>.
+<h2><a name="viscosity">Viscosity[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0.001002 Pa-s or 1.002 cP; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: VISRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.5</LI>
+</UL>
+Viscosity of the river fluid for the period beginning at Time[i].
+
+<h2><a name="temperature">Temperature[i]</a></h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable: TRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.5</LI>
+</UL>
+Temperature of the river fluid for the period beginning at Time[i].
+
+<h2><a name="mass">Mass</a> Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#w0">HST3D Grid.W0</a></LI>
+   <LI>Related HST3D Variable: CRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.5</LI>
+</UL>
+Solute mass fraction of the river fluid for the period beginning at Time[i]. Normally, Mass Fraction[i] and Scaled Mass Fraction[i] parameters are not both present simultaneously
+<p>
+The mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="scaled">Scaled</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: CRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.5</LI>
+</UL>
+Scaled solute mass fraction of the river fluid for the period beginning at Time[i]. Valid numbers range from 0 to 1. Normally, Mass Fraction[i] and Scaled Mass Fraction[i] parameters are not both present simultaneously
+<p>
+The scaled mass fraction must be in the range 0 to 1.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

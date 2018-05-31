@@ -1,0 +1,209 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Specified State NL[i] </title></head>
+<body>
+<h1>Specified State NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+You can not set any of the specified state parameters simply by setting the default value of the layer. You must use contours to
+set the specified state parameters. Any HST3D Cell that is enclosed or intercepted by a closed contour will be assigned
+the value of that contour. 
+Any HST3D Cell intercepted by a point or open contour will be assigned the value of
+that contour. If a cell is assigned a value through two or more contours, the value ultimately used by HST3D
+will depend on the order in which the contours were created. The value assigned with the most recently created
+contour will be the one used by HST3D. 
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+
+You can enable interpolation for the parameters on the Specified State Layer. See <a href="interpolation.htm">Interpolation in the HST3D PIE</a> for more information.
+<p>
+
+<MAP NAME="specstate">
+   <AREA COORDS="39,227,348,242" HREF="#time">
+   <AREA COORDS="40,243,347,258" HREF="#sp">
+   <AREA COORDS="41,258,347,274" HREF="#endsp">
+   <AREA COORDS="38,275,347,291" HREF="#tsp">
+   <AREA COORDS="39,291,347,307" HREF="#endtsp">
+   <AREA COORDS="39,306,346,323" HREF="#mf">
+   <AREA COORDS="41,323,346,339" HREF="#endmf">
+   <AREA COORDS="38,337,346,353" HREF="#scmf">
+   <AREA COORDS="39,355,348,371" HREF="#endscmf">
+   <AREA COORDS="39,370,348,386" HREF="#sptemp">
+   <AREA COORDS="39,385,348,402" HREF="#endsptemp">
+   <AREA COORDS="38,402,347,417" HREF="#spmass">
+   <AREA COORDS="40,418,349,435" HREF="#endspmass">
+   <AREA COORDS="39,434,347,451" HREF="#spsc">
+   <AREA COORDS="37,450,348,466" HREF="#endspsc">
+</MAP>
+<IMG src="graphics/specstate.gif" border="0" usemap="#specstate"> 
+
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current object. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+<h2><a name="sp">Specified</a> Pressure[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variables: IBC, PNP</LI>
+   <LI>HST3D Data Set Record Numbers: 2.14, 3.3.2</LI>
+</UL>
+If Specified Pressure[i] is not equal to $N/A for any time period, the cell will be designated as having a specified pressure boundary condition.
+In any time period in which Specified Pressure[i] is $N/A, no specified pressure boundary condition will occur at the cell. If Specified Pressure[i] is a number, that number will be the specified pressure for the cells controlled by the contour unless the contour is an open contour, interpolation along contours is allowed and End Specified Pressure[i] is not equal to $N/A. 
+<p>
+Under confined conditions, you should not use both a specified pressure and either a specified temperature or specified mass fraction boundary in the same cell.
+<h2><a name="endsp">End</a> Specified Pressure[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: PNP</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Specified Pressure[i] is not equal to $N/A, End Specified Pressure[i] designates the specified pressure at the end of the contour. 
+
+<h2><a name="tsp">Temp</a> at Spec Pres[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable: TSBC</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+Temp at Spec Pres[i] is the temperature associated with the specified pressure boundary for Time[i]. If inflow occurs, this temperature will determine the heat-inflow rate.
+<br>
+See also: <a href="hst3d_faq.htm#difference">What is the difference between <i>specified temperature</i> and <i>temperature at specified pressure</i>?</a>
+
+<h2><a name="endtsp">End</a> Temp at Spec Pres[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: TSBC</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Temp at Spec Pres[i] is not equal to $N/A, End Temp at Spec Pres[i] designates the temperature associated with the specified pressure boundary for Time[i] at the end of the contour. 
+<br>
+See also: <a href="hst3d_faq.htm#difference">What is the difference between <i>specified temperature</i> and <i>temperature at specified pressure</i>?</a>
+<h2><a name="mf">Mass</a> Frac at Spec Pres[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#w0">HST3D Grid.W0</a></LI>
+   <LI>Related HST3D Variable: CSBC</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+Mass fraction associated with a specified-pressure boundary-condition node. If inflow occurs, this mass fraction will determine the solute inflow rate.
+Normally, you would not have both Mass Frac at Spec Pres[i] and Scaled Mass Frac at Spec Pres[i] parameters present.
+<p>
+The Mass Frac at Spec Pres[i] must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="endmf">End</a> Mass Frac at Spec Pres[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: CSBC</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Mass Frac at Spec Pres[i] is not equal to $N/A, End Mass Frac at Spec Pres[i] designates the mass fraction associated with the specified pressure boundary for Time[i] at the end of the contour. 
+<p>
+The End Mass Frac at Spec Pres[i] must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="scmf">Scaled</a> Mass Frac at Spec Pres[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: CSBC</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+Scaled Mass fraction associated with a specified-pressure boundary-condition node. If inflow occurs, this mass fraction will determine the solute inflow rate.
+Normally, you would not have both Mass Frac at Spec Pres[i] and Scaled Mass Frac at Spec Pres[i] parameters present.
+<p>
+The End Mass Frac at Spec Pres[i] must be in the range 0 to 1.
+
+<h2><a name="endscmf">End</a> Scaled Mass Frac at Spec Pres[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: CSBC</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Scaled Mass Frac at Spec Pres[i] is not equal to $N/A, End Scaled Mass Frac at Spec Pres[i] designates the scaled mass fraction associated with the specified pressure boundary for Time[i] at the end of the contour. 
+<p>
+The End Scaled Mass Frac at Spec Pres[i] must be in the range 0 to 1.
+
+<h2><a name="sptemp">Specified</a> Temperature[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variables: IBC, TNP</LI>
+   <LI>HST3D Data Set Record Numbers: 2.14, 3.3.2</LI>
+</UL>
+If Specified Temperature[i] is not equal to $N/A for any time period, the cell will be designated as having a specified temperature boundary condition.
+Specified Temperature[i] will be the temperature of the specified temperature boundary-condition nodes.
+<p>
+Under confined conditions, you should not use both a specified pressure and either a specified temperature or specified mass fraction boundary in the same cell.
+<br>
+See also: <a href="hst3d_faq.htm#difference">What is the difference between <i>specified temperature</i> and <i>temperature at specified pressure</i>?</a>
+<h2><a name="endsptemp">End</a> Specified Temperature[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: TNP</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Specified Temperature[i] is not equal to $N/A, End Specified Temperature[i] designates the temperature of the specified temperature boundary-condition for Time[i] at the end of the contour. 
+<br>
+See also: <a href="hst3d_faq.htm#difference">What is the difference between <i>specified temperature</i> and <i>temperature at specified pressure</i>?</a>
+<h2><a name="spmass">Specified</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: IBC, CNP</LI>
+   <LI>HST3D Data Set Record Number: 2.14, 3.3.2</LI>
+</UL>
+If Specified Mass Fraction[i] is not equal to $N/A for any time period, the cell will be designated as having a specified mass fraction boundary condition.
+Specified Mass Fraction[i] is the mass fraction for th especified mass-fraction boundary-condition nodes for Time[i].
+Normally, you would not have both Specified Mass Fraction[i] and Specified Scaled Mass Fraction[i] parameters present.
+<p>
+Under confined conditions, you should not use both a specified pressure and either a specified temperature or specified mass fraction boundary in the same cell.
+<p>
+The specified mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="endspmass">End</a> Specified Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: CNP</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Specified Mass Fraction[i] is not equal to $N/A, End Specified Mass Fraction[i] designates the mass fraction of the specified mass fraction boundary-condition for Time[i] at the end of the contour. 
+<p>
+The end specified mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="spsc">Specified</a> Scaled Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variables: IBC, CNP</LI>
+   <LI>HST3D Data Set Record Numbers: 2.14, 3.3.2</LI>
+</UL>
+If Specified Scaled Mass Fraction[i] is not equal to $N/A for any time period, the cell will be designated as having a specified mass fraction boundary condition. 
+Specified Scaled Mass Fraction[i] is the scaled mass fraction for th especified mass-fraction boundary-condition nodes for Time[i].
+Normally, you would not have both Specified Mass Fraction[i] and Specified Scaled Mass Fraction[i] parameters present.
+<p>
+Under confined conditions, you should not use both a specified pressure and either a specified temperature or specified mass fraction boundary in the same cell.
+<p>
+The specified scaled mass fraction must be in the range 0 to 1.
+
+<h2><a name="endspsc">End</a> Specified Scaled Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: CNP</LI>
+   <LI>HST3D Data Set Record Number: 3.3.2</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Specified Scaled Mass Fraction[i] is not equal to $N/A, End Specified Scaled Mass Fraction[i] designates the scaled mass fraction of the specified mass fraction boundary-condition for Time[i] at the end of the contour. 
+<p>
+The end specified scaled mass fraction must be in the range 0 to 1.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

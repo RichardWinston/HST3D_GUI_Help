@@ -1,0 +1,22 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Calculating Pressure from Freshwater Head, Node Layer Elevations and Fluid Density </title></head>
+<body>
+<h1>Calculating Pressure from Freshwater Head, Node Layer Elevations and Fluid Density</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+In the example model for HST3D, <a href="references.htm#kipp97">Kipp (1997)</a> shows how to convert freshwater heads to pressures for the specified pressure boundary condition. In the HST3D PIE, you can do something similar but the way it is done is slightly different. You have to create an expression that will give the pressure. Here is one such expression
+<pre >
+(HST3D Grid.Elevation NL1 - HST3D Grid.Elevation NL2 + Added Head) * Fluid Density
+</pre>
+This gives the pressure in node layer 2. Grid.Elevation NL[i] gives the elevation of the layer of nodes indicated by &quot;i&quot;. Thus &quot;HST3D Grid.Elevation NL1 - HST3D Grid.Elevation NL2&quot; gives the difference in elevation between the top of the model and Node Layer 2. &quot;Added Head&quot; and &quot;Fluid Density&quot; are parameters or layers that you create. &quot;Added Head&quot; represents the difference in head between the head at the contour and the head due solely to hydrostatic pressure. &quot;Fluid Density&quot; is the average density of the fluid above the node layer. 
+<p>
+Note: in the HST3D PIE, node layers are numbered from the top down. This is the reverse of the convention used in HST3D itself in which node layers are numbered from the bottom up.
+<HR>
+<ADDRESS>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

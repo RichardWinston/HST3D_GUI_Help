@@ -1,0 +1,319 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Wells Layer </title></head>
+<body>
+<h1>Wells Layer</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+The &quot;Wells&quot; layer appears under the &quot;Unindexed Layers&quot; group layer if the &quot;Wells&quot; checkbox is checked on the Processes/Boundaries tab of the Edit Project Info Dialog box. The parameters that appear on the Wells layer depend on the other options selected for the model.
+<p>
+Only one well is allowed in any one cell. Multiple wells in a cell must be represented by an equivalent single well, or the spatial grid must be refined to separate them. This restriction includes wells that are located in the same areal cell that are completed in different vertical intervals.
+<p>
+
+<MAP NAME="well">
+   <AREA COORDS="39,225,435,242" HREF="#label">
+   <AREA COORDS="39,242,491,258" HREF="#topcomp">
+   <AREA COORDS="39,259,491,274" HREF="#bottomcomp">
+   <AREA COORDS="38,275,491,291" HREF="#outside">
+   <AREA COORDS="41,290,494,306" HREF="#method">
+   <AREA COORDS="39,306,493,323" HREF="#length">
+   <AREA COORDS="39,322,491,339" HREF="#inside">
+   <AREA COORDS="38,339,492,355" HREF="#roughness">
+   <AREA COORDS="36,354,493,372" HREF="#angle">
+   <AREA COORDS="39,371,495,388" HREF="#heat">
+   <AREA COORDS="36,387,493,403" HREF="#diffusivity">
+   <AREA COORDS="37,402,491,418" HREF="#mediumcond">
+   <AREA COORDS="38,417,493,435" HREF="#pipecond">
+   <AREA COORDS="37,434,492,450" HREF="#bottomtemp">
+   <AREA COORDS="39,450,492,466" HREF="#toptemp">
+   <AREA COORDS="36,468,493,484" HREF="#wellcomp">
+   <AREA COORDS="39,484,493,498" HREF="#skin">
+   <AREA COORDS="38,498,495,514" HREF="#time">
+   <AREA COORDS="37,514,493,531" HREF="#flow">
+   <AREA COORDS="38,531,493,547" HREF="#land">
+   <AREA COORDS="37,547,494,562" HREF="#datum">
+   <AREA COORDS="36,561,493,580" HREF="#fluidtemp">
+   <AREA COORDS="37,579,493,596" HREF="#massfrac">
+   <AREA COORDS="37,595,496,610" HREF="#scmassfrac">
+</MAP>
+<IMG BORDER=0 USEMAP="#well" SRC="graphics//well.gif"> 
+
+
+<h2><a name="label">Label</a></h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: IWEL</LI>
+   <LI>HST3D Data Set Record Number: 2.13.1</LI>
+</UL>
+The &quot;Label&quot; parameter is provided as a convenience to the user. You may use it to identify individual wells. In the future, the Label may be exported to the HST3D input file as a comment. It serves to identify a well in the same way that the HST3D variable IWEL does. However, IWEL does not depend on &quot;Label&quot;. The HST3D IWEL parameter is assigned by the HST3D PIE based on the order in which the wells were added to the model.
+
+<h2><a name="topcomp">Top</a> Completion Elevation</h2>
+<table align="right">
+<tr>
+   <td><img src="graphics/wellriser.gif" width="414" height="810">
+ </td>
+</tr>
+</TABLE>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: ZWT</LI>
+   <LI>HST3D Data Set Record Number: 2.13.1</LI>
+</UL>
+&quot;Top Completion Elevation&quot; is the Z-coordinate of the uppermost completion layer for the well. This is the location at which the dependent-variable data are taken if this is an observation well.
+
+<h2><a name="bottomcomp">Bottom</a> Completion Elevation</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: ZWB</LI>
+   <LI>HST3D Data Set Record Number: 2.13.1</LI>
+</UL>
+&quot;Bottom Completion Elevation&quot; is the Z-coordinate of the lowermost completion layer for the well.
+
+<h2><a name="outside">Outside</a> Diameter</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: WBOD</LI>
+   <LI>HST3D Data Set Record Number: 2.13.1</LI>
+</UL>
+&quot;Outside Diameter&quot; is the well bore outside diameter. This is the drilled diameter or the diameter of the screen or perforated casing.
+
+<h2><a name="method">Method</a></h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: WQMETH</LI>
+   <LI>HST3D Data Set Record Number: 2.13.1</LI>
+</UL>
+<p>
+&quot;Method&quot; is the index for well-flow calculation method. The following are valid values
+<p>
+<UL>
+   <LI>10 - Specified well-flow rate with allocation by <a href="#Mobility">mobility</a> and pressure difference</LI>
+   <LI>11 - Specified well-flow rate with allocation by <a href="#Mobility">mobility</a></LI>
+   <LI>12 - Specified well-flow rate with allocation by <a href="#Mobility">mobility</a> and pressure difference and limiting mass fraction for production</LI>
+   <LI>13 - Specified well-flow rate with allocation by <a href="#Mobility">mobility</a> and limiting mass fraction for production</LI>
+   <LI>20 - Specified pressure at well datum with allocation by <a href="#Mobility">mobility</a> and pressure difference.</LI>
+   <LI>30 - Specified well-flow rate with a limiting pressure at well datum. (See also <a href="#datum">Datum Pressure[i]</a>) Flow-rate allocation by <a href="#Mobility">mobility</a> and pressure difference.</LI>
+   <LI>40 - Specified surface pressure with allocation by <a href="#Mobility">mobility</a> and pressure difference. Well-riser calculatons will be performed</LI>
+   <LI>50 - Specified surface-flow rate with limiting surface pressure. Allocation by <a href="#Mobility">mobility</a> and pressure difference. Well-riser calculations will be performed.</LI>
+   <LI>0 - Observation well or abandoned well.</LI>
+</UL>
+<p>
+&quot;<a href="#Mobility">Mobility</a>&quot; is determined by the permeability of a cell the dimensions of the cell, the well radius, and the viscosity of the fluid. See Kipp (1987) equations 2.4.1.2 and 2.4.1.5.
+<p>
+&quot;Pressure difference&quot; is difference in pressure between the average pressure of the cell and the pressure inside the well.
+<p>
+If a &quot;Limiting pressure&quot; is used in an injection well, and the pressure calculated with the <a href="#flow">specified flow rate</a> is greater than the limiting pressure, the flow rate will be reduced so that the limiting pressure is not exceeded. If a &quot;Limiting pressure&quot; is used in an production well, and the pressure calculated with the <a href="#flow">specified flow rate</a> is less than the limiting pressure, the flow rate will be reduced so that the well pressure does not fall below the limiting pressure. 
+
+
+<h2><a name="length">Well</a> Riser Pipe Length</h2>
+
+
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: WRISL</LI>
+   <LI>HST3D Data Set Record Number: 2.13.4</LI>
+</UL>
+
+<h2><a name="inside">Well</a> Riser Pipe Inside Diameter</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: WRID</LI>
+   <LI>HST3D Data Set Record Number: 2.13.4</LI>
+</UL>
+
+<h2><a name="roughness">Well</a> Riser Pipe Roughness</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: WRRUF</LI>
+   <LI>HST3D Data Set Record Number: 2.13.4</LI>
+</UL>
+<p>
+<a href="references.htm#kipp87">Kipp (1987)</a> gives the following representative values of pipe roughness.
+<p>
+<table border>
+<tr>
+   <th>Pipe type </th>
+   <th>Pipe roughness (mm) </th>
+</tr>
+<tr>
+   <td>Drawn tubing </td>
+   <td>1.3 x 10<sup>-4</sup> </td>
+</tr>
+<tr>
+   <td>Steel or wrought iron </td>
+   <td>3.8 x 10<sup>-3</sup> </td>
+</tr>
+<tr>
+   <td>Galvanized iron </td>
+   <td>1.3 x 10<sup>-2</sup> </td>
+</tr>
+<tr>
+   <td>Cast iron </td>
+   <td>2.2 x 10<sup>-2</sup> </td>
+</tr>
+</TABLE>
+
+
+<h2><a name="angle">Well</a> Riser Pipe Angle</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: WRANGL</LI>
+   <LI>HST3D Data Set Record Number: 2.13.4</LI>
+</UL>
+<p>
+Well-riser pipe angle with the vertical direction.
+
+<h2><a name="heat">Heat</a> Transfer Coefficient</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: HTCWR</LI>
+   <LI>HST3D Data Set Record Number: 2.13.5</LI>
+</UL>
+Heat-transfer coefficient from the fluid to the well-riser pipe
+
+<h2><a name="diffusivity">Thermal</a> Diffusivity</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: DTHAWR</LI>
+   <LI>HST3D Data Set Record Number: 2.13.5</LI>
+</UL>
+Thermal diffusivity of the medium adjacent to the well-riser pipe.
+
+<h2><a name="mediumcond">Medium</a> Thermal Conductivity</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: KTHAWR</LI>
+   <LI>HST3D Data Set Record Number: 2.13.5</LI>
+</UL>
+Thermal conductivity of the medium adjacent to the well-riser pipe.
+
+<h2><a name="pipecond">Pipe</a> Thermal Conductivity</h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: KTHWR</LI>
+   <LI>HST3D Data Set Record Number: 2.13.5</LI>
+</UL>
+Thermal conductivity of the well-riser pipe.
+
+<h2><a name="bottomtemp">Bottom</a> Temperature</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable: TABWR</LI>
+   <LI>HST3D Data Set Record Number: 2.13.5</LI>
+</UL>
+Ambient temperature at the bottom of the well-riser pipe.
+
+<h2><a name="toptemp">Top</a> Temperature</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable: TATWR</LI>
+   <LI>HST3D Data Set Record Number: 2.13.5</LI>
+</UL>
+<p>
+Ambient temperature at the top of the well-riser pipe.
+
+<h2><a name="wellcomp">Well</a> Completion Unit[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: WCF</LI>
+   <LI>HST3D Data Set Record Number: 2.13.2</LI>
+</UL>
+<p>
+A well completion factor of one means the geometric mean of the horizontal permeability for that element will be used in the well index. An well completion factor of zero means the well is cased off from the aquifer in that element. A reduced permeability around the well bore can be approximately represented by specifying a completion factor less than one. Note that this is not the same as a well-skin factor. You should not use a cell complection factor of 0 for the element just below the Top Completion Elevation or just above the Bottom Completion Elevation. Instead, adjust the Top or Bottom Completion Elevations. The well-completion factor also can be used to compute an approximate effective permeability for a well that is completed in a cell that contains multiple zones of different permeability.
+
+<h2><a name="skin">Well</a> Skin Factor Unit[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: WSF</LI>
+   <LI>HST3D Data Set Record Number: 2.13.3</LI>
+</UL>
+<p>
+A positive skin factor corresponds to a reduced permeability around the well bore. An enhanced permeability around the well bore can be approximately represented by specifying a skin factor less than zero. Note that this is not the same as a well-completion factor.
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current object. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+<h2><a name="flow">Flow</a> Rate[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: QWV</LI>
+   <LI>HST3D Data Set Record Number: 3.2.2</LI>
+</UL>
+<p>
+Volumetric flow rate for this well for the time period starting at Time[i]. Positive is injection; negative is production.
+
+<h2><a name="land">Land</a> Surface Pressure[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: PWSUR</LI>
+   <LI>HST3D Data Set Record Number: 3.2.2</LI>
+</UL>
+<p>
+Pressure at the land surface for this well for the time period starting at Time[i]. Used when surface conditions are specified and the well-riser calculation is to be done.
+
+<h2><a name="datum">Datum</a> Pressure[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: PWKT</LI>
+   <LI>HST3D Data Set Record Number: 3.2.2</LI>
+</UL>
+<p>
+Pressure at the well datum for this well for the time period starting at Time[i]. Used when well-datum conditions are specified and no well-riser calculation is to be done.
+
+<h2><a name="fluidtemp">Fluid</a> Temperature[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable: PWKT</LI>
+   <LI>HST3D Data Set Record Number: 3.2.2</LI>
+</UL>
+<p>
+Fluid temperature at the land surface or well datum for this well for the time period starting at Time[i]. Used when surface condtions are specified for an injection well, and used for the well-datum value, when well-datum conditions are specified.
+
+<h2><a name="massfrac">Mass</a> Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#w0.htm">HST3D Grid.W0</a></LI>
+   <LI>Related HST3D Variable: PWKT</LI>
+   <LI>HST3D Data Set Record Number: 3.2.2</LI>
+</UL>
+<p>
+Mass fraction at the well datum for this well for the time period starting at Time[i]. Surface and well-datum concentrations are equal , so this variable also is used to specify surface conditions for an injection well. Alternatively, it is used for specification of a limit on the production concentration. Normally, Mass Fraction[i] and Scaled Mass Fraction[i] parameters are not both present simultaneously
+<p>
+The mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+<h2><a name="scmassfrac">Scaled</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: PWKT</LI>
+   <LI>HST3D Data Set Record Number: 3.2.2</LI>
+</UL>
+<p>
+Scaled mass fraction at the well datum for this well for the time period starting at Time[i]. Surface and well-datum concentrations are equal , so this variable also is used to specify surface conditions for an injection well. Alternatively, it is used for specification of a limit on the production concentration. Normally, Mass Fraction[i] and Scaled Mass Fraction[i] parameters are not both present simultaneously
+<p>
+The scaled mass fraction must be in the range 0 to 1.
+<p>
+<hr>
+<b><a name="Mobility">Mobility</a>: </b><br>
+
+Mobility refers to the ease with which water that will flow between an
+aquifer and a well for a given head gradient. Thus, as permeability increases, 
+mobility also increases. For unconfined aquifers, mobility also depends on 
+the saturated thickness. As the saturated thickness increases, the 
+mobility increases. Changes in viscosity due to changes in temperature or 
+salinity also affect mobility. Mobility is also affected by the well bore diameter. 
+When the diameter is larger, it is easier for water to flow to or from the well.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

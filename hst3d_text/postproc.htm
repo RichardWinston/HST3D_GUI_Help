@@ -1,0 +1,48 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Postprocessing </title></head>
+<body>
+<h1>Postprocessing</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+The HST3D PIE allows you to import and display data from HST3D output files and use them to create a variety of post processing charts. To begin postprocessing, select HST3D Postprocessing from the PIEs menu in an HST3D model. The Postprocessing dialog box will appear.
+<p>
+<img src="graphics/postprocdialog.gif" width="602" height="475">
+
+<p>
+Click the &quot;Read Data&quot; button to read an HST3D data set. An Open file dialog box will appear which you can use to select from among three output files created by HST3D. These are 
+<UL>
+   <LI>the PMAP files (Pressure, Temperature, and Mass Fraction), </LI>
+   <LI>the PMAP2 files (Potentiometric Head, Density), and</LI>
+   <LI>the VMAP files (X-, Y-, and Z-velocities).</LI>
+</UL>
+When you have read a data set two more tabs will appear in the Postprocessing dialog box. After reading data from one output file, you can read data from additional output files by clicking the Read Data button again.
+<p>
+<img src="graphics/postprocdialog2.gif" width="602" height="475">
+<p>
+The first of these shows a spreadsheet with the boundary condition codes as explained in <a href="references.htm#kipp97">Kipp (1997)</a> Section 6.5. The second new tab shows a spreadsheet with the grid configuration. The three columns shows the nodal locations in the X-, Y- and Z- directions respectively.
+<p>
+On the original tab the labels of the data read from the output file will be listed in two boxes. 
+<p>
+<img src="graphics/postprocdialog3.gif" width="602" height="475">
+<p>
+If you select one of the data sets in the upper box, another new tab will appear with a spreadsheet containing that data. (This may take a few seconds). The first sheet contains the data from the lowermost node layer and the additional sheets have data for progressively higher layers. Row 1 of the spread sheet has the data from the first row of the model. However, note that the rows are labeled from top to bottom in the spreadsheet but from bottom to top in the model.
+<p>
+You can save any of the spreadsheets to disk by clicking the save button. You can save the data in a variety of formats including as Microsoft Excel spreadsheets.
+<p>
+Although only one set of data can be displayed on the Data tab at a time, you can import multiple data sets to Argus ONE to create postprocessing objects. Select the data set or sets you wish to import from the list of data items with check boxes. Next select the way you wish to import it from the controls at the bottom of the Postprocessing dialog box. You can plot data along a layer to get a map view of the data or along a vertical slice along a row or column. If you have selected <a href="project.htm#observ">Use Observation Elevations</a>, you can also make a plot along a user-defined surface. The PIE will automatically create four of the six types of postprocessing charts supported by Argus ONE (3D Surface, Color Diagram, Contour Map, and Cross Section). See the Argus ONE documentation for details of these chart types. You can also chose which row column or layer you wish to import data from. (At present, to import data from multiple rows, columns, or layers, you must first import data from one row, column, or layer into Argus ONE, rename the &quot;HST3D Data&quot; and &quot;HST3D PostProcessing Charts&quot; layers and then go back to import additional data.) Press the OK button to create the Postprocessing chart or charts. This will read the data into the HST3D Data layer and create a postprocessing chart on the HST3D Postprocessing Charts layer. If the HST3D Postprocessing Charts layer already exists, you will be prompted if you want to clear the layer to write the new charts.
+<p>
+<img src="graphics/postprocdialog4.gif" width="610" height="499">
+
+<p>
+The PIE does not automatically create vector and pathline charts but you can add these yourself easily. Just select the appropriate data sets from the VMAP file and import the data to any type of postprocessing chart. You will then have the data in Argus ONE and you can create the vector or pathline chart on a map layer by selecting the vector or pathline tool and outline the area where you wish to display the chart.
+<p>
+The postprocessing PIE does not apply any vertical exaggeration to data along vertical slices. When viewing post processing charts along vertical slices, you may wish to use a non-uniform scale to apply vertical exaggeration. This can be done in the &quot;Special|Scale and Units&quot; dialog box.
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

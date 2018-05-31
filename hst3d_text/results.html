@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0020)http://www.tipue.com -->
+
+<html>
+<head>
+<title>Tipue Search Results</title>
+
+
+<!-- The following line is only required if you have another search form on your results page -->
+
+<script language="JavaScript1.3" type="text/javascript" src="tip_form.js"></script>
+
+<!-- The following lines are required and must be in the <head> section of your HTML document -->
+
+<script language="JavaScript1.3" type="text/javascript" src="tip_data.js"></script>
+<script language="JavaScript1.3" type="text/javascript" src="tip_search.js"></script>
+
+<!-- End of required <head> section -->
+
+
+<style type="text/css">
+body {background-color: #FFFFFF; color: #626278; margin: 0px;}
+p {margin-top: 13px;}
+hr {height: 1px; width: 100%; border-top: none; border-bottom: 1px solid #9CB5D6;}
+a:link {color: #648BCB;}
+a:active {color: #648BCB;}
+a:visited {color: #648BCB;}
+a:hover {color: #82AC83;}
+.fix {font-family: verdana, arial, helvetica; font-size: 10px; color: #626278;}
+.text {font-family: verdana, arial, helvetica; font-size: .6em; color: #626278;}
+.button {font-family: tahoma, verdana, arial, helvetica; font-size: 11px; height: 22px; width: 75px;}
+</style>
+
+</head>
+<body>
+
+
+<!-- The following section is the search form. You can ignore the style attributes and css class as they're
+for display only -->
+
+<form name="tip_Form" onsubmit="search_form(tip_Form);return false">
+<input type="text" name="d" style="position: absolute; left: 10px; top: 57px; width: 165px;" class="fix">
+<input type="submit" value="Go" style="position: absolute; left: 188px; top: 55px;" class="button">
+</form>
+<script language="JavaScript1.3" type="text/javascript">tip_query()</script>
+
+<!-- End of form -->
+
+
+<div style="position: absolute; left: 10px; top: 83px" class="text">
+
+
+<!-- The following JavaScript uses the tip_Num variable to return the number of matches found -->
+
+<script language="JavaScript1.3" type="text/javascript">
+if (tip_Num == 0) {
+	document.write('No matches found');
+}
+if (tip_Num == 1) {
+	document.write('1 match found');
+}
+if (tip_Num > 1) {
+	document.write(tip_Num, ' matches found');
+}
+</script>
+
+<hr>
+
+
+<!-- The following line returns the results -->
+
+<script language="JavaScript1.3" type="text/javascript">tip_out()</script>
+
+<p><br>
+<a href="http://www.tipue.com"><img src="tipue_b1.gif" title="Tipue" alt="Tipue" border=0 width=138 height=32></a>
+<br>
+</div>
+
+
+</body>
+</html>

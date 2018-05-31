@@ -1,0 +1,70 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Horizontal Evapotranspiration Boundary NL[i] and Vertical Evapotranspiration Boundary NL[i] </title></head>
+<body>
+<h1>Horizontal Evapotranspiration Boundary NL[i] and Vertical Evapotranspiration Boundary NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+The Horizontal Evapotranspiration Boundary NL[i] represents a horizontal boundary so that evapotranspiration occurs in a vertical direction. 
+The Vertical Evapotranspiration Boundary NL[i] represents a vertical boundary so that evapotranspiration occurs in a horizontal direction. 
+
+You can not set any of the evapotranspiration boundary simply by setting the default value of the layer. You must use contours to
+define the evapotranspiration boundary. 
+
+Any cells that are enclosed within closed contours on the Horizontal Evapotranspiration Boundary NL[i] will be assigned evapotranspiration boundaries. 
+Any cells that are intersected by any contour on the Vertical Evapotranspiration Boundary NL[i] will be assigned evapotranspiration boundaries. However, cells that are enclosed but not intersected by a contour on the Vertical Evapotranspiration Boundary NL[i] will not be assigned evapotranspiration boundaries. 
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+
+<MAP NAME="evapotranspiration">
+   <AREA COORDS="39,228,347,242" HREF="#land">
+   <AREA COORDS="41,242,347,257" HREF="#extinction">
+   <AREA COORDS="37,257,348,274" HREF="#time">
+   <AREA COORDS="38,274,349,290" HREF="#max">
+</MAP>
+<IMG BORDER=0 USEMAP="#evapotranspiration" SRC="graphics//evapo.gif"> 
+
+<h2><a name="land">Land</a> Surface Elevation</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: ZLSETB</LI>
+   <LI>HST3D Data Set Record Number: 2.17.2</LI>
+</UL>
+Elevation of the land surface for evapotranspiration boundary condition
+
+<h2><a name="extinction">Evapotranspiration</a> Extinction Depth</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: BETBC</LI>
+   <LI>HST3D Data Set Record Number: 2.17.2</LI>
+</UL>
+Depth below land surface of evapotranspiration extinction
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current object. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+
+<h2><a name="max">Max</a> Evapotranspiration[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: QETBC</LI>
+   <LI>HST3D Data Set Record Number: 3.6.2</LI>
+</UL>
+Maximum evapotranspiration flux when water table is at land surface for the stress period beginning at Time[i]
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

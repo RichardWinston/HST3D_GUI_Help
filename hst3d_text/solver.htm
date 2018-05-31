@@ -1,0 +1,195 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Calculation tab </title></head>
+<body>
+
+<h1>Calculation tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+You may wish to read the <a href="discretization.htm">discretization guidelines</a> for more information for information about FDSMTH and FDTMTH.
+<p>
+
+<MAP NAME="solver">
+   <AREA COORDS="18,131,572,225" HREF="#slmeth">
+   <AREA COORDS="17,72,256,98" HREF="#fdsmth">
+   <AREA COORDS="288,74,544,98" HREF="#fdtmth">
+   <AREA COORDS="16,98,274,121" HREF="#tolden">
+   <AREA COORDS="289,97,529,122" HREF="#maxitn">
+   <AREA COORDS="18,226,573,252" HREF="#ntsopt">
+   <AREA COORDS="14,250,167,274" HREF="#epsslv">
+   <AREA COORDS="19,278,248,324" HREF="#epsomg">
+   <AREA COORDS="289,281,567,323" HREF="#maxit1">
+   <AREA COORDS="18,324,253,365" HREF="#maxit2">
+   <AREA COORDS="288,323,569,343" HREF="#idir">
+   <AREA COORDS="289,345,517,373" HREF="#nsdr">
+   <AREA COORDS="17,372,420,394" HREF="#iorder">
+   <AREA COORDS="49,25,101,44" HREF="project.htm">
+   <AREA COORDS="101,26,157,45" HREF="elements.htm">
+   <AREA COORDS="433,24,605,44" HREF="refcond.htm">
+   <AREA COORDS="346,24,433,45" HREF="fluidprop.htm">
+   <AREA COORDS="273,25,345,44" HREF="interpolationtab.htm">
+   <AREA COORDS="158,25,274,44" HREF="processes.htm">
+   <AREA COORDS="7,43,71,60" HREF="wellriser.htm">
+   <AREA COORDS="70,44,169,62" HREF="aquifinfltab.htm">
+   <AREA coords="169,45,290,63" href="heatcondtab.htm">
+   <AREA COORDS="291,43,381,63" HREF="initcond.htm">
+   <AREA coords="380,44,450,63" href="solver.htm">
+   <AREA COORDS="454,45,497,64" HREF="outputtab.htm">
+   <AREA COORDS="496,45,543,64" HREF="timetab.htm">
+   <AREA COORDS="546,44,605,63" HREF="bcflow.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA coords="524,411,599,435" href="project.htm#ok">
+   <AREA COORDS="6,24,51,43" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#solver" SRC="graphics//solver.gif"> 
+
+
+<h2><a name="fdsmth">Factor</a> for spatial-discretization (FDSMTH)</h2>
+<ul >
+   <LI>Default: 0.0</LI>
+   <LI>HST3D Variable: FDSMTH</LI>
+   <LI>Data Set Record Number: 2.22.1</LI>
+</ul>
+FDSMTH should be 0.5 for centered-in-space differencing used for advective terms
+<br>
+FDSMTH should be 0.0 for upstream-in-space differencing used for advective terms
+<br>
+Intermediate values may be used.
+
+<p>
+
+If using centered in space differencing, the mesh Peclet number (Pe) should be less than
+about 2. 
+<br>
+Pe = delta x/ alpha   or delta y/ alpha where 
+<UL>
+   <LI>delta x is the <a href="domoutline.htm">grid size in the x direction</a>,</LI>
+   <LI>delta y is the <a href="domoutline.htm">grid size in the y direction</a>, and</LI>
+   <LI>alpha is <a href="dispersivity.htm#longitudinal">dispersivity</a> in the direction of flow (ALPHL). </LI>
+</UL>
+If you don't follow this advice, HST3D may calculate large negative values of scaled concentrations especially in regions with 
+large concentration gradients.
+<p>
+Centered in space and centered in time methods are free of numerical dispersion but may result in oscillation of the solution. Upstream in space will remove oscillation but at the cost of numerical dispersion. See the <a href="discretization.htm">discretization guidelines</a> for more information.
+<h2><a name="fdtmth">Factor</a> for temporal-discretization (FDTMTH)</h2>
+<ul >
+   <LI>Default:1.0</LI>
+   <LI>HST3D Variable: FDTMTH</LI>
+   <LI>Data Set Record Number: 2.22.1</LI>
+</ul>
+FDTMTH should be 0.5 for centered-in-time or Crank-Nicolson differencing 
+<br>
+FDTMTH should be 1.0 for backward-in-time or fully-implicit differencing 
+<br>
+Intermediate values may be used.
+<p>
+Central-in-time differencing has the  potential for causing oscillations in the solution whereas bacwards-in-time differencing does not. However, backwards-in-time differencing does introduce numerical dispersion that must be kept under control by limiting the time-step size.
+<p>
+Centered in space and centered in time methods are free of numerical dispersion but may result in oscillation of the solution. A common practice is to start with a fully implict models to make sure they can run properly and then shift to centered in time to check for numerical oscillation. See the <a href="discretization.htm">discretization guidelines</a> for more information.
+<h2><a name="tolden">Tolerance</a> in fractional change in density for convergence (TOLDEN)</h2>
+<ul >
+   <LI>Default: 0.001</LI>
+   <LI>HST3D Variable: TOLDEN</LI>
+   <LI>Data Set Record Number: 2.22.2</LI>
+</ul>
+
+Tolerance in fractional change in density for convergence over a solution cycle of flow, heat, and solute equations at a given time plane. Default = 0.001
+<h2><a name="maxitn">Maximum</a> number of iterations per cycle (MAXITN)</h2>
+<ul >
+   <LI>Default: 5</LI>
+   <LI>HST3D Variable: MAXITN</LI>
+   <LI>Data Set Record Number: 2.22.2</LI>
+</ul>
+Maximum number of iterations allowed for a cycle of pressure, temperature, and mass-fraction solutions allowed at a given time plane. Default set at 5.
+
+<h2><a name="slmeth">Solution</a> method (SLMETH)</h2>
+<ul >
+   <LI>Default: triangular-factorization direct solver</LI>
+   <LI>HST3D Variable: SLMETH</LI>
+   <LI>Data Set Record Number: 1.8</LI>
+</ul>
+Select the solution method for the solver. Storage requirements probably will determine when it is necessary to use an iterative solver. The DIMEN pre-processing program writes out the storage requrements for each matrix sover for each renumbering method. The HST3D program writes out the storage requirements for the solver selected. For large problems, use of the direct solver is impractical.
+
+<h2><a name="ntsopt">Number</a> of time steps between recalculations of the optimum-overrelaxation parameter (NTSOPT)</h2>
+<ul >
+   <LI>Default: 5</LI>
+   <LI>HST3D Variable: NTSOPT</LI>
+   <LI>Data Set Record Number: 2.22.3</LI>
+</ul>
+Number of time steps between recalculations of the optimum-overrelaxation parameter. Default set at 5.
+
+<h2><a name="epsslv">Tolerance</a> (EPSSLV)</h2>
+<ul >
+   <LI>Default: 1e-7</LI>
+   <LI>HST3D Variable: EPSSLV</LI>
+   <LI>Data Set Record Number: 2.22.3 and 2.22.4</LI>
+</ul>
+If the two-line successive overrelaxation solver is used, EPSSLV is the tolerance for the two-line successive-overrelaxation iterative solution of the fractional change in any of the values of the dependent variable must be less than or equal to this tolerance times (2-<font face="Symbol">w</font><sub>opt</sub>). 
+<br>
+where <font face="Symbol">w</font><sub>opt</sub> = the optimum-overrelaxation parameter.
+<p>
+If the conjugate-gradient solver is used with either renumbering scheme, EPSSLV is the tolerance on the relative residual for the restarted conjugate-gradient iterative solution of the matrix equations at each time plane. The Euclidean norm of the changes in the vector of the dependent-variable values must be less than or equal to this tolerance.
+<p>
+Experience with test problems has shown that a tolerance of 10<sup>-6</sup> to 10<sup>-12</sup> is necessary to obtain 3 or 4 digit agreeement with the direct solver.
+<p>
+
+Default is 10<sup>-7</sup>.
+
+<h2><a name="epsomg">Tolerance</a> on the fractional change in the overrelaxation parameter (EPSOMG)</h2>
+<ul >
+   <LI>Default: 0.2</LI>
+   <LI>HST3D Variable: EPSOMG</LI>
+   <LI>Data Set Record Number: 2.22.3</LI>
+</ul>
+Tolerance on the fractional change in the overrelaxation parameter during the iterative calculation to determine the optimum value. Default set to 0.2
+
+<h2><a name="maxit1">Maximum</a> number iterations allowed for the calculation of the optimum overrelaxation parameter (MAXIT1)</h2>
+<ul >
+   <LI>Default: 50</LI>
+   <LI>HST3D Variable: MAXIT1</LI>
+   <LI>Data Set Record Number: 2.22.3</LI>
+</ul>
+Maximum number of iterations allowed for the calculation of the optimum overrelaxation parameter. Default set at 50.
+
+<h2><a name="maxit2">Maximum</a> number of iterations allowed for the solution of the matrix equations (MAXIT2)</h2>
+<ul >
+   <LI>Default: 100</LI>
+   <LI>HST3D Variable: MAXIT2</LI>
+   <LI>Data Set Record Number: 2.22.3</LI>
+</ul>
+Maximum number of iterations allowed for the solution of the matrix equations. Default set at 100. Under some conditions, the user may need to double or triple the default limit of 100. However, more than a few hundred iterations indicates that adjustments probably need to be made in the spatial or temporal discretization.
+
+<h2><a name="idir">Renumbering</a> order (IDIR)</h2>
+<ul >
+   <LI>Default: xyz</LI>
+   <LI>HST3D Variable: IDIR</LI>
+   <LI>Data Set Record Number: 2.22.4</LI>
+</ul>
+Choose the order for node renumbering. The first direction increments fastest. The last increments most slowly. The optimum choice can often be determined by running short simulations with 1 or 2 time steps. Usually, they group into three paris of nearly equal iteration counts. 
+
+<h2><a name="nsdr">Number</a> of steps between restarts of solver (NSDR)</h2>
+<ul >
+   <LI>Default: 5</LI>
+   <LI>HST3D Variable: NSDR</LI>
+   <LI>Data Set Record Number: 2.22.4</LI>
+</ul>
+Number of steps between restarts of the generalized conjugate-gradient solver. Defalut set at 5. The solver does not seem to be very sensitive to this parameter. Usually 5 works well. If solver convergence requires more than about 100 interations, the number should be increased to 10 or 15.
+
+<h2><a name="iorder">Preconditioning</a> method (IORDER)</h2>
+<ul >
+   <LI>Default: modified incomplete LU factorization</LI>
+   <LI>HST3D Variable: IORDER</LI>
+   <LI>Data Set Record Number: 2.22.4</LI>
+</ul>
+Choose between standard incomplete LU factorization and the modified incomplete LU factorization with no fill-in. Often the modified incomplete LU factorization gives a faster convergence. 
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Horizontal Aquifer Leakage Boundary NL[i] and Vertical Aquifer Leakage Boundary NL[i] </title></head>
+<body>
+<h1>Horizontal Aquifer Leakage Boundary NL[i] and Vertical Aquifer Leakage Boundary NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+There are two types of leakage boundaries: Aquifer-Leakage boundaries and <a href="river.htm">River-Leakage</a> boundaries.
+<p>
+The Horizontal Aquifer Leakage Boundary NL[i] represents a horizontal boundary so that leakage occurs in a vertical direction. 
+The Vertical Aquifer Leakage Boundary NL[i] represents a vertical boundary so that leakage occurs in a horizontal direction. 
+
+You can not set any of the leakage boundary simply by setting the default value of the layer. You must use contours to
+define the leakage boundary. 
+
+Any cells that are enclosed within closed contours on the Horizontal Aquifer Leakage Boundary NL[i] will be assigned leakage boundaries. 
+Any cells that are intersected by any contour on the Vertical Aquifer Leakage Boundary NL[i] will be assigned leakage boundaries. However, cells that are enclosed but not intersected by a contour on the Vertical Aquifer Leakage Boundary NL[i] will not be assigned leakage boundaries. 
+<p>
+A leakage boundary is not allowed in any cell with a specified pressure boundary.
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+
+<MAP NAME="aqleak">
+   <AREA COORDS="37,227,436,243" HREF="#permeability">
+   <AREA COORDS="37,243,436,258" HREF="#thickness">
+   <AREA COORDS="39,258,435,274" HREF="#elevation">
+   <AREA COORDS="38,274,435,291" HREF="#time">
+   <AREA COORDS="36,290,437,308" HREF="#potential">
+   <AREA COORDS="37,307,437,322" HREF="#density">
+   <AREA COORDS="38,321,438,338" HREF="#viscosity">
+   <AREA COORDS="37,338,437,355" HREF="#temperature">
+   <AREA COORDS="37,354,437,370" HREF="#mass">
+   <AREA COORDS="37,369,436,386" HREF="#scaled">
+</MAP>
+<IMG BORDER=0 USEMAP="#aqleak" SRC="graphics//aqleak.gif"> 
+<p>
+
+<table border>
+<tr>
+   <th>Equation </th>
+   <th>Equation number <br>
+(<a href="references.htm#kipp87">Kipp, 1987</a>) </th>
+</tr>
+<tr>
+   <td>q<sub>SL</sub> = w<sub>e</sub><sub><img src="graphics/rho_e.gif" width="19" height="24"></sub>
+q<sub>L</sub>, if q<sub>L</sub>&#160;&gt;&#160;0, for <u>x</u> on S<sup>3</sup> </td>
+   <td>2.5.3.1a </td>
+</tr>
+<tr>
+   <td><sub><img src="graphics/phi_e.gif" width="17" height="24"></sub>
+ = p<sub>e</sub>/<sub><img src="graphics/rho_e.gif" width="19" height="24"></sub>
+ + g z<sub>e</sub> </td>
+   <td>2.5.3.1b </td>
+</tr>
+<tr>
+   <td><img src="graphics/eq3_4_3_1b.gif" width="549" height="45">
+ </td>
+   <td>3.4.3.1a </td>
+</tr>
+</TABLE>
+
+<p>
+
+<table border>
+<tr>
+   <th>Symbol </th>
+   <th>Definition </th>
+</tr>
+<tr>
+   <td>q<sub>SL</sub> </td>
+   <td>solute flux across the leakage boundary (kg/m<sup>2</sup>-s) </td>
+</tr>
+<tr>
+   <td>w<sub>e</sub> </td>
+   <td>solute mass fraction in the outer aquifer </td>
+</tr>
+<tr>
+   <td><img src="graphics/rho_e.gif" width="19" height="24">
+ </td>
+   <td>fluid density in outer aquifer </td>
+</tr>
+<tr>
+   <td>q<sub>L</sub> </td>
+   <td>leakage boundary flux </td>
+</tr>
+<tr>
+   <td><u>x</u> </td>
+   <td>location vector </td>
+</tr>
+<tr>
+   <td>S<sup>3</sup> </td>
+   <td>the region boundary surface over which a leakage-boundary condition exists. </td>
+</tr>
+<tr>
+   <td>Q<sub>Lm</sub> </td>
+   <td>volumetric flow rate at a leakage boundary (m<sup>3</sup>/s) </td>
+</tr>
+<tr>
+   <td>k<sub>Lm</sub> </td>
+   <td>permeability of the leakage material </td>
+</tr>
+<tr>
+   <td><img src="graphics/mu_lm.gif" width="30" height="22">
+ </td>
+   <td>viscosity of the fluid in the leakage material (the aquitard) </td>
+</tr>
+<tr>
+   <td>b<sub>LM</sub>  </td>
+   <td>Thickness of leakage material (the aquitard) </td>
+</tr>
+<tr>
+   <td>p<sub>m</sub> </td>
+   <td>pressure at node m </td>
+</tr>
+<tr>
+   <td><img src="graphics/phi_e.gif" width="17" height="24">
+ </td>
+   <td>potential energy per unit mass of fluid on the other side of the leakage material (the aquitard)  </td>
+</tr>
+<tr>
+   <td><img src="graphics/rho_m.gif" width="22" height="24">
+ </td>
+   <td>fluid density at node m</td>
+</tr>
+<tr>
+   <td>g </td>
+   <td>gravitational constant </td>
+</tr>
+<tr>
+   <td>z<sub>e</sub> </td>
+   <td>elevation of the outer aquifer </td>
+</tr>
+<tr>
+   <td>z<sub>m</sub> </td>
+   <td>elevation at node m </td>
+</tr>
+<tr>
+   <td>S<sub>BLm</sub> </td>
+   <td>the part of the boundary cell surface that is a leakge boundary (m<sup>2</sup>) </td>
+</tr>
+</TABLE>
+<p>
+
+<h2><a name="permeability">Confining</a> Unit Permeability</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: KLBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.2</LI>
+   <li >Units L<sup>2</sup></li>
+</UL>
+Permeability of confining layer for aquifer-leakage boundary condition.  (equations 2.5.3.1a and 3.4.3.1a)
+<p>
+
+<h2><a name="thickness">Confining</a> Unit Thickness</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: BBLBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.2</LI>
+   <li >Units L</li>
+</UL>
+Confining-layer thickness for leakage boundary condition.
+
+<h2><a name="elevation">Elevation</a> of Opposite Side of Confining Unit</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: ZELBC</LI>
+   <LI>HST3D Data Set Record Number: 2.16.2</LI>
+   <li >Units L</li>
+</UL>
+Elevation of the far side of the confining layer away from the simulation region. For leakage across lateral boundaries (Vertical Aquifer Leakage Boundary NL[i]), HST3D automatically sets ZELBC equal to the elevation of the corresponding boundary node. However, you must still enter a value of ZELBC. You can, however, use the default value of 0. You should not enter $N/A.
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current object. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+<h2><a name="potential">Potential</a> Energy per Unit Mass[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: KLBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.2</LI>
+   <li >Units: E/M or L<sup>2</sup>/t<sup>2</sup></li>
+</UL>
+Potential energy per unit mass of fluid (eq. 2.5.3.1.1b) on the other side of the aquitard from the simulation region.
+
+<h2><a name="density">Density[i]</a></h2>
+<UL>
+   <LI>Default Expression: 998.23 kg/m<sup>3</sup> or 62.317 lb/ft<sup>3</sup>; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: DENRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.2</LI>
+</UL>
+Density of the fluid on the other side of the aquitard for the period beginning at Time[i].
+<p>
+The density must be in the range <a href="fluidprop.htm#denf0">DENF0</a> to <a href="fluidprop.htm#denf1">DENF1</a>.
+
+<h2><a name="viscosity">Viscosity[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0.001002 Pa-s or 1.002 cP; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variable: VISRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.2</LI>
+</UL>
+Viscosity of the fluid on the other side of the aquitard  for the period beginning at Time[i].
+
+<h2><a name="temperature">Temperature[i]</a></h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variable: TRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.3</LI>
+</UL>
+Temperature of the fluid on the other side of the aquitard  for the period beginning at Time[i].
+
+<h2><a name="mass">Mass</a> Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#w0">HST3D Grid.W0</a></LI>
+   <LI>Related HST3D Variable: CRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.4</LI>
+</UL>
+Solute mass fraction of the fluid on the other side of the aquitard  for the period beginning at Time[i]. Normally, Mass Fraction[i] and Scaled Mass Fraction[i] parameters are not both present simultaneously
+<p>
+The mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="scaled">Scaled</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: CRBC</LI>
+   <LI>HST3D Data Set Record Number: 3.5.4</LI>
+</UL>
+Scaled solute mass fraction of the fluid on the other side of the aquitard  for the period beginning at Time[i]. Valid numbers range from 0 to 1. Normally, Mass Fraction[i] and Scaled Mass Fraction[i] parameters are not both present simultaneously
+<p>
+The scaled mass fraction must be in the range 0 to 1.
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> The HST3D Grid </title></head>
+<body>
+<h1>The HST3D Grid</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+Finite-difference models can have either block-centered nodes or grid-centered nodes. 
+<p>
+<img src="graphics/gridtypes.gif" width="608" height="331">
+<p>
+HST3D uses grid-centered nodes which is better for entering boundary conditions. However, it is normally
+more difficult to enter data about aquifer properties in models with grid-centered nodes. With block-centered
+nodes, you can assign the aquifer properties to the cells because the boundaries between cells are also normally
+the boundaries between materials with different properties. With grid-centered nodes, the aquifer properties typically
+change at the center of the cell rather than at the cell boundaries. To overcome, this limitation, HST3D defines 
+&quot;Elements&quot; which comprise parts of one to 8 cells. The elements have their corners at the nodes whereas 
+the cells have their centers at the nodes. Aquifer properties are entered for by element and boundary conditions are
+entered by cells. 
+<p>
+<img src="graphics/grid.gif" width="639" height="624">
+<p>
+In Argus ONE, you should create a block-centered grid to define the elements. The nodes will be at the corners of each block. The
+HST3D PIE (plug-in extension) will take care of mapping the block-centered grid used for defining elements to the grid-centered 
+grid used for defining cells. 
+<p>
+See also <a href="references.htm#Kidd87">Kidd,</a> 1987, <a href="references.htm#Wang">Wang and Anderson, 1982</a>
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Horizontal Aquifer Influence Boundary NL[i] and Vertical Aquifer Influence Boundary NL[i] </title></head>
+<body>
+<h1>Horizontal Aquifer Influence Boundary NL[i] and Vertical Aquifer Influence Boundary NL[i]</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+The Horizontal Aquifer Influence Boundary NL[i] represents a horizontal boundary so that the aquifer influence boundary flux occurs in a vertical direction. 
+The Vertical Aquifer Influence Boundary NL[i] represents a vertical boundary so that aquifer influence boundary flux occurs in a horizontal direction. 
+
+You can not set any of the aquifer influence boundary simply by setting the default value of the layer. You must use contours to
+define the aquifer influence boundary. 
+
+Any cells that are enclosed within closed contours on the Horizontal Aquifer Influence Boundary NL[i] will be assigned aquifer influence boundaries. 
+Any cells that are intersected by any contour on the Vertical Aquifer Influence Boundary NL[i] will be assigned aquifer influence boundaries. However, cells that are enclosed but not intersected by a contour on the Vertical Aquifer Influence Boundary NL[i] will not be assigned aquifer influence boundaries. 
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+
+<MAP NAME="aqinfl">
+   <AREA COORDS="39,226,347,244" HREF="#weighting">
+   <AREA COORDS="38,244,347,259" HREF="#time">
+   <AREA COORDS="39,259,348,275" HREF="#density">
+   <AREA COORDS="39,274,346,291" HREF="#temperature">
+   <AREA COORDS="37,291,347,307" HREF="#mass">
+   <AREA COORDS="40,305,348,324" HREF="#scaled">
+</MAP>
+<IMG BORDER=0 USEMAP="#aqinfl" SRC="graphics/aqinfl.gif"> 
+
+<h2><a name="weighting">Weighting Factor</a></h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: UVAIFC</LI>
+   <LI>HST3D Data Set Record Number: 2.18.2</LI>
+</UL>
+User-specified factors for aquifer-influence-function spatial allocation. This parameter is present only if <a href="aquifinfltab.htm#uvaifc">User Specified Weighting</a> has been selected for <a href="aquifinfltab.htm#uvaifc">Aquifer influence zone weighting (UVAIFC)</a> on the Aquifer-Influence tab.
+
+
+<h2><a name="time">Time[i]</a></h2>
+<UL>
+   <LI>Default Expression: 0 for Time1, $N/A for all other times</LI>
+   <LI>Related HST3D Variable: TIMCHG</LI>
+   <LI>HST3D Data Set Record Number: 3.8.4</LI>
+</UL>
+<p>
+Time[i] is the time of the start of the next stress period for the current object. Time1 should always be set to 0. Each Time[i] value should be larger than it's predecessor. However, different objects do not need to have the same values for Time[i].
+If Time[i] is $N/A, other temporal data for this time period for this object will be ignored.  See &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; for more information
+
+<h2><a name="density">Density[i]</a></h2>
+<UL>
+   <LI>Default Expression: 998.23 kg/m<sup>3</sup> or 62.317 lb/ft<sup>3</sup>; See <a href="project.htm#eeunit">EEUNIT</a></LI>
+   <LI>Related HST3D Variables:  DENOAR</LI>
+   <LI>HST3D Data Set Record Number: 3.7.2</LI>
+</UL>
+Density of the fluid in the outer-aquifer region for Time[i].
+<p>
+The density must be in the range <a href="fluidprop.htm#denf0">DENF0</a> to <a href="fluidprop.htm#denf1">DENF1</a>.
+
+<h2><a name="temperature">Temperature[i]</a></h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#t0">HST3D Grid.T0</a></LI>
+   <LI>Related HST3D Variables:  TAIF</LI>
+   <LI>HST3D Data Set Record Number: 3.7.3</LI>
+</UL>
+Temperature of the fluid in the outer-aquifer region for Time[i].
+
+<h2><a name="mass">Mass</a> Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#w0">HST3D Grid.W0</a></LI>
+   <LI>Related HST3D Variables:  CAIF</LI>
+   <LI>HST3D Data Set Record Number: 3.7.4</LI>
+</UL>
+Mass fraction of solute in the outer-aquifer region for Time[i]. Normally, &quot;Mass Fraction[i&quot;] and &quot;Scaled Mass Fraction[i]&quot; would not both be present.
+<p>
+The mass fraction must be between <a href="fluidprop.htm#w0">W0</a> and <a href="fluidprop.htm#w1">W1</a>.
+
+<h2><a name="scaled">Scaled</a> Mass Fraction[i]</h2>
+<UL>
+   <LI>Default Expression: 0 (True)</LI>
+   <LI>Related HST3D Variables:  CAIF</LI>
+   <LI>HST3D Data Set Record Number: 3.7.4</LI>
+</UL>
+Scaled mass fraction of solute in the outer-aquifer region for Time[i]. Normally, &quot;Mass Fraction[i&quot;] and &quot;Scaled Mass Fraction[i]&quot; would not both be present.
+<p>
+The scaled mass fraction must be in the range 0 to 1.
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>
+

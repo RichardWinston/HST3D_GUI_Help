@@ -1,0 +1,26 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Interpolation in the HST3D PIE </title></head>
+<body>
+
+<h1>Interpolation in the HST3D PIE</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+For some types of data in the HST3D PIE it is possible to interpolate between two parameter values along the length of an open contour. When this is possible the parameter names will take the form &quot;&lt;Parameter&gt;&quot; and &quot;End &lt;Parameter&gt;&quot;. At the beginning of the contour the exported information will be the value of &quot;&lt;Parameter&gt;&quot; and at the end it will be &quot;End &lt;Parameter&gt;&quot;. Argus ONE does not currently display the direction of a contour. However, the contour value will be between the first and second verticies which may be useful for seeing the direction of a contour with three or more vertices. You can also determine the direction by copying a contour to the clipboard and pasting it in a text editor. You can examine the X and Y coordinates of the nodes to determine which end of a contour is it's beginning.
+
+<p>
+
+<img src="graphics/interpolation.gif" width="271" height="248">
+<p>
+In the example above, note that the contour goes through the center cell twice and thus there are two different exported values for the center cell. The first exported value will be overwritten by the second exported value in the HST3D input file and thus will be superceeded.
+<p>
+If the &quot;End &lt;Parameter&gt;&quot; for any open contour is $N/A, no interpolation will be performed for that contour. In addition, no interpolation is performed along closed contours or, of course, point contours. For such contours, the value of &quot;End &lt;Parameter&gt;&quot; is ignored.
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

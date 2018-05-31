@@ -1,0 +1,93 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Heat Conduction Boundary tab </title></head>
+<body>
+
+<h1>Heat Conduction Boundary tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+This tab is visible only if the heat conduction boundary condition has been selected on the &quot;Processes/Boundary&quot; tab.
+<p>
+
+<MAP NAME="heatcond">
+   <AREA COORDS="21,73,110,161" HREF="#nhcn">
+   <AREA COORDS="123,65,602,232" HREF="#zhcbc">
+   <AREA COORDS="19,248,109,364" HREF="#nztphc">
+   <AREA COORDS="180,233,355,338" HREF="#zthc">
+   <AREA COORDS="354,233,541,336" HREF="#tvzhc">
+   <AREA COORDS="49,25,101,44" HREF="project.htm">
+   <AREA COORDS="101,26,157,45" HREF="elements.htm">
+   <AREA COORDS="433,24,605,44" HREF="refcond.htm">
+   <AREA COORDS="346,24,433,45" HREF="fluidprop.htm">
+   <AREA COORDS="273,25,345,44" HREF="interpolationtab.htm">
+   <AREA COORDS="158,25,274,44" HREF="processes.htm">
+   <AREA COORDS="7,43,71,60" HREF="wellriser.htm">
+   <AREA COORDS="70,44,169,62" HREF="aquifinfltab.htm">
+   <AREA coords="169,45,290,63" href="heatcondtab.htm">
+   <AREA COORDS="291,43,381,63" HREF="initcond.htm">
+   <AREA coords="380,44,450,63" href="solver.htm">
+   <AREA COORDS="454,45,497,64" HREF="outputtab.htm">
+   <AREA COORDS="496,45,543,64" HREF="timetab.htm">
+   <AREA COORDS="546,44,605,63" HREF="bcflow.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA COORDS="524,411,599,435" HREF="project.htm#ok">
+   <AREA COORDS="6,24,51,43" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#heatcond" SRC="graphics//heatcondtab.gif"> 
+
+<h2>Boundary Nodes</h2>
+
+<h3><a name="nhcn">Number</a> of heat-conduction boundary nodes (2-10) (NHCN)</h3>
+<ul >
+   <LI>Default: 3</LI>
+   <LI>HST3D Variable: NHCN</LI>
+   <LI>Data Set Record Number: 1.6</LI>
+</ul>
+Number of nodes for the heat-conduction boundary condition. You may have 2-10 nodes.
+
+<h3><a name="zhcbc">Nodal</a> Locations (ZHCBC)</h3>
+<ul >
+   <LI>Defaults: 0, 1, 2</LI>
+   <LI>HST3D Variable: ZHCBC</LI>
+   <LI>Data Set Record Number: 2.21.5</LI>
+</ul>
+Array of node distances along the outward pointing normal from a heat-conduction boundary surface. (All heat-conduction boundary-condition cells use the same nodal distribution.)
+
+<hr>
+
+<h2>Initial Conditions Boundary Nodes</h2>
+
+<h3><a name="nztphc">Number</a> of heat-conduction boundary nodes (NZTPHC)</h3>
+<ul >
+   <LI>Default: 3</LI>
+   <LI>HST3D Variable: NZTPHC</LI>
+   <LI>Data Set Record Number: 2.21.5</LI>
+</ul>
+Number of points in the outwared normal direction to the heat-condction boundary-condition surfaces for initial-condition-temperature profile.
+
+<h3><a name="zthc">Nodal</a> Locations (ZTHC)</h3>
+<ul >
+   <LI>Defaults: 0, 1, 2</LI>
+   <LI>HST3D Variable: ZTHC</LI>
+   <LI>Data Set Record Number: 2.21.5</LI>
+</ul>
+Array of node locations in the outward normal direction for initial-condition-temperature profile for heat-conduction boundary-conditions cell faces. These nodes must span the mesh defined by ZHCBC.
+
+<h3><a name="tvzhc">Initial</a> Temperature (TVZHC)</h3>
+<ul >
+   <LI>Defaults: 20, 20, 20,</LI>
+   <LI>HST3D Variable: TVZHC</LI>
+   <LI>Data Set Record Number: 2.21.5</LI>
+</ul>
+Array for the intial-condition temperature-profile values for heat-conduction boundary condition cell faces. If you set the first value to a number different from <a href="fluidprop.htm#t0">T0</a>, you will be asked if you wish to change T0 to match the value you entered.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

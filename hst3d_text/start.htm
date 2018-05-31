@@ -1,0 +1,59 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Getting Started </title></head>
+<body>
+<h1>Getting Started</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+To start a new HST3D model, start Argus ONE and select New HST3D Project from the PIEs menu.
+<p>
+<img src="graphics/start1.gif" width="610" height="480">
+<p>
+You must first choose whether to use a Cartesian or Cylindrical coordinate system. (At present, the PIE only supports a Cartesian coordinate system.)
+<p>
+<img src="graphics/coord.gif" width="222" height="133">
+<p>
+This will bring up the <a href="project.htm">Edit Project Info Dialog</a> box. You use this to enter non-spatial information in your model such
+as the title lines. (You can edit this information again at any time by selecting &quot;Edit Project Info&quot; from the PIEs menu.)
+You also use the &quot;<a href="elements.htm">Elements</a>&quot; tab of this dialog box to set the vertical discretization.
+<p>
+<img src="graphics/project.gif" width="612" height="448">
+<p>
+One of the first things you will probably wish to decide is what processes to simulate and what types of boundary conditions to use. Select these on the Processes/Boundary Tab.
+<p>
+<img src="graphics/processes.gif" width="612" height="448">
+<p>
+When you have finished entering the nonspatial data, click the OK button and the PIE will create an Argus ONE layer structure for the model that reflects your choices.
+<p>
+<img src="graphics/start2.gif" width="290" height="736">
+<p>
+You will need to outline the area to be simulated on the &quot;<a href="domoutline.htm">Domain Outline</a>&quot; layer and assign the default grid density. If you have a base map, you may wish to import it into the <a href="maps.htm">maps</a> layer so that you can refer to it when outlining the study area. Refer to the Argus ONE documentation for how to import scanned images, DXF files, and other sorts of files into the Map layers.
+<p>
+<img src="graphics/start3.gif" width="610" height="512">
+<p>
+If you wish to create a uniform grid, you can change to the &quot;<a href="hst3dgrid.htm">HST3D Grid</a>&quot; layer and click the &quot;Magic Wand&quot; tool anywhere inside the domain outline to create a grid.
+<p>
+<img src="graphics/start4.gif" width="610" height="512">
+<p>
+For a non-uniform grid, use the &quot;<a href="density.htm">Grid Density</a>&quot; layer to control the grid size.
+<p>
+The main place that you enter data for the model is not in the HST3D Grid layer but rather in the information layers such as the 
+&quot;<a href="permeability.htm">Permeability Element Layer1</a>&quot; layer. The HST3D PIE creates exptressions for grid layer parameters that link the properties of the individual grid cells to the information on the information layers. If you do not manually override the values for any cell, you can delete the grid and make a new one with a different grid spacing and/or angle without loss of information. Thus, it is advantageous to enter the data on the information layers rather than directly on the grid cells.
+<p>
+There are a variety of methods for entering data on information layers. If you wish to use the same value for the entire layer, you can just set the default value to a number. You can also put points, lines or polygons on the layer to define properties. In Argus ONE, as in other Geographic Information Systems, these are referred to as &quot;point contours&quot;, &quot;open contours&quot;, and &quot;closed contours&quot; respectively. Collectively, they are referred to as &quot;objects&quot;. If you use the &quot;Exact Contour Method&quot; the interior of the the polygon will be assigned the value(s) you assign to the polygon. You could also draw a series of point contours and use the &quot;Interpolation Method&quot; to assign values.
+<p>
+<img src="graphics/start5.gif" width="610" height="512">
+<p>
+If several layers need to have the same information, use the &quot;Expression Editor&quot; to link them. You can make the default value of one layer be a second layer. Whatever data you then apply to the second layer will automatically apply to the first layer as well. You could also define more complex relationships among layers using expressions. The use of expressions to define relationships among different layers is one of the most powerful features of Argus ONE. You should definitely learn how to use it. Consult the Argus ONE documentation for details.
+<p>
+<img src="graphics/start6.gif" width="427" height="301">
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

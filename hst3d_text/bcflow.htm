@@ -1,0 +1,104 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> BCFLOW Zones </title></head>
+<body>
+<h1>BCFLOW Zones</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+Zones on the BCFLOW Zones layer are defined by contours on the layer. Any cell intersected by a contour will be included in the zone defined by that contour. Any cell whose node is inside a closed contour will be included in the zone. The top and bottom elevations of the zone are defined by the <a href="#top">Top Elevation</a> and <a href="#bottom">Bottom Elevation</a> Parameters.
+<p>
+<MAP NAME="bcflow">
+   <AREA COORDS="39,223,346,244" HREF="#name">
+   <AREA COORDS="40,241,349,258" HREF="#top">
+   <AREA coords="40,256,349,274" href="#bottom">
+   <AREA COORDS="39,273,349,291" HREF="#value">
+   <AREA COORDS="40,290,349,307" HREF="#flux">
+   <AREA COORDS="36,306,349,323" HREF="#leakage">
+   <AREA COORDS="38,324,346,338" HREF="#influence">
+   <AREA COORDS="37,341,346,356" HREF="#heat">
+   <AREA COORDS="40,353,349,371" HREF="#evapotranspiration">
+</MAP>
+<IMG BORDER=0 USEMAP="#bcflow" SRC="graphics//bcflow.gif"> 
+
+<h2><a name="name">Zone Name</a></h2>
+<UL>
+   <LI>Default Expression: 0</LI>
+   <LI>Related HST3D Variable: ZONNAM</LI>
+   <LI>BCFLOW Data Set Record Number: 2.n.1</LI>
+</UL>
+The Zone name will be printed on the BCFLOW output file (O.bczf.___) to identify the zone. The zone name may be up to 60 characters long. However, a blank character is inserted before the name to prevent the name from being interpreted as a comment. This limits the name to 59 characters. Although you can enter more than 59 characters, only the first 59 characters will be exported to BCFLOW.
+
+<h2><a name="top">Top</a> Elevation</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#elevation">HST3D Grid.Elevation NL1</a></LI>
+   <LI>Related HST3D Variable: z-range of BCTYPE</LI>
+   <LI>BCFLOW Data Set Record Number: 2.n.2</LI>
+</UL>
+Top Elevation defines the top of the zone.
+
+<h2><a name="bottom">Bottom</a> Elevation</h2>
+<UL>
+   <LI>Default Expression: <a href="hst3dgrid.htm#elevation">HST3D Grid.Elevation NL[i]</a></LI>
+   <LI>Related HST3D Variable: z-range of BCTYPE</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Top Elevation defines the bottom of the zone. The default value is set to the bottom elevation of the model at the time the parameter is added to the model. If the number of layers changes, the default value is not updated to reflect the change. Thus, you must update it manually if it becomes invalid.
+
+<h2><a name="value">Sum</a> Specifed Value</h2>
+<UL>
+   <LI>Default Expression: False (0)</LI>
+   <LI>Related HST3D Variable: BCTYPE = 1</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Set Sum Specifed Value to True (= 1) to tell BCFLOW that you want a sum of specified value boundary conditions for this zone. The specified value boundary conditions include <a href="processes.htm#specpres">Specified Pressure</a>, <a href="processes.htm#spectemp">Specified Temperature</a>, and <a href="processes.htm#specmass">Specified Mass Fraction</a> boundaries.
+
+<h2><a name="flux">Sum</a> Specifed Flux</h2>
+<UL>
+   <LI>Default Expression: False (0)</LI>
+   <LI>Related HST3D Variable: BCTYPE = 2</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Set Sum Specifed Flux to True (= 1) to tell BCFLOW that you want a sum of specified flux boundary conditions for this zone. The specified flux boundary conditions include <a href="processes.htm#specfluid">Specified Fluid Flux</a>, <a href="processes.htm#specheat">Specified Heat Flux</a>, and <a href="processes.htm#specsolute">Specified Solute Flux</a> boundaries.
+
+<h2><a name="leakage">Sum</a> Leakage</h2>
+<UL>
+   <LI>Default Expression: False (0)</LI>
+   <LI>Related HST3D Variable: BCTYPE = 3</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Set Sum Leakage to True (= 1) to tell BCFLOW that you want a sum of leakage boundary conditions for this zone. The leakage boundary conditions include <a href="processes.htm#leakage">Aquifer-Leakage</a> and <a href="processes.htm#river">River Leakage</a> boundaries.
+
+<h2><a name="influence">Sum</a> Aquifer Influence</h2>
+<UL>
+   <LI>Default Expression: False (0)</LI>
+   <LI>Related HST3D Variable: BCTYPE =4</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Set Sum Aquifer Influence to True (= 1) to tell BCFLOW that you want a sum of <a href="processes.htm#influence">aquifer influence</a> boundary conditions for this zone. 
+
+<h2><a name="heat">Sum</a> Heat Conduction</h2>
+<UL>
+   <LI>Default Expression: False (0)</LI>
+   <LI>Related HST3D Variable: BCTYPE = 5</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Set Sum Heat Conduction to True (= 1) to tell BCFLOW that you want a sum of <a href="processes.htm#conduction">heat conduction</a> boundary conditions for this zone. 
+
+<h2><a name="evapotranspiration">Sum</a> Evapotranspiration</h2>
+<UL>
+   <LI>Default Expression: False (0)</LI>
+   <LI>Related HST3D Variable: BCTYPE = 7</LI>
+   <LI>HST3D Data Set Record Number: 2.16.3</LI>
+</UL>
+Set Sum Evapotranspiration to True (= 1) to tell BCFLOW that you want a sum of <a href="processes.htm#evapotranspiration">evapotranspiration</a> boundary conditions for this zone. 
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

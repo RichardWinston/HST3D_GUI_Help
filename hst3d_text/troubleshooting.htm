@@ -1,0 +1,112 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Troubleshooting and Tips</title></head>
+<body>
+<h1>Troubleshooting and Tips</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+Be sure to check the <a href="http://www.mindspring.com/~rbwinston/hst3d/hst3d_faq.htm">HST3D FAQ</a> if you don't find the answer here.
+<UL>
+   <li >Troubleshooting</li>
+<ul >
+   <li ><a href="#where">Where is HST3D</a></li>
+   <LI><a href="#trouble1">I changed the &quot;Maximum number of time periods for any object&quot; to a smaller number and Argus ONE stops responding. What wrong?</a></LI>
+   <LI><a href="#trouble2">I changed an option so that the PIE should delete some layers but Argus ONE has stopped responding. What wrong?</a></LI>
+   <LI><a href="#trouble3">When I try to run HST3D from Argus ONE, HST3D doesn't start and I get an error message in the DOS window.</a></LI>
+   <LI><a href="#trouble4">I've run HST3D but when I try to open the output file in the HST3D Postprocessor, I get the error message &quot;Invalid Numerical Data"&quot;</a></LI>
+   <LI><a href="#trouble5">I opened a file and got the message &quot;Unable to read some data from this file. If you save this file, the extra data will be lost. Contact PIE developer for assistance.&quot;</a></LI>
+   <LI><a href="#trouble6">I opened a model and I got the message &quot;Attempting to read data from a later version of the HST3D PIE.&quot; Is this a problem.</a></LI>
+   <LI><a href="#trouble7">When using the &quot;Import Temporal Data&quot; and &quot;Import Monthly Data&quot; methods, existing parameter values of $N/A are converted to 0.</a></LI>
+   <LI><a href="#trouble8">On the time tab, I want to enter data for multiple time periods but when I select the time period I want, I can't type anything in it.</a></LI>
+   <LI><a href="#trouble9">I clicked the delete button on the Time tab of the Edit Project Info dialog box but there are still the same number of time periods as before. What is wrong?</a></LI>
+   <li ><a href="#trouble10">I manually deleted or renamed some locked layers or parameters and now Argus ONE crashes when I try to export the model.</a></li>
+</ul>
+   <li >Tips</li>
+  <ul > <LI><a href="#tip1">I want to copy a contour from one layer to another but I don't want to copy the parameter values for the contour. How can I do this?</a></LI>
+   <LI><a href="#tip2">I want to copy all of the data in the Edit Project Info dialog box from one model to another. How can I do that?</a></LI>
+   <LI><a href="#tip3">I am dealing with an aquifer with a non-uniform top or bottom elevation. Is there an good way of dealing with this in the HST3D PIE?</a></LI>
+   <LI><a href="#tip4">I want to export the output from an HST3D model to another program. Is there a good way to do this?</a></LI>
+</ul>
+</UL>
+<h2>Troubleshooting</h2>
+<h3><a name="where">Where is HST3D</a></h3>
+HST3D, DIMEN, and BCFLOW are in a compressed file named Hst3dEXEs.exe in the ArgusPIE\Hst3d_gui directory. 
+Run Hst3dEXEs.exe or use a zip-extractor to extract individual files. Together, the three programs require approximately 72 Mb of disk space.
+<h3><a name="trouble1">I changed</a> the &quot;Maximum number of time periods for any object&quot; to a smaller number and Argus ONE stops responding. What wrong?</h3>
+Deleting parameters is slow when there are a large number of layers or parameters in the current version of Argus ONE (4.1.0t). If you wait, it should finish... eventually. Tell Argus to make this process more efficient.
+
+<h3><a name="trouble2">I changed</a> an option so that the PIE should delete some layers but Argus ONE has stopped responding. What wrong?</h3>
+Deleting layers is slow when there are a large number of layers or parameters in the current version of Argus ONE (4.1.0t). If you wait, it should finish... eventually. Tell Argus to make this process more efficient.
+
+
+<h3><a name="trouble3">When I</a> try to run HST3D from Argus ONE, HST3D doesn't start and I get an error message in the DOS window.</h3>
+This is most frequently due to insufficient available memory. Try shutting down as many programs as possible and try again. Argus ONE can take up a lot of memory so it might be a good one to shut down. You do not need to re-export the HST3D input file to start HST3D. Just click on the RunHST3D.bat file in the file explorer.
+
+<h3><a name="trouble4">I've run</a> HST3D but when I try to open the output file in the HST3D Postprocessor, I get the error message &quot;Invalid Numerical Data"&quot;</h3>
+<UL>
+   <LI>If you ran out of disk space while running HST3D, the output file may be incomplete. Free up disk space and rerun HST3D</LI>
+   <LI>The file may have &quot;**********&quot; in place of valid numerical data. This occurs if the HST3D is trying to print a number that is too large to fit in the available space. This probably means that the input you have entered is invalid in some way.</LI>
+</UL>
+
+<h3><a name="trouble5">I opened</a> a file and got the message &quot;Unable to read some data from this file. If you save this file, the extra data will be lost. Contact PIE developer for assistance.&quot;</h3>
+The file you are attempting to read has data that your version of the HST3D PIE is unable to process. This may be because it was created with a new version of the HST3D PIE. If so, you need to get a copy of that version to ensure that the data is read properly. Your curent PIE will not be able to save the data it could not read so you should not save this file with the same name as you opened it with or you will overwrite the existing file.
+
+<h3><a name="trouble6">I opened</a> a model and I got the message &quot;Attempting to read data from a later version of the HST3D PIE.&quot; Is this a problem.</h3>
+This is a warning message but it doesn't mean that there is anything wrong. Each time you save a model, the version of the PIE that you have installed is saved with the model. When opening the model, the pie compares the version in the file and tells you if the file was created by a later version. If there is no other message, all the data in the file was read correctly and will be saved correctly when you save the file.
+
+<h3><a name="trouble7">When using</a> the &quot;Import Temporal Data&quot; and &quot;Import Monthly Data&quot; methods, existing parameter values of $N/A are converted to 0.</h3>
+Argus ONE does this when copying a contour to the clipboard. See &quot;<a href="import.htm">Importing Time-Dependent Data</a>&quot; for what to do about it.
+
+<h3><a name="trouble8">On the</a> time tab, I want to enter data for multiple time periods but when I select the time period I want, I can't type anything in it.</h3>
+Change the duration of the previous time period to a non-zero value. See &quot;<a href="time.htm">Time in the HST3D PIE</a>.&quot;
+<p>
+
+<h3><a name="trouble9">I clicked</a> the delete button on the Time tab of the Edit Project Info dialog box but there are still the same number of time periods as before. What is wrong?</h3>
+Clicking the delete button deletes the <b>data</b> for the selected time period but it is not supposed to change the number of time periods. To do that, change the number of time periods in the edit box labelled &quot;Maximum number of time periods for any object&quot;.
+<p>
+
+<h3><a name="trouble10">I manually deleted or renamed some locked layers or parameters and now Argus ONE crashes when I try to export the model.</a></h3>
+Do not manually delete or rename locked layers or parameters. They are locked for a reason. You are sure to run into trouble if you mess with them. You will need to manually recreate the layers or parameters you destroyed with exactly the same names as before to correct this problem. 
+<p>
+
+<h2>Tips</h2>
+<h3><a name="tip1">I want</a> to copy a contour from one layer to another but I don't want to copy the parameter values for the contour. How can I do this?</h3>
+You should be able to do this:
+<br>
+Select &quot;Special|Preferences&quot;. In the dialog box, select the clipboard icon. Uncheck the &quot;Copy parameter values&quot; check box. Then copy and paste the contour.
+<p>
+However, in version 4.1.0t, there appears to be a bug that prevents this from working properly. Here is a work-around. 
+<UL>
+   <LI>Create a new information layer.</LI>
+   <LI>Copy the contour from the source layer and paste it on the new information layer.</LI>
+   <LI>Copy the contour from the new information layer to the layer and paste it on the layer where you want it to be. </LI>
+   <LI>Double click on the contour and delete the value of the first parameter.</LI>
+</UL>
+
+<h3><a name="tip2">I want</a> to copy all of the data in the Edit Project Info dialog box from one model to another. How can I do that?</h3>
+See &quot;<a href="default.htm">Setting Default Values</a>&quot;.
+
+<h3><a name="tip3">I am</a> dealing with an aquifer with a non-uniform top or bottom elevation. Is there an good way of dealing with this in the HST3D PIE?</h3>
+Yes. See <a href="irreg.htm">Dealing with Irregular Aquifer Geometry</a>.
+
+<h3><a name="tip4">I want</a> to export the output from an HST3D model to another program. Is there a good way to do this?</h3>
+<OL>
+   <LI>Import data into Argus ONE with the postprocessing PIE.</LI>
+   <LI>Switch to the HST3D Data layer.</LI>
+   <LI>Select View|Show Values.</LI>
+   <LI>Select the columns you wish to copy by holding down the shift key while clicking on the column heading.</LI>
+   <LI>Copy to the clipboard with Ctrl-C.</LI>
+   <LI>Paste in a spreadsheet with Ctrl-V.</LI>
+</OL>
+
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

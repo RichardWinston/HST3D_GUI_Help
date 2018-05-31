@@ -1,0 +1,111 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Importing Time-Dependent Data </title></head>
+<body>
+<h1>Importing Time-Dependent Data</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+The HST3D PIE has two methods of importing time-dependent data: &quot;Import Temporal Data&quot; and &quot;Import Monthly Data&quot;. They are essentially the same except for the format of the text file containing the data.
+<p>
+
+<h2>Input file formats</h2>
+Here's an example of a file properly formatted for the &quot;Import Monthly Data&quot; method.
+<pre >
+Title Line
+YEAR	JAN	FEB	MAR	APR	MAY	JUN	JUL	AUG	SEP	OCT	NOV	DEC
+1987	764	19	-130	-1115	-2606	-5767	-4902	-4663	-3769	-1472	973	1868
+1988	1003	108	-1323	-2993	-4216	-3858	-1204	1808	3061	883	-697	-2427
+1989	-4663	-6960	-6811	-8391	-9644	-12298	-6423	-5469	-3739	-3113	-3739	-4902
+1990	-6423	-7169	-8093	-7288	-9107	-6870	-5081	-3709	-2993	-3381	-4544	-6035
+1991	-6035	-4276	-5141	-6602	-5469	-2427	943	1569	705	1331	526	168
+1992	-757	-1413	-2457	-3441	-5349	-3888	764	1838	3657	3418	2315	1778
+1993	1897	2882	2911	2345	943	1092	-11	-220	466	2345	2315	734
+</pre>
+<hr width="20%">
+
+Here's an example of a file properly formatted for the &quot;Import Temporal Data&quot; method.
+
+<pre >
+Title Line
+TIME	PUMPAGE
+1	-5000
+3	-6000
+4	-7000
+5	-8000
+6	0
+9	-2000
+11	-3000
+12	-3500
+19	-6000
+24	0
+29	-4500
+</pre>
+<hr width="20%">
+Both data files start with two lines of labels. It doesn't matter what these are because the first two lines are skipped. 
+<p>
+For the &quot;Import Monthly Data&quot; method, the succeeding lines start with the year and are followed by exactly 12 data values to import. These represent the values of a parameter to be imported for each month of the year. The years must be consecutive and the model must begin on Jan1 of the first year in the file.
+<p>
+For the &quot;Import Temporal Data&quot; method, the succeeding lines start contain two data values. The first is the time associated with the data to import and the second is the value to import. The first time must represent the time when the model begins. Each time must be larger than it's predecessor. The times need not be equally spaced. The times must be in the units used by the model.
+<p>
+Data values in either format must be separated from one another by one or more tab or space characters. Such files can be easily created by exporting data from spreadsheet programs to text files.
+<h2>The import procedure</h2>
+
+<OL>
+   <LI>Create a contour on the layer for which you wish to import data.</LI>
+ <li > Make sure there are enough time parameters for the contour for the data you wish to import. If not change &quot;<a href="timetab.htm#maximum">Maximum number of time periods to be used for any object</a>&quot; on the time tab of the Edit Project Info dialog box.</li>
+  <li > Make sure that when you copy contours to the clipboard that your will also copy parameter values. This is the default behavior. If you have changed it you can change it back on the &quot;Special|Preferences&quot; dialog box. Select the clipboard icon on the left side of the dialog box and then make sure that the &quot;Copy contour parameter values&quot; check box is checked.</li>
+   <LI>Cut one or more contours to the clipboard (Edit|Cut, or Ctrl-X). Note that if there is an error in the import process, the contour should still be on the clipboard and can be pasted back on the layer unless you put something else on the clipboard first. Note: Clicking the Delete key does not copy the contour to the clipboard; it just deletes it from Argus ONE.</LI>
+   <LI>Select &quot;Import Monthly Data&quot; or &quot;Import Temporal Data&quot; depending on the format of the data that you will import. <br>
+<img src="graphics/imptempmenu.gif" width="612" height="482"><p>
+
+</LI>
+   <LI>A dialog box will apear with a list of layers will appear. Select the layer from which you cut the contour and to which the data should be imported. <br>
+<img src="graphics/imptemplayer.gif" width="306" height="292"><p>
+
+</LI>
+   <LI>Another Dialog box will apear with two lists of temporal parameters for the layer. Select the parameter for which you wish to import data in the top list. If you wish to set any of the other parameters to $N/A, select those in the bottom list. Click OK. <br>
+<img src="graphics/imptempparam.gif" width="454" height="357"><p>
+
+</LI>
+   <LI>A third dialog box will appear. Select the file from which you wish to import data. <br>
+<img src="graphics/imptempopen.gif" width="426" height="264"><p>
+
+</LI>
+   <LI>The contour that you cut to the clipboard will re-appear. </LI>
+   <LI>The data from the text file you selected will have been set as the values of the parameter you selected. <table border>
+<tr>
+   <td><img src="graphics/imptempbefore.gif" width="393" height="583">
+ </td>
+   <td><img src="graphics/imptempafter.gif" width="375" height="585">
+ </td>
+</tr>
+<tr>
+   <td><center>before</center> </td>
+   <td><center>after</center> </td>
+</tr>
+</TABLE><p>
+
+</LI>
+   <LI>The times for the contour will be set to the time since the first time in the text file. </LI>
+   <LI>Because $N/A is converted to 0 when a contour is copied to the clipboard, $N/A values are not preserved in the new version of the contour. However, other parameters should remain the same.  </LI>
+   <LI>If you have not copied a contour to the clipboard an error message will appear. <br>
+<img src="graphics/imptemperror1.gif" width="317" height="145">
+<p>
+</LI>
+  <li >If you have more time values in the text file than you have in the model, another error message will appear. <br>
+<img src="graphics/imptemperror2.gif" width="659" height="165">
+<p>
+
+</OL>
+
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

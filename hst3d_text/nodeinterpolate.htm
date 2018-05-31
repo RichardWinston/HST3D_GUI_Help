@@ -1,0 +1,27 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> How to use Argus ONE's Interpolation Methods on Node Layers </title></head>
+<body>
+<h1>How to use Argus ONE's Interpolation Methods on Node Layers</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+On node layers the HST3D PIE can not ordinarily use any of the interpolation methods provided by Argus ONE. Instead any cell enclosed or intercepted by a contour is assigned the value of that contour. However, there is a way around this. Here's what you do.
+
+<OL>
+   <LI>Create a new information layer and put on it the information that you wish to use to define the property on the node layer.</LI>
+   <LI>With the expression editor, make the default value of the Node layer the new information layer that has the data you entered.</LI>
+   <LI>On the HST3D Grid Layer select File|Export|By Template.</LI>
+   <LI>Import the file you just exported into the node layer as a text file. By default the file will be named HST3D_Grid.exp. </LI>
+   <LI>If you change the grid on the HST3D Grid layer, you will have to delete the points on the node layer and redo the previous two steps.</LI>
+</OL>
+
+The export template on the HST3D Grid layer creates a point contour at each of the HST3D nodes. The value assigned to each point contour will be the default value(s) of the layer into which the contour is imported unless overridden by you.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

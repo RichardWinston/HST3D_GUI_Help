@@ -1,0 +1,105 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Well-Riser tab </title></head>
+<body>
+<h1>Well-Riser tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+This tab is visible only if the well riser option has been selected on the &quot;Processes/Boundary&quot; tab.
+<p>
+
+<MAP NAME="wellriser">
+   <AREA COORDS="18,73,540,96" HREF="#mxitqw">
+   <AREA COORDS="15,98,497,120" HREF="#toldpw">
+   <AREA COORDS="16,123,485,145" HREF="#tolfpw">
+   <AREA COORDS="13,146,471,171" HREF="#tolfqw">
+   <AREA COORDS="15,169,437,193" HREF="#damwrc">
+   <AREA COORDS="16,196,469,218" HREF="#dzmin">
+   <AREA COORDS="15,218,405,245" HREF="#epswr">
+   <AREA COORDS="49,25,101,44" HREF="project.htm">
+   <AREA COORDS="101,26,157,45" HREF="elements.htm">
+   <AREA COORDS="433,24,605,44" HREF="refcond.htm">
+   <AREA COORDS="346,24,433,45" HREF="fluidprop.htm">
+   <AREA COORDS="273,25,345,44" HREF="interpolationtab.htm">
+   <AREA COORDS="158,25,274,44" HREF="processes.htm">
+   <AREA COORDS="7,43,71,60" HREF="wellriser.htm">
+   <AREA COORDS="70,44,169,62" HREF="aquifinfltab.htm">
+   <AREA COORDS="169,45,290,63" HREF="heatcondtab.htm">
+   <AREA COORDS="291,43,381,63" HREF="initcond.htm">
+   <AREA COORDS="380,44,450,63" HREF="solver.htm">
+   <AREA COORDS="454,45,497,64" HREF="outputtab.htm">
+   <AREA COORDS="496,45,543,64" HREF="timetab.htm">
+   <AREA COORDS="546,44,605,63" HREF="bcflow.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA COORDS="524,411,599,435" HREF="project.htm#ok">
+   <AREA COORDS="6,24,51,43" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#wellriser" SRC="graphics//wellrise.gif"> 
+
+
+<h2><a name="mxitqw">Maximum</a> number of iterations (MXITQW)</h2>
+<ul >
+   <LI>Default: 20</LI>
+   <LI>HST3D Variable: MXITQW</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Maximum number of iterations allowed for the well-flow rate calculation. Default of 20.
+
+<h2><a name="toldpw">Tolerance</a> on the change in well-riser pressure (TOLDPW)</h2>
+<ul >
+   <LI>Default: 0.006</LI>
+   <LI>HST3D Variable: TOLDPW</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Tolerance on the change in well-riser pressure for the well-riser iterative calculation. Default of 6&#160;x&#160;10<sup>-3</sup> Pa. This is the primary convergence test.
+
+<h2><a name="tolfpw">Tolerance</a> on the fractional change in well-riser pressure (TOLFPW)</h2>
+<ul >
+   <LI>Default: 0.001</LI>
+   <LI>HST3D Variable: TOLFPW</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Tolerance on the fractional change in well-riser pressure for the well-riser iterative calculation. Default of 0.001. This is the secondary convergence test.
+
+<h2><a name="tolfqw">Tolerance</a> on the fractional change in well flow rate (TOLFQW)</h2>
+<ul >
+   <LI>Default: 0.001</LI>
+   <LI>HST3D Variable: TOLFQW</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Tolerance on the fractional change in well flow rate because of temperature and mass-fraction changes for the source term in the flow equation. Default of 0.001. This is the tertiary convergence test.
+
+<h2><a name="damwrc">Damping</a> factor for well-pressure adjustment (DAMWRC)</h2>
+<ul >
+   <LI>Default: 2</LI>
+   <LI>HST3D Variable: DAMWRC</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Damping factor for well-pressure adjustment during the iterations for allocating flow rates. Default of 2.
+
+<h2><a name="dzmin">Minimum</a> value of step length along the well riser (DZMIN)</h2>
+<ul >
+   <LI>Default: 0</LI>
+   <LI>HST3D Variable: DZMIN</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Minimum value of step length along the well riser. Default of 1 percent of riser length.
+
+<h2><a name="epswr">Fractional</a> tolerance of the integration of the pressure and temperature equations (EPSWR)</h2>
+<ul >
+   <LI>Default: 0.001</LI>
+   <LI>HST3D Variable: EPSWR</LI>
+   <LI>Data Set Record Number: 2.13.7</LI>
+</ul>
+Fractional tolerance for the integration of the pressure and temprature equations along the well riser. Default of 0.001.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

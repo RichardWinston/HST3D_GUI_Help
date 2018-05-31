@@ -1,0 +1,210 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Processes/Boundaries Tab </title></head>
+<body>
+<h1>Processes/Boundaries Tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+<MAP NAME="processes">
+   <AREA COORDS="23,82,201,99" HREF="#heat">
+   <AREA COORDS="20,99,224,115" HREF="#solute">
+   <AREA COORDS="22,113,207,131" HREF="#free">
+   <AREA COORDS="23,155,141,170" HREF="#specpres">
+   <AREA COORDS="22,170,153,187" HREF="#spectemp">
+   <AREA COORDS="24,188,154,203" HREF="#specmass">
+   <AREA COORDS="24,203,154,219" HREF="#specfluid">
+   <AREA COORDS="22,220,154,236" HREF="#specheat">
+   <AREA COORDS="24,235,154,252" HREF="#specsolute">
+   <AREA COORDS="20,253,154,268" HREF="#leakage">
+   <AREA COORDS="23,268,152,284" HREF="#river">
+   <AREA COORDS="22,285,182,299" HREF="#evapotranspiration">
+   <AREA COORDS="23,302,178,316" HREF="#influence">
+   <AREA COORDS="22,315,179,332" HREF="#conduction">
+   <AREA COORDS="21,332,180,347" HREF="#wells">
+   <AREA COORDS="21,347,185,364" HREF="#wellriser">
+   <AREA COORDS="200,155,572,172" HREF="#interpspecpres">
+   <AREA COORDS="196,171,530,187" HREF="#interpspectemp">
+   <AREA COORDS="197,186,535,203" HREF="#interpspecmass">
+   <AREA COORDS="197,204,516,221" HREF="#interpspecflux">
+   <AREA COORDS="51,41,103,64" HREF="project.htm">
+   <AREA COORDS="102,44,158,63" HREF="elements.htm">
+   <AREA COORDS="432,44,604,64" HREF="refcond.htm">
+   <AREA COORDS="346,43,433,64" HREF="fluidprop.htm">
+   <AREA COORDS="273,44,345,63" HREF="interpolationtab.htm">
+   <AREA COORDS="157,43,273,62" HREF="processes.htm">
+   <AREA COORDS="544,27,604,44" HREF="bcflow.htm">
+   <AREA COORDS="498,26,543,45" HREF="timetab.htm">
+   <AREA COORDS="450,25,499,46" HREF="outputtab.htm">
+   <AREA COORDS="381,24,448,45" HREF="solver.htm">
+   <AREA COORDS="287,25,381,45" HREF="initcond.htm">
+   <AREA COORDS="168,24,286,43" HREF="heatcondtab.htm">
+   <AREA COORDS="70,25,166,44" HREF="aquifinfltab.htm">
+   <AREA COORDS="6,24,71,45" HREF="wellriser.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA COORDS="524,411,599,435" HREF="project.htm#ok">
+   <AREA COORDS="8,45,52,65" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#processes" SRC="graphics//processes.gif"> 
+
+<h2><a name="heat">Heat</a> transport simulated (HEAT)</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: HEAT</LI>
+   <LI>HST3D Data Set Record Number: 1.4</LI>
+</UL>
+If the HEAT check box is checked, heat transport will be simulated. Layers and parameters related to heat transport will be added within Argus ONE and check boxes related to heat-transport boundary conditions will be enabled. A free surface is not allowed with heat transport so the free surface check box will be disabled.
+
+<h2><a name="solute">Solute</a> transport simulated (SOLUTE)</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: SOLUTE</LI>
+   <LI>HST3D Data Set Record Number: 1.4</LI>
+</UL>
+If the SOLUTE check box is checked, solute transport will be simulated. Layers and parameters related to solute transport will be added within Argus ONE and check boxes related to solute-transport boundary conditions will be enabled.
+
+<h2><a name="free">Free</a> Surface (FRESUR)</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: FRESUR</LI>
+   <LI>HST3D Data Set Record Number: 2.20</LI>
+</UL>
+If the Free Surface check box is checked a free surface will be simulated.  A free surface is not allowed with heat transport so the HEAT check box will be disabled.
+
+<h2><a name="specpres">Specifed</a> pressure</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NSBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the specified pressure checkbox is checked, layers and parameters related to specified pressure boundaries will be created in Argus ONE.
+
+<h2><a name="spectemp">Specified</a> temperature</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NSBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the specified temperature checkbox is checked, layers and parameters related to specified temperature boundaries will be created in Argus ONE.
+
+<h2><a name="specmass">Specified</a> mass fraction</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NSBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the specified mass fraction checkbox is checked, layers and parameters related to specified mass fraction boundaries will be created in Argus ONE.
+
+<h2><a name="specfluid">Specified</a> fluid flux</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NFBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the specified fluid flux checkbox is checked, layers and parameters related to specified fluid flux boundaries will be created in Argus ONE.
+
+<h2><a name="specheat">Specified</a> heat flux</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NFBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the specified heat flux checkbox is checked, layers and parameters related to specified heat flux boundaries will be created in Argus ONE.
+
+<h2><a name="specsolute">Specified</a> solute flux</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NFBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the specified solute flux checkbox is checked, layers and parameters related to specified solute flux boundaries will be created in Argus ONE.
+
+<h2><a name="leakage">Leakage</a> boundary</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NLBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the leakage boundary checkbox is checked, layers and parameters related to leakage boundaries will be created in Argus ONE.
+
+<h2><a name="river">River</a> leakage</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NLBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the river leakage checkbox is checked, layers and parameters related to river leakage boundaries will be created in Argus ONE.
+
+<h2><a name="evapotranspiration">Evapotranspiration</a> boundary</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NETBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the evapotranspiration checkbox is checked, layers and parameters related to evapotranspiration boundaries will be created in Argus ONE.
+
+<h2><a name="influence">Aquifer</a> influence boundary</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NAIFC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the aquifer influence boundary checkbox is checked, layers and parameters related to aquifer influence boundaries will be created in Argus ONE and the aquifer influence tab will be made visible.
+
+<h2><a name="conduction">Heat</a> conduction boundary</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NHCBC</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the heat conduction boundary checkbox is checked, layers and parameters related to heat conduction boundaries will be created in Argus ONE and the heat conduction tab will be made visible.
+
+<h2><a name="wells">Wells</a></h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: NWEL</LI>
+   <LI>HST3D Data Set Record Number: 1.7</LI>
+</UL>
+If the wells checkbox is checked, layers and parameters related to wells will be created in Argus ONE.
+
+<h2><a name="wellriser">Perform</a> well riser calculations</h2>
+<UL>
+   <LI>Default: not checked</LI>
+   <LI>Related HST3D Variable: WQMETH</LI>
+   <LI>HST3D Data Set Record Number: 2.13.1</LI>
+</UL>
+If the wells checkbox is checked, parameters related to well riser calculations will be created in Argus ONE and the well-riser tab will be made visible.
+
+<h2><a name="interpspecpres">Allow</a> Interpolation along open contours for specified pressure parameters</h2>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, the checkboxes on the <a href="interpolationtab.htm">interpolation tab</a> related to interpolating specified pressure parameters will be enabled.
+
+<h2><a name="interpspectemp">Allow</a> Interpolation along open contours for specified temperature</h2>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specstate.htm#endsptemp">End Specified Temperature</a>&quot; parameters will be created on all Specified State layers. You can use such parameters to interpolate along the length of open contours.
+
+<h2><a name="interpspecmass">Allow</a> Interpolation along open contours for specified mass fraction</h2>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specstate.htm#endspmass">End Specified mass fraction</a>&quot; or &quot;<a href="specstate.htm#endspsc">End Specified scaled mass fraction</a>&quot; parameters will be created on all Specified State layers. You can use such parameters to interpolate along the length of open contours.
+
+<h2><a name="interpspecflux">Allow</a> Interpolation along open contours for specified flux parameters</h2>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, the checkboxes on the <a href="interpolationtab.htm">interpolation tab</a> related to interpolating specified flux parameters will be enabled.
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

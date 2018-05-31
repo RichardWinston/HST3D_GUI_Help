@@ -1,0 +1,82 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Time in the HST3D PIE </title></head>
+<body>
+<h1>Time in the HST3D PIE</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+Many items of data used in HST3D may vary with time such as well flow rates, specific pressure boundary conditions, etc. HST3D requires that
+whenever any well flow rate or other boundary condition changes, all the well flow rates or other boundary conditions must be re-entered into the data file for the next stress period. This can be inconvenient when large numbers of wells or other items have temporal variables that change at different times because the user would need to compare all the times to determine when to enter new data. The HST3D PIE simplifies data entry by doing all these comparisons for you. You just need to specify the time schedule for each object without worrying about how that relates to the times for other objects. For example, suppose you had four specified pressure boundaries that all changed at different times.
+<ul >
+<li >Specified Pressure Boundary 1:
+<UL>
+   <LI>From time = 0 to 3: pressure = 5 Pa</LI>
+   <LI>From time = 3 to the end of the model: pressure = 4 Pa</LI>
+</UL></li>
+<li >Specified Pressure Boundary 2:
+<UL>
+   <LI>From time = 0 to the end of the model: pressure = 4 Pa</LI>
+</UL></li>
+<li >Specified Pressure Boundary 3:
+<UL>
+   <LI>From time = 0 to 7: pressure = 6</LI>
+   <LI>From time = 7 to the end of the model: pressure = 5 Pa</LI>
+</UL></li>
+
+</ul>
+<p>
+Here's how you would enter the data for these three boundaries.
+<p>
+<table border>
+<tr>
+   <td><img src="graphics/example1.gif" width="375" height="329"> </td>
+</tr>
+<tr>
+   <td>Specified Pressure Boundary 1 </td>
+</tr>
+</TABLE>
+<p>
+
+<table border>
+<tr>
+   <td><img src="graphics/example2.gif" width="375" height="329"> </td>
+</tr>
+<tr>
+   <td>Specified Pressure Boundary 2 </td>
+</tr>
+</TABLE>
+<p>
+
+<table border>
+<tr>
+   <td><img src="graphics/example3.gif" width="375" height="329"> </td>
+</tr>
+<tr>
+   <td>Specified Pressure Boundary 3 </td>
+</tr>
+</TABLE>
+
+
+
+
+
+<p>
+
+For the first and third boundaries, we specify different values of the Time2 parameter to show when those different objects change their properties.
+For the second boundary we leave Time2 set at the default value of $N/A (not available). That causes all data for that time step to be ignored. 
+
+<p>
+The number of different Time parameters that are available for all objects is set by 
+<a href="timetab.htm#maximum">&quot;Maximum number of time periods to be used for any object.&quot;</a> in the Edit Project Info dialog box.
+<p>
+Note that in all cases, Time1 is 0. The time the simulation begins is at 0 and all times are measured relative to the beginning of the model. The time units are set with <a href="project.htm#tmunit">Time Units (TMUNIT)</a> in the Edit Project Info dialog box.
+<p>
+Also note that you must specify the properties of the boundary condition for the first time period and that a boundary condition can never become inactive.
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

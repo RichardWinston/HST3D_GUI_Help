@@ -1,0 +1,51 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Initial Water Table </title></head>
+<body>
+<h1>Initial Water Table</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+
+The&quot; Initial Water Table&quot; layer appears under the &quot;Unindexed Layers&quot; group layer only if all of the following are true:
+<OL>
+   <LI>&quot;Free Surface&quot; on the Processes/Boundary tab is checked.</LI>
+   <LI>&quot;Specified initial hydrostatic pressure distribution&quot; on the Initial Conditions tab is checked</LI>
+   <LI>&quot;Specified initial water table&quot; on the Initial Conditions tab is checked </LI>
+</OL>
+<p>
+You can not set the water table elevation simply by setting the default value of the layer. You must use contours to set the initial water table. Any <a href="grid.htm">HST3D Cell</a> that is enclosed or intercepted by a closed contour will be assigned the value of that contour. Any <a href="grid.htm">HST3D Cell</a> intercepted by a point or open contour will be assigned the value of that contour. If a cell is assigned a value through two or more contours, the value ultimately used by HST3D will depend on the order in which the contours were created. The value assigned with the most recently created contour will be the one used by HST3D.
+<p>
+See <a href="nodeinterpolate.htm">how to use Argus ONE's interpolation methods on node layers</a> for a method of overcoming the limitations of how data on node layers is defined.
+<p>
+<MAP NAME="initialwatertable">
+   <AREA COORDS="39,227,347,243" HREF="#initial">
+   <AREA COORDS="37,242,347,259" HREF="#endinitial">
+</MAP>
+<IMG BORDER=0 USEMAP="#initialwatertable" SRC="graphics//initwattable.gif"> 
+
+
+<h2><a name="initial">Initial Water Table</a></h2>
+<UL>
+   <LI>Default Expression: HST3D Grid.Elevation NL1</LI>
+   <LI>Related HST3D Variable: HWT</LI>
+   <LI>HST3D Data Set Record Number: 2.21.3C</LI>
+</UL>
+The initial water table is specified using the same coordinate system as the rest of the model. Thus if the top layer of nodes is at an elevation of 200, and you wanted the elevation of the water table to be equal to the elevation of the top layer of nodes, you would enter a 200.
+
+<h2><a name="endinitial">End Initial Water Table</a></h2>
+<UL>
+   <LI>Default Expression: $N/A</LI>
+   <LI>Related HST3D Variable: HWT</LI>
+   <LI>HST3D Data Set Record Number: 2.21.3C</LI>
+</UL>
+For open contours, when interpolation along contours is allowed and End Initial Water Table is not equal to $N/A, End Initial Water Table designates the specified pressure at the end of the contour. 
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

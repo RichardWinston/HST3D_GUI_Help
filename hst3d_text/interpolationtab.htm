@@ -1,0 +1,108 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> Interpolation Tab </title></head>
+<body>
+<h1>Interpolation Tab</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+This tab is used if you wish to interpolate along the length of an open contour. It is only used for those layers that have multiple parameters that may be <a href="interpolation.htm">interpolated.</a> At present, only specified pressure parameters and specified flux parameters are listed here. To enable interpolation of any specific parameter listed here, just check the corresponding check box.
+<p>
+<MAP NAME="interpolation">
+   <AREA COORDS="21,90,141,107" HREF="#specified">
+   <AREA COORDS="21,107,143,123" HREF="#temp">
+   <AREA COORDS="22,124,162,138" HREF="#mass">
+   <AREA COORDS="22,138,197,156" HREF="#scaled">
+   <AREA COORDS="51,41,103,64" HREF="project.htm">
+   <AREA COORDS="102,44,158,63" HREF="elements.htm">
+   <AREA COORDS="432,44,604,64" HREF="refcond.htm">
+   <AREA COORDS="346,43,433,64" HREF="fluidprop.htm">
+   <AREA COORDS="273,44,345,63" HREF="interpolationtab.htm">
+   <AREA COORDS="157,43,273,62" HREF="processes.htm">
+   <AREA COORDS="544,27,604,44" HREF="bcflow.htm">
+   <AREA COORDS="498,26,543,45" HREF="timetab.htm">
+   <AREA COORDS="450,25,499,46" HREF="outputtab.htm">
+   <AREA COORDS="381,24,448,45" HREF="solver.htm">
+   <AREA COORDS="287,25,381,45" HREF="initcond.htm">
+   <AREA COORDS="168,24,286,43" HREF="heatcondtab.htm">
+   <AREA COORDS="70,25,166,44" HREF="aquifinfltab.htm">
+   <AREA COORDS="6,24,71,45" HREF="wellriser.htm">
+   <AREA COORDS="155,410,361,437" HREF="default.htm">
+   <AREA COORDS="364,410,441,435" HREF="project.htm#help">
+   <AREA COORDS="444,411,519,435" HREF="project.htm#cancel">
+   <AREA COORDS="524,411,599,435" HREF="project.htm#ok">
+   <AREA COORDS="23,218,102,234" HREF="#fluxfluid">
+   <AREA COORDS="20,234,109,250" HREF="#fluxdensity">
+   <AREA COORDS="21,250,110,267" HREF="#fluxtemperature">
+   <AREA COORDS="23,266,115,283" HREF="#fluxmass">
+   <AREA COORDS="20,282,149,300" HREF="#fluxscmass">
+   <AREA COORDS="8,45,52,65" HREF="about.htm">
+</MAP>
+<IMG BORDER=0 USEMAP="#interpolation" SRC="graphics//interptab.gif"> 
+
+<h2>Interpolate Specified Pressure box</h2>
+
+<h3><a name="specified">Specified</a> Pressure</h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specstate.htm#endsp">End Specified Pressure</a>&quot; parameters will be created on all Specified State layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="temp">Temp</a> at Spec Pres</h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specstate.htm#endtsp">End Temp at Spec Pres</a>&quot; parameters will be created on all Specified State layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="mass">Mass</a> Frac at Spec Pres</h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specstate.htm#endmf">End Mass Frac at Spec Pres</a>&quot; parameters will be created on all Specified State layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="scaled">Scaled</a> Mass Frac at Spec Pres</h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specstate.htm#endscmf">End Scaled Mass Frac at Spec Pres</a>&quot; parameters will be created on all Specified State layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecflux">&quot;Allow Interpolation along open contours for specified flux parameters&quot;</a> must be checked before you can select this check box.
+
+<h2>Interpolate Fluid Flux box</h2>
+
+<h3><a name="fluxfluid">Fluid</a> Flux</h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specflux.htm#endfluid">End Fluid Flux</a>&quot; and &quot;<a href="specflux.htm#endupfluid">End Upward Fluid Flux</a>&quot; parameters will be created on all Vertical Specified Flux and Horizontal Specified Flux layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="fluxdensity">Fluid</a> Density</h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specflux.htm#enddensity">End Density</a>&quot; parameters will be created on all Vertical Specified Flux and Horizontal Specified Flux layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="fluxtemperature">Temperature</a></h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked, &quot;<a href="specflux.htm#endtemperature">End Temperature</a>&quot; parameters will be created on all Vertical Specified Flux and Horizontal Specified Flux layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="fluxmass">Mass Fraction</a></h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked and you are using unscaled mass fractions, &quot;<a href="specflux.htm#endmass">End Mass Fraction</a>&quot; parameters will be created on all Vertical Specified Flux and Horizontal Specified Flux layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+<h3><a name="fluxscmass">Scaled Mass Fraction</a></h3>
+<UL>
+   <LI>Default: not checked</LI>
+</UL>
+If this check box is checked and you are using scaled mass fractions, &quot;<a href="specflux.htm#endmass">End Scaled Mass Fraction</a>&quot; parameters will be created on all Vertical Specified Flux and Horizontal Specified Flux layers. You can use such parameters to interpolate along the length of open contours. <a href="processes.htm#interpspecpres">&quot;Allow Interpolation along open contours for specified pressure parameters&quot;</a> must be checked before you can select this check box.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

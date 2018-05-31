@@ -1,0 +1,41 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> HST3D Node Grid Layer</title></head>
+<body>
+
+<h1>HST3D Node Grid Layer</h1>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<p>
+You may wish to read about the <a href="grid.htm">HST3D Grid</a> before dealing with the HST3D Node Grid layer.
+<p>
+This layer is present only if <a href="project.htm#observ">Use Observation Elevations</a> is checked on the &quot;Edit Project Info...&quot; dialog box.
+<p>
+You should not normally override values of individual blocks or the default values in the HST3D Node Grid layer. The expressions for the default value on the HST3D Node Grid layer are set by the HST3D PIE. They link the default values for the grid cells to information layers. Use the information layers rather than the HST3D Node Grid layer to set the values in the grid.
+<p>
+The HST3D Node Grid layer represents the cells comprising the HST3D model. The grid type on the HST3D Node Grid layer must be &quot;Grid Centered&quot;. (To make a Grid-Centered grid, select Edit|Grid Type|Gridk Centered. You can only do this when the model does not have a grid on the HST3D Node Grid layer and you are on a HST3D Node Grid layer.) Each cell in the grid represents a vertical column of HST3D cells.
+<p>
+
+The HST3D Node Grid is normally created by outlining the area to be modeled on the &quot;Domain Outline&quot; layer and then clicking the &quot;Magic Wand&quot; tool on the HST3D Node Grid layer anywhere inside the domain outline. You can draw contours on the &quot;Grid Density&quot; layer to set a grid size smaller than that specified on the &quot;Domain Outline&quot; layer.
+<p>
+
+Once you have created a grid on the <a href="hst3dgrid.htm">HST3D Grid</a> layer, you can create a corresponding grid on the HST3D Node Grid layer by selecting &quot;PIEs|Create Observation Grid&quot;. However, you only need to do this if you have created the grid without using the magic wand tool or you have moved one or more grid lines on the <a href="hst3dgrid.htm">HST3D Grid</a> layer.
+<p>
+
+<img src="graphics/observationgrid.gif" width="408" height="304">
+
+<h2>Observation Elevation Nodes</h2>
+<ul >
+   <LI>Default: <a href="observsurf.htm">Observation Surface</a>.Observation Elevation</LI>
+   <LI>HST3D Variable: none</LI>
+</ul>
+Observation Elevation Nodes is used to define an irregular observation surface. The postprocessing PIE can create creating post-processing charts along this surface.
+
+
+<HR>
+<b>Back to <a href="contents.htm">Contents</a></b>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html public "-//ietf//dtd html//en//3.0">
+<html>
+<head><title> The HST3D GUI FAQ </title></head>
+<body>
+<h1>The HST3D GUI FAQ</h1>
+<ul >
+   <li ><a href="#trouble10">I manually deleted or renamed some locked layers or parameters and now Argus ONE crashes when I try to export the model.</a></li>
+   <li ><a href="#endorse">Has the HST3D GUI been endorsed by Ken Kipp, the author of HST3D?</a></li>
+
+   <li ><a href="#mobility">What does the term <i>mobility</i> mean?</a></li>
+
+   <li ><a href="#difference">What is the difference between <i>specified temperature</i> and <i>temperature at specified pressure</i></a>?</li>
+</ul>
+<h3><a name="trouble10">I manually deleted or renamed some locked layers or parameters and now Argus ONE crashes when I try to export the model.</a></h3>
+Do not manually delete or rename locked layers or parameters. They are locked for a reason. You are sure to run into trouble if you mess with them. You will need to manually recreate the layers or parameters you destroyed with exactly the same names as before to correct this problem. 
+<h3><a name="endorse">Has the HST3D GUI been endorsed by Ken Kipp, the author of HST3D?</a></h3>
+No. Although Ken Kipp was very helpful in answering questions about HST3D during the development of the HST3D GUI,  he has never endorsed the HST3D GUI. In fact, as a USGS employee, he is prohibited from endorsing it. 
+
+<h3><a name="mobility">What does the term <i>mobility</i> mean?</a></h3>
+Mobility refers to the ease with which water that will flow between an
+aquifer and a well for a given head gradient. Thus, as permeability increases, 
+mobility also increases. For unconfined aquifers, mobility also depends on 
+the saturated thickness. As the saturated thickness increases, the 
+mobility increases. Changes in viscosity due to changes in temperature or 
+salinity also affect mobility. Mobility is also affected by the well bore diameter. 
+When the diameter is larger, it is easier for water to flow to or from the well.
+
+<h3><a name="difference">What</a> is the difference between <i>specified temperature</i> and <i>temperature at specified pressure</i>?</h3>
+
+At specified temperature boundaries, the fluid will be set to the 
+specified temperature at the boundary regardless of the amount or 
+direction of fluid flux. For example, If there were a buried sealed 
+container of radioactive material, the heat of the radioactive material
+might cause the fluid to be heated near the container. However, there
+wouldn't necessarily be any fluid flow associated with that source of
+heat. 
+<p>
+
+At a specified pressure boundary, fluid may either leave or enter the
+model domain. If the fluid enters the model domain, the temperature of the
+fluid is determined by the &quot;<i>temperature at specified pressure</i>&quot;. If the
+fluid leaves the model domain at the specified pressure boundary, the
+&quot;<i>temperature at specified pressure</i>&quot; is ignored 
+and the resident temperature at that point of the boundary determines the
+temperature of the exiting fluid.
+
+
+
+<p>
+<hr>
+<br>
+<ADDRESS>
+copyright, 1998
+</ADDRESS>
+</body>
+</html>
